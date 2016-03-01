@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="utf-8"?>
+<presentation width="720" height="540" start="play" slideTitleFormat="%n. %s" buildNum="7.0.0.7328">
+	<presentationTitle>Âm nhac 6 -Tiết 14 - Bài giảng điện tử e-Learning</presentationTitle>
+	<speakers>
+		<speaker>
+			<name>Vũ Mai Lan</name>
+			<speakerTitle>Giáo viên</speakerTitle>
+			<image>spk20455.jpg</image>
+			<email>vumailan_1976@yahoo.com</email>
+			<bio>Vũ Mai Lan - Giáo viên trường THCS Chu Văn An 17 Thụy Khuê - Tây Hồ - Hà Nội ĐT: 0916 349 009 email: vumailan@moet.edu.vn website: www.benboamnhac.net </bio>
+		</speaker>
+		<speaker>
+			<name>Vu Mai Lan</name>
+			<speakerTitle>Giáo viên</speakerTitle>
+			<image>spk20588.jpg</image>
+			<email>vumailan_1976@yahoo.com</email>
+			<bio>Vũ Mai Lan - Giáo viên trường THCS Chu Văn An - Hà Nội - ĐT: 0916 349 009 email: vumailan@moet.edu.vn - website: www.benboamnhac.net
+</bio>
+		</speaker>
+	</speakers>
+	<backgrounds>
+		<background url="Master800000d8.swf"/>
+	</backgrounds>
+	<search url="srchdata.xml"/>
+	<slides>
+		<slide id="340" frameRate="30" totalFrames="601.1999999999999" advance="auto" blockMovement="false" type="normal">
+			<content url="Slide1.swf"/>
+			<slideBackground index="0" frameToPlay="1" duration="2" showAfterFrame="0"/>
+			<flvContents>
+				<flvContent url="resources/Loigoithieu-t1_340_1_30921.flv" PosX="122.75" PosY="34.75" Height="346.5" Width="462" playAfterTime="1" duration="25552" StartTime="0" StopTime="25552" FadeIn="1" FadeOut="1" FadeSpeed="2" MuteAudio="0" IsH264="0"/>
+			</flvContents>
+			<clickAnimations>
+				<clickAnimation start="3" end="76"/>
+			</clickAnimations>
+			<slideTitle>Lời giới thiệu</slideTitle>
+			<notes isHTML="true"></notes>
+			<slideThumbnail url="thumb.swf" frame="1"/>
+			<slideSpeaker index="1"/>
+			<audios id="1" duration=" 20040">
+				<media url="a24x1x1.mp3" startMsecs="0" duration="18780" startAtMSecs="0"/>
+			</audios>
+			<playbackActions></playbackActions>
+		</slide>
+		<slide id="339" frameRate="30" totalFrames="1280.1000000000001" advance="auto" blockMovement="false" type="normal">
+			<content url="Slide2.swf"/>
+			<slideBackground index="0" frameToPlay="3" duration="2" showAfterFrame="0"/>
+			<flvContents></flvContents>
+			<clickAnimations>
+				<clickAnimation start="3" end="1288"/>
+			</clickAnimations>
+			<slideTitle>Khởi động giọng</slideTitle>
+			<notes isHTML="true"></notes>
+			<slideThumbnail url="thumb.swf" frame="2"/>
+			<slideSpeaker index="1"/>
+			<audios id="2" duration=" 42670">
+				<media url="a24x2x1.mp3" startMsecs="0" duration="42670" startAtMSecs="0"/>
+			</audios>
+			<playbackActions></playbackActions>
+		</slide>
+		<slide id="291" frameRate="30" totalFrames="525.9000000000001" advance="auto" blockMovement="false" type="normal">
+			<content url="Slide3.swf"/>
+			<slideBackground index="0" frameToPlay="5" duration="2" showAfterFrame="0"/>
+			<flvContents></flvContents>
+			<clickAnimations>
+				<clickAnimation start="3" end="346"/>
+			</clickAnimations>
+			<slideTitle>Nội dung tiết 14</slideTitle>
+			<notes isHTML="true"></notes>
+			<slideThumbnail url="thumb.swf" frame="3"/>
+			<slideSpeaker index="1"/>
+			<audios id="3" duration=" 17530">
+				<media url="a24x3x1.mp3" startMsecs="0" duration="17530" startAtMSecs="0"/>
+			</audios>
+			<playbackActions></playbackActions>
+		</slide>
+		<slide id="294" frameRate="30" totalFrames="1307.3999999999998" advance="never" blockMovement="false" type="quiz" quiz="10004" group="-1" showInTOC="false">
+			<questions>
+				<question index=" 10015 " weight="10" showCorrectFeedback="true" showIncorrectFeedback="true" isMandatory="0" scoreType="scored" shuffleAnswers="false"/>
+			</questions>
+			<audioFeedbacks>
+				<audioFeedback id="31" url="a24x31x1.mp3"/>
+				<audioFeedback id="32" url="a24x32x1.mp3"/>
+			</audioFeedbacks>
+			<content url="Slide4.swf"/>
+			<slideBackground index="0" frameToPlay="7" duration="2" showAfterFrame="0"/>
+			<flvContents></flvContents>
+			<slideTitle>Câu hỏi Em hãy nghe giai điệu sau đây, đoán giai điệu đó trong câu hát nào của bài Đi cấy ? Chọn câu trả lời của bạn là A, B, C hay D rồi nhấn vào khung chữ “Khẳng định phương án đã chọn” hoặc khung chữ “Hủy bỏ lựa chọn” để có phương án trả lời khác</slideTitle>
+			<notes isHTML="true"></notes>
+			<slideThumbnail url="thumb.swf" frame="4"/>
+			<slideSpeaker index="1"/>
+			<audios id="4" duration=" 43580">
+				<media url="a24x4x1.mp3" startMsecs="0" duration="43580" startAtMSecs="0"/>
+			</audios>
+			<playbackActions></playbackActions>
+		</slide>
+		<slide id="341" frameRate="30" totalFrames="494.69999999999993" advance="auto" blockMovement="false" type="normal">
+			<content url="Slide5.swf"/>
+			<slideBackground index="0" frameToPlay="9" duration="2" showAfterFrame="0"/>
+			<flvContents></flvContents>
+			<clickAnimations>
+				<clickAnimation start="3" end="367"/>
+			</clickAnimations>
+			<slideTitle>I. Ôn tập bài hát: Đi cấy</slideTitle>
+			<notes isHTML="true"></notes>
+			<slideThumbnail url="thumb.swf" frame="5"/>
+			<slideSpeaker index="1"/>
+			<audios id="5" duration=" 16490">
+				<media url="a24x5x1.mp3" startMsecs="0" duration="16490" startAtMSecs="0"/>
+			</audios>
+			<playbackActions></playbackActions>
+		</slide>
+		<slide id="372" frameRate="30" totalFrames="2955" advance="auto" blockMovement="false" type="normal">
+			<content url="Slide6.swf"/>
+			<slideBackground index="0" frameToPlay="11" duration="2" showAfterFrame="0"/>
+			<flvContents></flvContents>
+			<clickAnimations>
+				<clickAnimation start="3" end="91"/>
+			</clickAnimations>
+			<slideTitle>I. Ôn tập bài hát: Đi cấy</slideTitle>
+			<notes isHTML="true"></notes>
+			<slideThumbnail url="thumb.swf" frame="6"/>
+			<slideSpeaker index="1"/>
+			<audios id="34" duration=" 98500">
+				<media url="a24x34x1.mp3" startMsecs="0" duration="98500" startAtMSecs="0"/>
+			</audios>
+			<playbackActions></playbackActions>
+		</slide>
+		<slide id="343" frameRate="30" totalFrames="2889.3" advance="auto" blockMovement="false" type="normal">
+			<content url="Slide7.swf"/>
+			<slideBackground index="0" frameToPlay="13" duration="2" showAfterFrame="0"/>
+			<flvContents></flvContents>
+			<clickAnimations>
+				<clickAnimation start="3" end="91"/>
+			</clickAnimations>
+			<slideTitle>I. Ôn tập - Hát luyện</slideTitle>
+			<notes isHTML="true"></notes>
+			<slideThumbnail url="thumb.swf" frame="7"/>
+			<slideSpeaker index="1"/>
+			<audios id="35" duration=" 96310">
+				<media url="a24x35x1.mp3" startMsecs="0" duration="96310" startAtMSecs="0"/>
+			</audios>
+			<playbackActions></playbackActions>
+		</slide>
+		<slide id="370" frameRate="30" totalFrames="3396.6" advance="auto" blockMovement="false" type="normal">
+			<content url="Slide8.swf"/>
+			<slideBackground index="0" frameToPlay="15" duration="2" showAfterFrame="0"/>
+			<flvContents></flvContents>
+			<clickAnimations>
+				<clickAnimation start="3" end="3112"/>
+			</clickAnimations>
+			<slideTitle>Đặt lời mới cho bài "Đi cấy"</slideTitle>
+			<notes isHTML="true"></notes>
+			<slideThumbnail url="thumb.swf" frame="8"/>
+			<slideSpeaker index="1"/>
+			<audios id="36" duration=" 113220">
+				<media url="a24x36x1.mp3" startMsecs="0" duration="113220" startAtMSecs="0"/>
+			</audios>
+			<playbackActions></playbackActions>
+		</slide>
+		<slide id="346" frameRate="30" totalFrames="1059.3000000000001" advance="auto" blockMovement="false" type="normal">
+			<content url="Slide9.swf"/>
+			<slideBackground index="0" frameToPlay="17" duration="2" showAfterFrame="0"/>
+			<flvContents>
+				<flvContent url="resources/vaorunghoa_nhip_300_1_40713.flv" PosX="54.5" PosY="85.75" Height="405.375" Width="612.375" playAfterTime="-2" duration="67343" StartTime="0" StopTime="67343" FadeIn="0" FadeOut="0" FadeSpeed="1" MuteAudio="0" IsH264="0"/>
+			</flvContents>
+			<clickAnimations>
+				<clickAnimation start="3" end="121"/>
+			</clickAnimations>
+			<slideTitle>II. Ôn tập Tập đọc nhạc: TĐN số 5</slideTitle>
+			<notes isHTML="true"></notes>
+			<slideThumbnail url="thumb.swf" frame="9"/>
+			<slideSpeaker index="1"/>
+			<audios id="37" duration=" 35310">
+				<media url="a24x37x1.mp3" startMsecs="0" duration="35310" startAtMSecs="0"/>
+			</audios>
+			<playbackActions></playbackActions>
+		</slide>
+		<slide id="347" frameRate="30" totalFrames="681.5999999999999" advance="auto" blockMovement="false" type="normal">
+			<content url="Slide10.swf"/>
+			<slideBackground index="0" frameToPlay="19" duration="2" showAfterFrame="0"/>
+			<flvContents>
+				<flvContent url="resources/Hoatau-Vaorunghoa_347_1_46834.flv" PosX="158.75" PosY="123.375" Height="316.75" Width="422.375" playAfterTime="-2" duration="51278" StartTime="0" StopTime="51278" FadeIn="1" FadeOut="1" FadeSpeed="2" MuteAudio="0" IsH264="0"/>
+			</flvContents>
+			<clickAnimations>
+				<clickAnimation start="3" end="46"/>
+			</clickAnimations>
+			<slideTitle>II. Ôn tập Tập đọc nhạc: TĐN số 5</slideTitle>
+			<notes isHTML="true"></notes>
+			<slideThumbnail url="thumb.swf" frame="10"/>
+			<slideSpeaker index="1"/>
+			<audios id="38" duration=" 22720">
+				<media url="a24x38x1.mp3" startMsecs="0" duration="22720" startAtMSecs="0"/>
+			</audios>
+			<playbackActions></playbackActions>
+		</slide>
+		<slide id="348" frameRate="30" totalFrames="651" advance="auto" blockMovement="false" type="normal">
+			<content url="Slide11.swf"/>
+			<slideBackground index="0" frameToPlay="21" duration="2" showAfterFrame="0"/>
+			<flvContents>
+				<flvContent url="resources/sao-rachoivuonhoa_348_1_94706.flv" PosX="148.5" PosY="167.75" Height="316.75" Width="422.375" playAfterTime="-2" duration="28995" StartTime="0" StopTime="28995" FadeIn="0" FadeOut="0" FadeSpeed="2" MuteAudio="0" IsH264="0"/>
+			</flvContents>
+			<clickAnimations>
+				<clickAnimation start="3" end="31"/>
+			</clickAnimations>
+			<slideTitle>III. Âm nhạc thường thức</slideTitle>
+			<notes isHTML="true"></notes>
+			<slideThumbnail url="thumb.swf" frame="11"/>
+			<slideSpeaker index="1"/>
+			<audios id="39" duration=" 21700">
+				<media url="a24x39x1.mp3" startMsecs="0" duration="21700" startAtMSecs="0"/>
+			</audios>
+			<playbackActions></playbackActions>
+		</slide>
+		<slide id="373" frameRate="30" totalFrames="1452.9" advance="auto" blockMovement="false" type="normal">
+			<content url="Slide12.swf"/>
+			<slideBackground index="0" frameToPlay="23" duration="2" showAfterFrame="0"/>
+			<flvContents></flvContents>
+			<clickAnimations>
+				<clickAnimation start="3" end="286"/>
+			</clickAnimations>
+			<slideTitle>Sáo</slideTitle>
+			<notes isHTML="true"></notes>
+			<slideThumbnail url="thumb.swf" frame="12"/>
+			<slideSpeaker index="1"/>
+			<audios id="58" duration=" 48430">
+				<media url="a24x58x1.mp3" startMsecs="0" duration="48430" startAtMSecs="0"/>
+			</audios>
+			<playbackActions></playbackActions>
+		</slide>
+		<slide id="374" frameRate="30" totalFrames="2213.1" advance="auto" blockMovement="false" type="normal">
+			<content url="Slide13.swf"/>
+			<slideBackground index="0" frameToPlay="25" duration="2" showAfterFrame="0"/>
+			<flvContents></flvContents>
+			<clickAnimations>
+				<clickAnimation start="3" end="121"/>
+			</clickAnimations>
+			<slideTitle>Giới thiệu đàn bầu</slideTitle>
+			<notes isHTML="true"></notes>
+			<slideThumbnail url="thumb.swf" frame="13"/>
+			<slideSpeaker index="1"/>
+			<audios id="76" duration=" 73770">
+				<media url="a24x76x1.mp3" startMsecs="0" duration="73770" startAtMSecs="0"/>
+			</audios>
+			<playbackActions></playbackActions>
+		</slide>
+		<slide id="352" frameRate="30" totalFrames="450" advance="auto" blockMovement="false" type="normal">
+			<content url="Slide14.swf"/>
+			<slideBackground index="0" frameToPlay="27" duration="2" showAfterFrame="0"/>
+			<flvContents>
+				<flvContent url="resources/DanBau-Cogiao_352_1_16976.flv" PosX="154.875" PosY="93.375" Height="315.5" Width="420.625" playAfterTime="0" duration="50529" StartTime="0" StopTime="50529" FadeIn="1" FadeOut="1" FadeSpeed="1" MuteAudio="0" IsH264="0"/>
+			</flvContents>
+			<clickAnimations>
+				<clickAnimation start="3" end="46"/>
+			</clickAnimations>
+			<slideTitle>Biểu diễn độc tấu đàn bầu</slideTitle>
+			<notes isHTML="true"></notes>
+			<slideThumbnail url="thumb.swf" frame="14"/>
+			<slideSpeaker index="1"/>
+			<audios duration="15000"/>
+			<playbackActions></playbackActions>
+		</slide>
+		<slide id="350" frameRate="30" totalFrames="232.79999999999998" advance="auto" blockMovement="false" type="normal">
+			<content url="Slide15.swf"/>
+			<slideBackground index="0" frameToPlay="29" duration="2" showAfterFrame="0"/>
+			<flvContents>
+				<flvContent url="resources/doctau_dantranh_350_1_57029.flv" PosX="151" PosY="85.75" Height="316.875" Width="422.5" playAfterTime="-2" duration="50006" StartTime="0" StopTime="50006" FadeIn="1" FadeOut="1" FadeSpeed="1" MuteAudio="0" IsH264="0"/>
+			</flvContents>
+			<clickAnimations>
+				<clickAnimation start="3" end="18"/>
+			</clickAnimations>
+			<slideTitle>Biểu diễn độc tấu đàn tranh</slideTitle>
+			<notes isHTML="true"></notes>
+			<slideThumbnail url="thumb.swf" frame="15"/>
+			<slideSpeaker index="1"/>
+			<audios id="78" duration=" 7760">
+				<media url="a24x78x1.mp3" startMsecs="0" duration="7760" startAtMSecs="0"/>
+			</audios>
+			<playbackActions></playbackActions>
+		</slide>
+		<slide id="375" frameRate="30" totalFrames="1208.4" advance="auto" blockMovement="false" type="normal">
+			<content url="Slide16.swf"/>
+			<slideBackground index="0" frameToPlay="31" duration="2" showAfterFrame="0"/>
+			<flvContents></flvContents>
+			<clickAnimations>
+				<clickAnimation start="3" end="63"/>
+			</clickAnimations>
+			<slideTitle>Giới thiệu đàn tranh</slideTitle>
+			<notes isHTML="true"></notes>
+			<slideThumbnail url="thumb.swf" frame="16"/>
+			<slideSpeaker index="1"/>
+			<audios id="93" duration=" 40280">
+				<media url="a24x93x1.mp3" startMsecs="0" duration="40280" startAtMSecs="0"/>
+			</audios>
+			<playbackActions></playbackActions>
+		</slide>
+		<slide id="376" frameRate="30" totalFrames="1693.5" advance="auto" blockMovement="false" type="normal">
+			<content url="Slide17.swf"/>
+			<slideBackground index="0" frameToPlay="33" duration="2" showAfterFrame="0"/>
+			<flvContents></flvContents>
+			<clickAnimations>
+				<clickAnimation start="3" end="121"/>
+			</clickAnimations>
+			<slideTitle>Giới thiệu đàn nhị</slideTitle>
+			<notes isHTML="true"></notes>
+			<slideThumbnail url="thumb.swf" frame="17"/>
+			<slideSpeaker index="1"/>
+			<audios id="94" duration=" 56450">
+				<media url="a24x94x1.mp3" startMsecs="0" duration="56450" startAtMSecs="0"/>
+			</audios>
+			<playbackActions></playbackActions>
+		</slide>
+		<slide id="354" frameRate="30" totalFrames="1242" advance="auto" blockMovement="false" type="normal">
+			<content url="Slide18.swf"/>
+			<slideBackground index="0" frameToPlay="35" duration="2" showAfterFrame="0"/>
+			<flvContents>
+				<flvContent url="resources/Nhi-dannhacTQ-mozart40_354_1_11585.flv" PosX="149.25" PosY="104.625" Height="319" Width="425.25" playAfterTime="-2" duration="60471" StartTime="0" StopTime="60471" FadeIn="0" FadeOut="0" FadeSpeed="1" MuteAudio="0" IsH264="0"/>
+			</flvContents>
+			<clickAnimations>
+				<clickAnimation start="3" end="63"/>
+			</clickAnimations>
+			<slideTitle>Đàn nhị trong dàn nhạc</slideTitle>
+			<notes isHTML="true"></notes>
+			<slideThumbnail url="thumb.swf" frame="18"/>
+			<slideSpeaker index="1"/>
+			<audios id="95" duration=" 41400">
+				<media url="a24x95x1.mp3" startMsecs="0" duration="41400" startAtMSecs="0"/>
+			</audios>
+			<playbackActions></playbackActions>
+		</slide>
+		<slide id="358" frameRate="30" totalFrames="446.40000000000003" advance="auto" blockMovement="false" type="normal">
+			<content url="Slide19.swf"/>
+			<slideBackground index="0" frameToPlay="37" duration="2" showAfterFrame="0"/>
+			<flvContents>
+				<flvContent url="resources/Dan-Nguyet_358_1_94548.flv" PosX="149.125" PosY="120.5" Height="320.875" Width="423.5" playAfterTime="-2" duration="50625" StartTime="0" StopTime="50625" FadeIn="0" FadeOut="0" FadeSpeed="1" MuteAudio="0" IsH264="0"/>
+			</flvContents>
+			<clickAnimations>
+				<clickAnimation start="3" end="31"/>
+			</clickAnimations>
+			<slideTitle>? Giới thiệu nhạc cụ</slideTitle>
+			<notes isHTML="true"></notes>
+			<slideThumbnail url="thumb.swf" frame="19"/>
+			<slideSpeaker index="1"/>
+			<audios id="96" duration=" 14880">
+				<media url="a24x96x1.mp3" startMsecs="0" duration="14880" startAtMSecs="0"/>
+			</audios>
+			<playbackActions></playbackActions>
+		</slide>
+		<slide id="377" frameRate="30" totalFrames="1604.3999999999998" advance="auto" blockMovement="false" type="normal">
+			<content url="Slide20.swf"/>
+			<slideBackground index="0" frameToPlay="39" duration="2" showAfterFrame="0"/>
+			<flvContents></flvContents>
+			<clickAnimations>
+				<clickAnimation start="3" end="61"/>
+			</clickAnimations>
+			<slideTitle>Giới thiệu đàn nguyệt</slideTitle>
+			<notes isHTML="true"></notes>
+			<slideThumbnail url="thumb.swf" frame="20"/>
+			<slideSpeaker index="1"/>
+			<audios id="97" duration=" 53480">
+				<media url="a24x97x1.mp3" startMsecs="0" duration="53480" startAtMSecs="0"/>
+			</audios>
+			<playbackActions></playbackActions>
+		</slide>
+		<slide id="380" frameRate="30" totalFrames="450" advance="auto" blockMovement="false" type="normal">
+			<content url="Slide21.swf"/>
+			<slideBackground index="0" frameToPlay="41" duration="2" showAfterFrame="0"/>
+			<flvContents></flvContents>
+			<clickAnimations>
+				<clickAnimation start="3" end="91"/>
+			</clickAnimations>
+			<slideTitle>Trống hội</slideTitle>
+			<notes isHTML="true"></notes>
+			<video url="gioithieu-tronghoi_380_2_45117.flv" StartTime="0" StopTime="21910" MuteAudio="0" IsH264="0"/>
+			<slideThumbnail url="thumb.swf" frame="21"/>
+			<slideSpeaker index="1"/>
+			<audios duration="15000"/>
+			<playbackActions></playbackActions>
+		</slide>
+		<slide id="359" frameRate="30" totalFrames="450" advance="auto" blockMovement="false" type="normal">
+			<content url="Slide22.swf"/>
+			<slideBackground index="0" frameToPlay="43" duration="2" showAfterFrame="0"/>
+			<flvContents>
+				<flvContent url="resources/tronghoi-640x_359_1_10939.flv" PosX="148.5" PosY="116.375" Height="319" Width="425.25" playAfterTime="0" duration="22230" StartTime="0" StopTime="22230" FadeIn="1" FadeOut="1" FadeSpeed="2" MuteAudio="0" IsH264="0"/>
+			</flvContents>
+			<clickAnimations>
+				<clickAnimation start="3" end="91"/>
+			</clickAnimations>
+			<slideTitle>Video trống hội</slideTitle>
+			<notes isHTML="true"></notes>
+			<slideThumbnail url="thumb.swf" frame="22"/>
+			<slideSpeaker index="1"/>
+			<audios duration="15000"/>
+			<playbackActions></playbackActions>
+		</slide>
+		<slide id="378" frameRate="30" totalFrames="3752.1" advance="auto" blockMovement="false" type="normal">
+			<content url="Slide23.swf"/>
+			<slideBackground index="0" frameToPlay="45" duration="2" showAfterFrame="0"/>
+			<flvContents></flvContents>
+			<clickAnimations>
+				<clickAnimation start="3" end="166"/>
+			</clickAnimations>
+			<slideTitle>Giới thiệu trống</slideTitle>
+			<notes isHTML="true"></notes>
+			<video url="gioithieu-trong-3loai_378_2_90199.flv" StartTime="0.000000" StopTime="9717.000000" MuteAudio="0" IsH264="0"/>
+			<slideThumbnail url="thumb.swf" frame="23"/>
+			<slideSpeaker index="1"/>
+			<audios id="99" duration=" 125070">
+				<media url="a24x99x1.mp3" startMsecs="0" duration="125070" startAtMSecs="0"/>
+			</audios>
+			<playbackActions></playbackActions>
+		</slide>
+		<slide id="362" frameRate="30" totalFrames="1356" advance="never" blockMovement="false" type="quiz" quiz="10173" group="-1" showInTOC="false">
+			<questions>
+				<question index=" 10237 " weight="10" showCorrectFeedback="true" showIncorrectFeedback="true" isMandatory="0" scoreType="scored" shuffleAnswers="false"/>
+			</questions>
+			<audioFeedbacks>
+				<audioFeedback id="33" url="a24x33x1.mp3"/>
+			</audioFeedbacks>
+			<content url="Slide24.swf"/>
+			<slideBackground index="0" frameToPlay="47" duration="2" showAfterFrame="0"/>
+			<flvContents></flvContents>
+			<slideTitle>Củng cố kiến thức</slideTitle>
+			<notes isHTML="true"></notes>
+			<slideThumbnail url="thumb.swf" frame="24"/>
+			<slideSpeaker index="1"/>
+			<audios id="100" duration=" 45200">
+				<media url="a24x100x1.mp3" startMsecs="0" duration="45200" startAtMSecs="0"/>
+			</audios>
+			<playbackActions></playbackActions>
+		</slide>
+		<slide id="363" frameRate="30" totalFrames="450" advance="never" blockMovement="false" type="scoring" quiz=" 10173 " showInTOC="false">
+			<content url="Slide25.swf"/>
+			<slideBackground index="0" frameToPlay="49" duration="2" showAfterFrame="0"/>
+			<flvContents></flvContents>
+			<slideTitle>Kết quả</slideTitle>
+			<notes isHTML="true"></notes>
+			<slideThumbnail url="thumb.swf" frame="25"/>
+			<slideSpeaker index="1"/>
+			<audios duration="15000"/>
+			<playbackActions></playbackActions>
+		</slide>
+		<slide id="368" frameRate="30" totalFrames="768" advance="auto" blockMovement="false" type="normal">
+			<content url="Slide26.swf"/>
+			<slideBackground index="0" frameToPlay="51" duration="2" showAfterFrame="0"/>
+			<flvContents></flvContents>
+			<clickAnimations>
+				<clickAnimation start="3" end="33"/>
+			</clickAnimations>
+			<slideTitle>Trò chơi - Cách thức chơi</slideTitle>
+			<notes isHTML="true"></notes>
+			<slideThumbnail url="thumb.swf" frame="26"/>
+			<slideSpeaker index="1"/>
+			<audios id="102" duration=" 25600">
+				<media url="a24x102x1.mp3" startMsecs="0" duration="25600" startAtMSecs="0"/>
+			</audios>
+			<playbackActions></playbackActions>
+		</slide>
+		<slide id="369" frameRate="30" totalFrames="3140.7" advance="auto" blockMovement="false" type="normal">
+			<content url="Slide27.swf"/>
+			<slideBackground index="0" frameToPlay="53" duration="2" showAfterFrame="0"/>
+			<flvContents></flvContents>
+			<clickAnimations>
+				<clickAnimation start="3" end="1531"/>
+			</clickAnimations>
+			<slideTitle>Trò chơi - Xem hình đoán các nhạc cụ</slideTitle>
+			<notes isHTML="true"></notes>
+			<slideThumbnail url="thumb.swf" frame="27"/>
+			<slideSpeaker index="1"/>
+			<audios id="103" duration=" 104690">
+				<media url="a24x103x1.mp3" startMsecs="0" duration="104690" startAtMSecs="0"/>
+			</audios>
+			<playbackActions></playbackActions>
+		</slide>
+		<slide id="365" frameRate="30" totalFrames="450" advance="auto" blockMovement="false" type="normal">
+			<content url="Slide28.swf"/>
+			<slideBackground index="0" frameToPlay="55" duration="2" showAfterFrame="0"/>
+			<flvContents></flvContents>
+			<clickAnimations>
+				<clickAnimation start="3" end="196"/>
+			</clickAnimations>
+			<slideTitle>Đáp án</slideTitle>
+			<notes isHTML="true"></notes>
+			<slideThumbnail url="thumb.swf" frame="28"/>
+			<slideSpeaker index="1"/>
+			<audios duration="15000"/>
+			<playbackActions></playbackActions>
+		</slide>
+		<slide id="371" frameRate="30" totalFrames="1527.6000000000001" advance="auto" blockMovement="false" type="normal">
+			<content url="Slide29.swf"/>
+			<slideBackground index="0" frameToPlay="57" duration="2" showAfterFrame="0"/>
+			<flvContents></flvContents>
+			<clickAnimations>
+				<clickAnimation start="3" end="18"/>
+			</clickAnimations>
+			<slideTitle>Giữ gìn bản sắc văn hóa dân tộc</slideTitle>
+			<notes isHTML="true"></notes>
+			<slideThumbnail url="thumb.swf" frame="29"/>
+			<slideSpeaker index="1"/>
+			<audios id="105" duration=" 50920">
+				<media url="a24x105x1.mp3" startMsecs="0" duration="50920" startAtMSecs="0"/>
+			</audios>
+			<playbackActions></playbackActions>
+		</slide>
+		<slide id="379" frameRate="30" totalFrames="1100.25" advance="auto" blockMovement="false" type="normal">
+			<content url="Slide30.swf"/>
+			<slideBackground index="0" frameToPlay="59" duration="2" showAfterFrame="0"/>
+			<flvContents>
+				<flvContent url="resources/LoiKet_379_1_13174.flv" PosX="166.25" PosY="30.125" Height="302.25" Width="402.875" playAfterTime="0" duration="36675" StartTime="0" StopTime="36675" FadeIn="1" FadeOut="1" FadeSpeed="2" MuteAudio="0" IsH264="0"/>
+			</flvContents>
+			<clickAnimations>
+				<clickAnimation start="3" end="301"/>
+			</clickAnimations>
+			<slideTitle>Lời kết</slideTitle>
+			<notes isHTML="true"></notes>
+			<slideThumbnail url="thumb.swf" frame="30"/>
+			<slideSpeaker index="1"/>
+		</slide>
+		<slide id="366" frameRate="30" totalFrames="450" advance="auto" blockMovement="false" type="normal">
+			<content url="Slide31.swf"/>
+			<slideBackground index="0" frameToPlay="61" duration="2" showAfterFrame="0"/>
+			<flvContents></flvContents>
+			<clickAnimations>
+				<clickAnimation start="3" end="31"/>
+			</clickAnimations>
+			<slideTitle>Tài liệu tham khảo</slideTitle>
+			<notes isHTML="true"></notes>
+			<slideThumbnail url="thumb.swf" frame="31"/>
+			<slideSpeaker index="1"/>
+			<audios duration="15000"/>
+			<playbackActions></playbackActions>
+		</slide>
+	</slides>
+	<quizzes>
+		<reportingOptions isTracked="true" LMSType="SCORM_1_2" AuthorwareDelimeter="," trackingLevel="score" completionValueToSend="completion" completionTrigger="quiz_only" trackingURLEncodeVersionAndSession="true" trackingCharsToNotUrlEncode="" trackingSendInterval="1" completionSlideViewPercentage="100" trackingSendResumeData="true" sendScoreAsPercent="false"></reportingOptions>
+		<quizSettings showQuestionList="true" showScores="true" showPassScore="true" showCurrentScore="true" showQuestionMarks="true" showAttempts="true" showQuizAttempts="true" showQuestionAttempts="true" showQuestionCorrectFeedback="true" showQuestionIncorrectFeedback="true" showQuizNavigationWarning="true"></quizSettings>
+		<quiz quizID="10004" title="Câu hỏi ôn tập bài &quot;Đi cấy&quot;" numQuizAttemptsAllowed="-1" minScore="0" passingScore="80" percent="true" passingGradeAction="nextSlide" passingGradeActionArg1="" passingGradeActionArg2="0" failingGradeAction="gotoSlide" failingGradeActionArg1="294" failingGradeActionArg2="0" questionAdvance="optional" quizAdvance="mustPass" showProgress="minimal" allowBackwardMovementInQuiz="true" allowReviewMode="true" passedScoreFeedback="Passed" failedScoreFeedback="Failed" shuffleQuestions="1">
+			<questiongroups></questiongroups>
+		</quiz>
+		<quiz quizID="10173" title="Nhận biết nhạc cụ" numQuizAttemptsAllowed="-1" minScore="0" passingScore="60" percent="true" passingGradeAction="nextSlide" passingGradeActionArg1="" passingGradeActionArg2="" failingGradeAction="nextSlide" failingGradeActionArg1="" failingGradeActionArg2="" questionAdvance="optional" quizAdvance="optional" showProgress="minimal" allowBackwardMovementInQuiz="true" allowReviewMode="true" passedScoreFeedback="Đúng" failedScoreFeedback="Sai" shuffleQuestions="0">
+			<questiongroups></questiongroups>
+		</quiz>
+	</quizzes>
+	<attachments></attachments>
+</presentation>

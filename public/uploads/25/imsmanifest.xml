@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest identifier="Adobe_Presenter_Quiz_ID" version="1.0" xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd" xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2" xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<metadata>
+		<schema>ADL SCORM</schema>
+		<schemaversion>1.2</schemaversion>
+		<lom xmlns="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1">
+			<general>
+				<title>
+					<langstring xml:lang="x-none"></langstring>
+				</title>
+				<catalogentry>
+					<catalog>Adobe Presenter Course</catalog>
+					<entry>
+						<langstring xml:lang="x-none">Adobe_Presenter_Quiz_ID</langstring>
+					</entry>
+				</catalogentry>
+				<description>
+					<langstring xml:lang="x-none"></langstring>
+				</description>
+			</general>
+			<lifecycle>
+				<version>
+					<langstring xml:lang="x-none">1.0</langstring>
+				</version>
+				<status>
+					<source>
+						<langstring xml:lang="x-none">LOMv1.0</langstring>
+					</source>
+					<value>
+						<langstring xml:lang="x-none">Final</langstring>
+					</value>
+				</status>
+			</lifecycle>
+			<metametadata>
+				<metadatascheme>ADL SCORM 1.2</metadatascheme>
+			</metametadata>
+			<technical>
+				<format>text/html</format>
+				<location>.</location>
+			</technical>
+			<rights>
+				<cost>
+					<source>
+						<langstring xml:lang="x-none">LOMv1.10</langstring>
+					</source>
+					<value>
+						<langstring xml:lang="x-none">no</langstring>
+					</value>
+				</cost>
+				<copyrightandotherrestrictions>
+					<source>
+						<langstring xml:lang="x-none">LOMv1.10</langstring>
+					</source>
+					<value>
+						<langstring xml:lang="x-none">no</langstring>
+					</value>
+				</copyrightandotherrestrictions>
+			</rights>
+			<classification>
+				<purpose>
+					<source>
+						<langstring xml:lang="x-none">LOMv1.0</langstring>
+					</source>
+					<value>
+						<langstring xml:lang="x-none">Idea</langstring>
+					</value>
+				</purpose>
+				<description>
+					<langstring xml:lang="x-none"></langstring>
+				</description>
+				<keyword>
+					<langstring xml:lang="x-none">Adobe Presenter</langstring>
+				</keyword>
+			</classification>
+		</lom>
+	</metadata>
+	<organizations default="_ORG">
+		<organization identifier="_ORG">
+			<title>Adobe_Presenter</title>
+			<item identifier="Adobe_Presenter_Quiz" isvisible="true" identifierref="_RES">
+				<title>Adobe_Presenter_Quiz</title>
+			</item>
+		</organization>
+	</organizations>
+	<resources>
+		<resource identifier="_RES" type="webcontent" href="SCORM.htm" adlcp:scormtype="sco">
+			<file href="autorun.exe"/>
+			<file href="Autorun.inf"/>
+			<file href="breeze-manifest.xml"/>
+			<file href="components.swf"/>
+			<file href="data/a24x100x1.mp3"/>
+			<file href="data/a24x102x1.mp3"/>
+			<file href="data/a24x103x1.mp3"/>
+			<file href="data/a24x105x1.mp3"/>
+			<file href="data/a24x1x1.mp3"/>
+			<file href="data/a24x2x1.mp3"/>
+			<file href="data/a24x31x1.mp3"/>
+			<file href="data/a24x32x1.mp3"/>
+			<file href="data/a24x33x1.mp3"/>
+			<file href="data/a24x34x1.mp3"/>
+			<file href="data/a24x35x1.mp3"/>
+			<file href="data/a24x36x1.mp3"/>
+			<file href="data/a24x37x1.mp3"/>
+			<file href="data/a24x38x1.mp3"/>
+			<file href="data/a24x39x1.mp3"/>
+			<file href="data/a24x3x1.mp3"/>
+			<file href="data/a24x4x1.mp3"/>
+			<file href="data/a24x58x1.mp3"/>
+			<file href="data/a24x5x1.mp3"/>
+			<file href="data/a24x76x1.mp3"/>
+			<file href="data/a24x78x1.mp3"/>
+			<file href="data/a24x93x1.mp3"/>
+			<file href="data/a24x94x1.mp3"/>
+			<file href="data/a24x95x1.mp3"/>
+			<file href="data/a24x96x1.mp3"/>
+			<file href="data/a24x97x1.mp3"/>
+			<file href="data/a24x99x1.mp3"/>
+			<file href="data/gioithieu-trong-3loai_378_2_90199.flv"/>
+			<file href="data/gioithieu-tronghoi_380_2_45117.flv"/>
+			<file href="data/MaiLan-03.jpg"/>
+			<file href="data/Master800000d8.swf"/>
+			<file href="data/resources/Dan-Nguyet_358_1_94548.flv"/>
+			<file href="data/resources/DanBau-Cogiao_352_1_16976.flv"/>
+			<file href="data/resources/doctau_dantranh_350_1_57029.flv"/>
+			<file href="data/resources/docwrap.gif"/>
+			<file href="data/resources/docwrap.htm"/>
+			<file href="data/resources/Hoatau-Vaorunghoa_347_1_46834.flv"/>
+			<file href="data/resources/Loigoithieu-t1_340_1_30921.flv"/>
+			<file href="data/resources/LoiKet_379_1_13174.flv"/>
+			<file href="data/resources/Nhi-dannhacTQ-mozart40_354_1_11585.flv"/>
+			<file href="data/resources/sao-rachoivuonhoa_348_1_94706.flv"/>
+			<file href="data/resources/swfwrap.htm"/>
+			<file href="data/resources/tronghoi-640x_359_1_10939.flv"/>
+			<file href="data/resources/vaorunghoa_nhip_300_1_40713.flv"/>
+			<file href="data/Slide1.swf"/>
+			<file href="data/Slide10.swf"/>
+			<file href="data/Slide11.swf"/>
+			<file href="data/Slide12.swf"/>
+			<file href="data/Slide13.swf"/>
+			<file href="data/Slide14.swf"/>
+			<file href="data/Slide15.swf"/>
+			<file href="data/Slide16.swf"/>
+			<file href="data/Slide17.swf"/>
+			<file href="data/Slide18.swf"/>
+			<file href="data/Slide19.swf"/>
+			<file href="data/Slide2.swf"/>
+			<file href="data/Slide20.swf"/>
+			<file href="data/Slide21.swf"/>
+			<file href="data/Slide22.swf"/>
+			<file href="data/Slide23.swf"/>
+			<file href="data/Slide24.swf"/>
+			<file href="data/Slide25.swf"/>
+			<file href="data/Slide26.swf"/>
+			<file href="data/Slide27.swf"/>
+			<file href="data/Slide28.swf"/>
+			<file href="data/Slide29.swf"/>
+			<file href="data/Slide3.swf"/>
+			<file href="data/Slide30.swf"/>
+			<file href="data/Slide31.swf"/>
+			<file href="data/Slide4.swf"/>
+			<file href="data/Slide5.swf"/>
+			<file href="data/Slide6.swf"/>
+			<file href="data/Slide7.swf"/>
+			<file href="data/Slide8.swf"/>
+			<file href="data/Slide9.swf"/>
+			<file href="data/spk20455.jpg"/>
+			<file href="data/spk20588.jpg"/>
+			<file href="data/srchdata.xml"/>
+			<file href="data/thumb.swf"/>
+			<file href="data/trackdta.xml"/>
+			<file href="data/vconfig.xml"/>
+			<file href="data/viewer.xml"/>
+			<file href="imsmanifest.xml"/>
+			<file href="index.htm"/>
+			<file href="loadflash.js"/>
+			<file href="Presenter.ico"/>
+			<file href="SCORM.htm"/>
+			<file href="scorm_support/scorm_support.htm"/>
+			<file href="scorm_support/scorm_support.js"/>
+			<file href="scorm_support/scorm_support.swf"/>
+			<file href="viewer-lite.swf"/>
+			<file href="viewer.swf"/>
+		</resource>
+	</resources>
+</manifest>
