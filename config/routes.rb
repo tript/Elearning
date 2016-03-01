@@ -67,6 +67,8 @@ Tript::Application.routes.draw do
 
   resources :lessons, only: [:index, :new, :create, :destroy]
   get '/lessons/:id' => 'lessons#show'
+  post '/lessons/new' => 'lessons#create'
+  delete 'lessons/:id' => 'lessons#destrogy'
 
   resources :grade
 
@@ -77,7 +79,7 @@ Tript::Application.routes.draw do
   get '/grades/:id/classes' => 'grade#classes'
 
   # Get all subjects of a specific grade
-  get '/grades/:id/subjects' => 'grade#subjects'
+  get '/classes/:id/subjects' => 'class#subjects'
 
   # Get the grade with specific name
   get '/grades/name/:name' => 'grade#names'

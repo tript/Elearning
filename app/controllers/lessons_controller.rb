@@ -26,7 +26,7 @@ class LessonsController < ApplicationController
       end
 
       #redirect to lesson_path
-      redirect_to lesson_path, notice: "The lessons #{@lesson.name} has been uploaded."
+      redirect_to "/lessons", notice: "The lessons #{@lesson.name} has been uploaded."
     else
       render "new"
     end
@@ -36,7 +36,7 @@ class LessonsController < ApplicationController
   def destroy
     @lesson = Lesson.find(params[:id])
     @lesson.destroy
-    redirect_to lessons_path, notice:  "The lessons #{@lesson.name} has been deleted."
+    redirect_to lessons_path, notice:  "\"" + @lesson.name + "\" has been deleted."
   end
 
   def show
@@ -47,7 +47,7 @@ class LessonsController < ApplicationController
 
   private
   def lesson_params
-    params.require(:lesson).permit(:name, :url)
+    params.require(:lesson).permit(:name, :url, :subject_id, :class_id)
   end
 
 end
