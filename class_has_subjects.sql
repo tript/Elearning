@@ -210,12 +210,6 @@ INSERT INTO `class_has_subjects` (`class_id`, `subject_id`) VALUES
 -- Constraints for dumped tables
 --
 
---
--- Constraints for table `class_has_subjects`
---
-ALTER TABLE `class_has_subjects`
-  ADD CONSTRAINT `fk_classes_has_subjects_classes1` FOREIGN KEY (`class_id`) REFERENCES `classes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_classes_has_subjects_subjects1` FOREIGN KEY (`subject_id`) REFERENCES `subjects` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

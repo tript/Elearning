@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 01, 2016 at 06:40 PM
+-- Generation Time: Mar 03, 2016 at 02:32 AM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.5.30
 
@@ -51,7 +51,8 @@ INSERT INTO `classes` (`id`, `name`, `grade_id`) VALUES
 (14, 'Lớp 9', 3),
 (15, 'Lớp 10', 4),
 (16, 'Lớp 11', 4),
-(17, 'Lớp 12', 4);
+(17, 'Lớp 12', 4),
+(18, 'CĐ-ĐH', 5);
 
 -- --------------------------------------------------------
 
@@ -93,7 +94,148 @@ INSERT INTO `class_has_subjects` (`class_id`, `subject_id`) VALUES
 (7, 11),
 (7, 12),
 (7, 13),
-(7, 14);
+(7, 14),
+(8, 1),
+(8, 2),
+(8, 3),
+(8, 6),
+(8, 7),
+(8, 8),
+(8, 9),
+(8, 10),
+(8, 11),
+(8, 12),
+(8, 13),
+(8, 14),
+(8, 19),
+(9, 1),
+(9, 2),
+(9, 3),
+(9, 5),
+(9, 6),
+(9, 7),
+(9, 10),
+(9, 11),
+(9, 13),
+(9, 14),
+(9, 19),
+(9, 20),
+(9, 21),
+(9, 22),
+(9, 23),
+(9, 24),
+(10, 1),
+(10, 2),
+(10, 3),
+(10, 5),
+(10, 6),
+(10, 7),
+(10, 10),
+(10, 11),
+(10, 13),
+(10, 14),
+(10, 19),
+(10, 20),
+(10, 21),
+(10, 22),
+(10, 23),
+(10, 24),
+(10, 37),
+(11, 1),
+(11, 6),
+(11, 11),
+(11, 19),
+(11, 23),
+(11, 24),
+(11, 33),
+(11, 34),
+(11, 36),
+(11, 37),
+(11, 38),
+(11, 42),
+(11, 43),
+(12, 1),
+(12, 6),
+(12, 11),
+(12, 19),
+(12, 23),
+(12, 24),
+(12, 33),
+(12, 34),
+(12, 36),
+(12, 37),
+(12, 38),
+(12, 43),
+(12, 44),
+(13, 1),
+(13, 6),
+(13, 11),
+(13, 19),
+(13, 23),
+(13, 24),
+(13, 33),
+(13, 34),
+(13, 35),
+(13, 36),
+(13, 37),
+(13, 38),
+(13, 43),
+(13, 44),
+(14, 1),
+(14, 6),
+(14, 11),
+(14, 19),
+(14, 23),
+(14, 24),
+(14, 33),
+(14, 34),
+(14, 35),
+(14, 36),
+(14, 37),
+(14, 38),
+(14, 43),
+(14, 44),
+(15, 11),
+(15, 19),
+(15, 21),
+(15, 23),
+(15, 24),
+(15, 33),
+(15, 34),
+(15, 35),
+(15, 36),
+(15, 37),
+(15, 38),
+(15, 43),
+(15, 44),
+(15, 47),
+(16, 11),
+(16, 19),
+(16, 21),
+(16, 23),
+(16, 24),
+(16, 33),
+(16, 34),
+(16, 35),
+(16, 36),
+(16, 37),
+(16, 38),
+(16, 43),
+(16, 45),
+(16, 47),
+(17, 11),
+(17, 19),
+(17, 21),
+(17, 23),
+(17, 24),
+(17, 33),
+(17, 34),
+(17, 35),
+(17, 36),
+(17, 38),
+(17, 43),
+(17, 46),
+(17, 47);
 
 -- --------------------------------------------------------
 
@@ -139,7 +281,7 @@ INSERT INTO `grades` (`id`, `name`) VALUES
 
 CREATE TABLE `lessons` (
   `id` int(11) NOT NULL,
-  `name` varchar(20) CHARACTER SET utf8 NOT NULL,
+  `name` varchar(50) CHARACTER SET utf8 NOT NULL,
   `url` varchar(200) CHARACTER SET utf8 NOT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `approved` tinyint(1) NOT NULL DEFAULT '0',
@@ -148,6 +290,13 @@ CREATE TABLE `lessons` (
   `user_id` int(11) NOT NULL,
   `subject_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `lessons`
+--
+
+INSERT INTO `lessons` (`id`, `name`, `url`, `created_at`, `approved`, `type`, `class_id`, `user_id`, `subject_id`) VALUES
+(1, 'Bài giảng âm nhạc lớp 6 tiết 1', 'AmNhacLop6-HaNoi.zip', '2016-03-02 13:12:39', 0, NULL, 11, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -190,6 +339,8 @@ INSERT INTO `subjects` (`id`, `subject_name`) VALUES
 (2, 'Chính tả'),
 (37, 'Công nghệ'),
 (38, 'GDCD - GDNGLL'),
+(46, 'Giải tích'),
+(43, 'Hình học'),
 (35, 'Hóa học'),
 (4, 'Học vần'),
 (5, 'Kể chuyện'),
@@ -199,8 +350,10 @@ INSERT INTO `subjects` (`id`, `subject_name`) VALUES
 (13, 'Luyện từ và câu'),
 (6, 'Mỹ thuật'),
 (41, 'Ngoại ngữ'),
+(47, 'Ngoại ngữ khác'),
 (33, 'Ngữ văn'),
 (36, 'Sinh học'),
+(42, 'Số học'),
 (14, 'Tập làm văn'),
 (8, 'Tập viết'),
 (7, 'Tập đọc'),
@@ -211,6 +364,8 @@ INSERT INTO `subjects` (`id`, `subject_name`) VALUES
 (10, 'Toán học'),
 (12, 'Tự nhiên xã hội'),
 (34, 'Vật lí'),
+(44, 'Đại số'),
+(45, 'Đại số và giải tích'),
 (3, 'Đạo đức'),
 (23, 'Địa lí');
 
@@ -286,7 +441,7 @@ ALTER TABLE `grades`
 -- Indexes for table `lessons`
 --
 ALTER TABLE `lessons`
-  ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`id`,`class_id`,`user_id`,`subject_id`),
   ADD KEY `fk_lessons_classes1_idx` (`class_id`),
   ADD KEY `fk_lessons_users1_idx` (`user_id`),
   ADD KEY `fk_lessons_subjects1_idx` (`subject_id`);
@@ -334,7 +489,7 @@ ALTER TABLE `user_has_role`
 -- AUTO_INCREMENT for table `classes`
 --
 ALTER TABLE `classes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `comments`
 --
@@ -349,7 +504,7 @@ ALTER TABLE `grades`
 -- AUTO_INCREMENT for table `lessons`
 --
 ALTER TABLE `lessons`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `roles`
 --
@@ -359,7 +514,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 --
 -- AUTO_INCREMENT for table `users`
 --
