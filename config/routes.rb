@@ -75,11 +75,17 @@ Tript::Application.routes.draw do
   # Get all grades
   get '/grades' => 'grade#index'
 
+  # Get representative lessons of classes in the specific grade
+  get '/grades/:name/lessons' => 'grade#lessons'
+
   # Get all classes of a specific grade
   get '/grades/:id/classes' => 'grade#classes'
 
   # Get all subjects of a specific grade
   get '/classes/:id/subjects' => 'class#subjects'
+
+  # Get all lessons of class
+  get '/classes/:name/lessons' => 'class#lessons'
 
   # Get the grade with specific name
   get '/grades/name/:name' => 'grade#names'

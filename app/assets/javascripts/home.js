@@ -389,7 +389,7 @@ ready = function () {
         {
             text: "Mầm non",
             state: {
-                expanded: false
+                expanded: true
             },
 
             nodes: [
@@ -407,7 +407,7 @@ ready = function () {
         {
             text: "Tiểu học",
             state: {
-                expanded: false
+                expanded: true
             },
             nodes: [
                 {
@@ -645,14 +645,14 @@ ready = function () {
         {
             text: "Trung học cơ sở",
             state: {
-                expanded: false
+                expanded: true
             },
             nodes: secondary_classes
         },
         {
             text: "Trung học phổ thông",
             state: {
-                expanded: false
+                expanded: true
             },
             nodes: highschool_classes
         },
@@ -748,8 +748,11 @@ ready = function () {
                     console.log(field);
                 });
             });
+        } else if (type === "class") {
+            // redirect to class_lesson view
+        } else if (type === "subject") {
+            // redirect to subject_lesson view
         }
-
     });
     
 };

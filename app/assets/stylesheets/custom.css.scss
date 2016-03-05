@@ -155,11 +155,12 @@ input {
   margin-left: 0;
 }
 
-/* microposts */
+/* lessons */
 
 .lessons {
   list-style: none;
   padding: 0;
+  text-align: center;
   li {
     padding: 10px 0;
     border-top: 1px solid #e8e8e8;
@@ -180,6 +181,12 @@ input {
     color: $gray-light;
     display: block;
     margin-left: 60px;
+
+  }
+
+  .lesson-name {
+    color: $gray-light;
+    display: inline-block;
   }
 
 }
