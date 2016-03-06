@@ -18,7 +18,7 @@ class GradeController < ApplicationController
     render json:Grade.where(name: params[:name]).take
   end
 
-  def lessons
+  def lessons1
     grade = Grade.where(name: params[:name]).take
     classes = grade.active_classes
     lessons = Array.new
@@ -32,5 +32,21 @@ class GradeController < ApplicationController
     end
 
     render json:lessons
+  end
+
+  def lessons
+    @grade = Grade.where(name: params[:name]).take
+    @classes = @grade.active_classes
+    @lessons = Array.new
+
+    @classes.each do |cl|
+      class_lesson = ClassLesson.new
+      class_lesson.class = cl.name
+      class_lesson.lessons = cl.lessons.limit(3)
+      class_lesson.quantity = cl.lessons.count
+      @lessons.push(class_lesson)
+    end
+
+    render :layout => 'lesson_layout'
   end
 end

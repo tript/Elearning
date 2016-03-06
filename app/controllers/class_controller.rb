@@ -4,6 +4,12 @@ class ClassController < ApplicationController
   end
 
   def lessons
-    render json:ActiveClass.where(name: params[:name]).take.lessons
+    @class = ActiveClass.where(name: params[:name]).take
+    @lessons = @class.lessons.paginate(page: params[:page], per_page: 18)
+    render :layout => 'lesson_layout'
+  end
+
+  def show_lessons
+    redirect_to "/classes/" + params[:name] + "/lessons"
   end
 end

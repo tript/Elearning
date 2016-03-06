@@ -21,13 +21,13 @@ class LessonsController < ApplicationController
           f_path=File.join("public/uploads/#{id}/" + file.name)
           FileUtils.mkdir_p(File.dirname(f_path))
           zipfile.extract(file, f_path) unless File.exist?(f_path)
-
         end
       end
 
       #redirect to lesson_path
       redirect_to "/lessons", notice: "The lessons #{@lesson.name} has been uploaded."
     else
+      @classes = ActiveClass.all
       render "new"
     end
 
@@ -47,7 +47,7 @@ class LessonsController < ApplicationController
 
   private
   def lesson_params
-    params.require(:lesson).permit(:name, :url, :subject_id, :class_id)
+    params.require(:lesson).permit(:name, :url, :subject_id, :class_id, :represent_image)
   end
 
 end

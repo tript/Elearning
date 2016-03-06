@@ -56,6 +56,8 @@ gem 'rubyzip', '>= 1.0.0' # will load new rubyzip version
 
 gem "jquery-turbolinks"
 
+gem "mini_magick"
+
 group :test do
   gem "rspec-rails", "~> 2.14"
   gem "factory_girl_rails"

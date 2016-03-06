@@ -1,7 +1,11 @@
-<div class="col-md-4 portfolio-item lessons" id="lesson-<%= lesson.id %>">
-  <span class="lesson-image"> <%= link_to image_tag("elearning_untitled.jpg", alt: "Tri's logo", class: "img-responsive"), controller: "lessons", action: "show", id: lesson %></span>
+<div class="col-md-3 portfolio-item lessons" id="lesson-<%= lesson.id %>">
+  <span class="lesson-image">
+    <% if FileTest.exist?("#{Rails.root}/app/assets/images/#{lesson.id}.jpg") %>
+        <%= link_to image_tag("lessons/#{lesson.id}.jpg", alt: "#{lesson.name}", class: "img-responsive"), controller: "lessons", action: "show", id: lesson %>
+    <% end %>
+  </span>
   <!--<span class="timestamp">-->
-    <!--Uploaded <%= time_ago_in_words(lesson.created_at) %> ago.-->
+  <!--Uploaded <%= time_ago_in_words(lesson.created_at) %> ago.-->
   <!--</span>-->
   <span class="lesson-name">
     <%= lesson.name %>

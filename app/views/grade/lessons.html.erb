@@ -1,0 +1,13 @@
+<% provide(:title, @grade.name) %>
+
+<% @lessons.each do |lesson| %>
+    <div class="row">
+      <h3> <%= lesson.class %> ( <%= lesson.quantity %> ) </h3>
+      <% if lesson.lessons.any? %>
+          <%= render lesson.lessons %>
+      <% else %>
+          <h3 class="no-lesson-info"> Không có bài giảng nào</h3>
+      <% end %>
+    </div>
+<% end %>
+</div>

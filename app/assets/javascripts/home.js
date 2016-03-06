@@ -717,14 +717,16 @@ ready = function () {
         if (data.parentId) {
             return $('#tree').treeview('getParent', data.nodeId);
         } else {
-            return null;
+            return undefined;
         }
     }
 
     function getTypeOfNode(data) {
         var parent = getParentNode(data);
-        if (parent === null) {
+        if (typeof data.parentId === 'undefined') {
             return "grade";
+        } else if (data.parentId === 0) {
+            return "class";
         } else if (getParentNode(parent))
         {
             return "subject";
@@ -741,16 +743,41 @@ ready = function () {
         $('#tree').treeview('expandNode', data.nodeId);
 
         var type = getTypeOfNode(data);
+
+        $("#class-lesson").html("");
+        // User select a grade node
         if (type === "grade") {
-            $.getJSON("/grades/name/" + data.text, function(result){
-                $.each(result, function(i, field){
-                    //$("div").append(field + " ");
-                    console.log(field);
-                });
-            });
-        } else if (type === "class") {
+
+            //$.getJSON("/grades/" + data.text + "/lessons", function(result){
+            //    $.each(result, function(i, class_lesson){
+            //        $("#class-lesson").append("<div class=\"row\">");
+            //        var class_name = class_lesson.class;
+            //        var lessons = class_lesson.lessons;
+            //        var number_of_lessons = class_lesson.quantity;
+            //
+            //        $("#class-lesson").append("<h3>" + class_name + " (" + number_of_lessons + ")" + "</h3>");
+            //        $.each(lessons, function(i, lesson) {
+            //            $("#class-lesson").append(
+            //                "<div class=\"col-md-4 portfolio-item lessons\" id=\"lesson-" + lesson.id + "\">" +
+            //                "<span class=\"lesson-image\"> <div >" + "<img class=\"img-responsive\" src=/assets/elearning_untitled-389b54cd0a7ffe850f67b41b4f701ddf7d10ca1271a38cbfcd4fc437a9c38a9e.jpg />"  + "</div></span>" +
+            //            "<span class=\"lesson-name\">" + lesson.name +
+            //                "</span> </div>"
+            //                );
+            //        });
+            //        $("#class-lesson").append("</div>");
+            //    });
+            //});
+            window.location.href = "/grades/" + data.text + "/lessons";
+        }
+
+        // User select a class node
+        else if (type === "class") {
             // redirect to class_lesson view
-        } else if (type === "subject") {
+            window.location.href = "/classes/" + data.text + "/lessons";
+        }
+
+        // User select a subject node
+        else if (type === "subject") {
             // redirect to subject_lesson view
         }
     });

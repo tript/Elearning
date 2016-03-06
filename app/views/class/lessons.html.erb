@@ -1,0 +1,11 @@
+<% provide(:title, @class.name) %>
+
+<h3> <%= @class.name %> </h3>
+<div class="row">
+  <% if @lessons.any? %>
+      <%= render @lessons %>
+      <%= will_paginate @lessons %>
+  <% else %>
+  <h4> Không có bài giảng nào</h4>
+  <% end %>
+</div>
