@@ -3,13 +3,16 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 03, 2016 at 02:32 AM
+-- Generation Time: Mar 06, 2016 at 12:04 PM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.5.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
+
+CREATE DATABASE `elearning`;
+USE `elearning`;
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -288,15 +291,22 @@ CREATE TABLE `lessons` (
   `type` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `class_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `subject_id` int(11) NOT NULL
+  `subject_id` int(11) NOT NULL,
+  `represent_image` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `lessons`
 --
 
-INSERT INTO `lessons` (`id`, `name`, `url`, `created_at`, `approved`, `type`, `class_id`, `user_id`, `subject_id`) VALUES
-(1, 'Bài giảng âm nhạc lớp 6 tiết 1', 'AmNhacLop6-HaNoi.zip', '2016-03-02 13:12:39', 0, NULL, 11, 1, 1);
+INSERT INTO `lessons` (`id`, `name`, `url`, `created_at`, `approved`, `type`, `class_id`, `user_id`, `subject_id`, `represent_image`) VALUES
+(1, 'Bài giảng âm nhạc lớp 6 tiết 1', 'AmNhacLop6-HaNoi.zip', '2016-03-02 13:12:39', 0, NULL, 11, 1, 1, NULL),
+(2, 'Thủ lĩnh da đỏ', 'BucThuCuaThuLinhDaDo.zip', '2016-03-05 16:45:41', 0, NULL, 12, 1, 33, NULL),
+(3, 'Phối hợp thức ăn', 'PhoiHopThucAn.zip', '2016-03-05 16:50:17', 0, NULL, 11, 1, 36, NULL),
+(4, 'Bức thư của thủ lĩnh da đỏ', 'BucThuCuaThuLinhDaDo.zip', '2016-03-06 04:00:17', 0, NULL, 13, 1, 33, '#<ActionDispatch::Http::UploadedFile:0x4b7c3c8>'),
+(5, 'Phối hợp thức ăn nhanh', 'PhoiHopThucAn.zip', '2016-03-06 04:05:04', 0, NULL, 12, 1, 37, NULL),
+(6, 'Bức thư của thủ lĩnh da đỏ', 'BucThuCuaThuLinhDaDo.zip', '2016-03-06 06:29:10', 0, NULL, 15, 1, 33, '.jpg'),
+(7, 'Bức thư của thủ lĩnh da đỏ', 'BucThuCuaThuLinhDaDo.zip', '2016-03-06 06:34:03', 0, NULL, 15, 1, 33, '.jpg');
 
 -- --------------------------------------------------------
 
@@ -389,7 +399,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password_digest`, `remember_digest`, `name`, `email`) VALUES
-(1, 'admin', '$2a$10$tE8n/9ecNRb6GVi2EYaOZ.NSllQtX5XNcnH0eJAvgifgTt9P8LDj.', '$2a$10$88..t2vVRC1jxGlRaF9N.O7tNxPUsbDZQr2H27dlQ9T2CoQbZaDlq', 'Phạm Trọng Tri', 'trongtri160592@yahoo.com');
+(1, 'admin', '$2a$10$tE8n/9ecNRb6GVi2EYaOZ.NSllQtX5XNcnH0eJAvgifgTt9P8LDj.', '$2a$10$B.ZCiRn3Fe9Lv2peVpi6gOXi5EU6BrLOAvzgNfM7R5m4lh1VIUTB6', 'Phạm Trọng Tri', 'trongtri160592@yahoo.com');
 
 -- --------------------------------------------------------
 
@@ -441,7 +451,7 @@ ALTER TABLE `grades`
 -- Indexes for table `lessons`
 --
 ALTER TABLE `lessons`
-  ADD PRIMARY KEY (`id`,`class_id`,`user_id`,`subject_id`),
+  ADD PRIMARY KEY (`id`),
   ADD KEY `fk_lessons_classes1_idx` (`class_id`),
   ADD KEY `fk_lessons_users1_idx` (`user_id`),
   ADD KEY `fk_lessons_subjects1_idx` (`subject_id`);
@@ -504,7 +514,7 @@ ALTER TABLE `grades`
 -- AUTO_INCREMENT for table `lessons`
 --
 ALTER TABLE `lessons`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `roles`
 --
