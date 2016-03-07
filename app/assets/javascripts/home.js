@@ -737,6 +737,9 @@ ready = function () {
 
     $.ajaxSetup({ cache: false });
     $('#tree').treeview({data: tree1});
+    $("#menu").metisMenu({
+        activeClass: 'active'
+    });
     $('#tree').on('nodeSelected', function(event, data) {
 
         // Expand the selected node

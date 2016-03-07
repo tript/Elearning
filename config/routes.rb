@@ -1,6 +1,8 @@
 Tript::Application.routes.draw do
   get 'sessions/new'
 
+  get 'lessons/get_content', to: 'lessons#get_content'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

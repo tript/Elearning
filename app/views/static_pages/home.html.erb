@@ -1,1 +1,21 @@
 <% provide(:title, "Home") %>
+
+<%= link_to "New", {controller: :lessons, action: 'get_content', id: 1}, class: 'btn btn-default', remote: true %>
+<ul class="metismenu" id="menu">
+  <li class="active">
+    <a href="#" aria-expanded="true">Menu 1</a>
+    <ul aria-expanded="true">
+      ...
+    </ul>
+  </li>
+  <li>
+    <a href="#" aria-expanded="false">Menu 2</a>
+    <ul aria-expanded="false">
+
+    </ul>
+  </li>
+
+</ul>
+<div id="content">
+
+</div>

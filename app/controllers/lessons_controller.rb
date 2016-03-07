@@ -10,6 +10,10 @@ class LessonsController < ApplicationController
     @classes = ActiveClass.all
   end
 
+  def get_content
+    @lessons = Lesson.find(params[:id])
+  end
+
   def create
     @lesson = Lesson.new(lesson_params)
     @lesson.user = current_user
@@ -47,7 +51,7 @@ class LessonsController < ApplicationController
 
   private
   def lesson_params
-    params.require(:lesson).permit(:name, :url, :subject_id, :class_id, :represent_image)
+    params.require(:lesson).permit(:name, :url, :subject_id, :class_id)
   end
 
 end
