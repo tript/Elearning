@@ -1,7 +1,7 @@
 class Lesson < ActiveRecord::Base
   self.table_name = "lessons"
   mount_uploader :url, UrlUploader # Tells rails to use this uploader for this model.
-  mount_uploader :represent_image
+  mount_uploader :represent_image, RepresentImageUploader
   belongs_to :user
   belongs_to :active_class, foreign_key: "class_id"
   accepts_nested_attributes_for :active_class

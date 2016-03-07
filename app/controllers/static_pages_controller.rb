@@ -1,7 +1,6 @@
 class StaticPagesController < ApplicationController
 
   def home
-    render layout: 'lesson_layout'
   end
 
   def help

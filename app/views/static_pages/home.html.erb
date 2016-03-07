@@ -1,21 +1,28 @@
 <% provide(:title, "Home") %>
 
-<%= link_to "New", {controller: :lessons, action: 'get_content', id: 1}, class: 'btn btn-default', remote: true %>
-<ul class="metismenu" id="menu">
-  <li class="active">
-    <a href="#" aria-expanded="true">Menu 1</a>
-    <ul aria-expanded="true">
-      ...
-    </ul>
-  </li>
-  <li>
-    <a href="#" aria-expanded="false">Menu 2</a>
-    <ul aria-expanded="false">
+<div class="row">
+  <div class="col-md-3">
+    <!--<div id="tree"></div>-->
+    <ul class="metismenu" id="menu">
+      <li class="active">
+        <a href="#" >Menu 1<span class="glyphicon arrow"></span></a>
+        <ul aria-expanded="true">
+          ...
+        </ul>
+      </li>
+      <li>
+        <a href="#" aria-expanded="false">Menu 2</a>
+        <ul aria-expanded="false">
+
+        </ul>
+      </li>
 
     </ul>
-  </li>
+  </div>
+  <div class="col-md-9" id="content">
 
-</ul>
-<div id="content">
-
+  </div>
 </div>
+
+
+<%= link_to "New", {controller: :lessons, action: 'get_content', id: 1}, class: 'btn btn-default', remote: true %>

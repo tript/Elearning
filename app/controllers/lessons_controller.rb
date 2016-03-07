@@ -11,7 +11,7 @@ class LessonsController < ApplicationController
   end
 
   def get_content
-    @lessons = Lesson.find(params[:id])
+    @lessons = Lesson.all.paginate(page: params[:page], per_page: 30)
   end
 
   def create
@@ -51,7 +51,7 @@ class LessonsController < ApplicationController
 
   private
   def lesson_params
-    params.require(:lesson).permit(:name, :url, :subject_id, :class_id)
+    params.require(:lesson).permit(:name, :url, :subject_id, :class_id, :represent_image)
   end
 
 end

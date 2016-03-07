@@ -11,9 +11,8 @@
     <% if @user.lessons.any? %>
         <h3>Lessons (<%= @user.lessons.count %>)</h3>
         <div class="row">
-          <%= render @lessons %>
+          <%= render partial:'lessons/lesson', locals: {lessons: @lessons} %>
         </div>
-        <%= will_paginate @lessons %>
     <% end %>
   </div>
 </div>
