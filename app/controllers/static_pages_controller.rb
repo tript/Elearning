@@ -1,6 +1,7 @@
 class StaticPagesController < ApplicationController
 
   def home
+    @grades = Grade.all
   end
 
   def help

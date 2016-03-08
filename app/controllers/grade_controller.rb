@@ -35,7 +35,7 @@ class GradeController < ApplicationController
   end
 
   def lessons
-    @grade = Grade.where(name: params[:name]).take
+    @grade = Grade.find(params[:id])
     @classes = @grade.active_classes
     @lessons = Array.new
 
@@ -46,7 +46,5 @@ class GradeController < ApplicationController
       class_lesson.quantity = cl.lessons.count
       @lessons.push(class_lesson)
     end
-
-    render :layout => 'lesson_layout'
   end
 end

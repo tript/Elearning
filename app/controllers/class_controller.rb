@@ -4,9 +4,8 @@ class ClassController < ApplicationController
   end
 
   def lessons
-    @class = ActiveClass.where(name: params[:name]).take
-    @lessons = @class.lessons.paginate(page: params[:page], per_page: 18)
-    render :layout => 'lesson_layout'
+    @class = ActiveClass.find(params[:id])
+    @lessons = @class.lessons.paginate(page: params[:page], per_page: 30)
   end
 
   def show_lessons
