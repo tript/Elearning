@@ -75,8 +75,9 @@ Tript::Application.routes.draw do
 
   resources :lessons, only: [:index, :new, :create, :destroy]
   get '/lessons/:id' => 'lessons#show'
+  get '/details/:id' => 'lessons#details'
   post '/lessons/new' => 'lessons#create'
-  delete 'lessons/:id' => 'lessons#destrogy'
+  delete 'lessons/:id' => 'lessons#destroy'
 
   resources :grade
 

@@ -54,9 +54,11 @@ gem 'carrierwave'
 
 gem 'rubyzip', '>= 1.0.0' # will load new rubyzip version
 
-gem "jquery-turbolinks"
+gem 'jquery-turbolinks'
 
-gem "mini_magick"
+gem 'mini_magick'
+
+gem 'impressionist'
 
 group :test do
   gem "rspec-rails", "~> 2.14"

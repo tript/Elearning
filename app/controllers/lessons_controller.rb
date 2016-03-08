@@ -1,6 +1,7 @@
 require 'zip'
 
 class LessonsController < ApplicationController
+  impressionist :actions=> [:show,:details]
   def index
     @lessons = Lesson.all
   end
@@ -47,6 +48,10 @@ class LessonsController < ApplicationController
     @lessons = Lesson.find(params[:id])
     id = @lessons.id
     redirect_to("/uploads/#{id}/index.htm")
+  end
+
+  def details
+    @lesson = Lesson.find(params[:id])
   end
 
   private

@@ -3,6 +3,6 @@ class HomeController < ApplicationController
     render json: current_user
   end
   def list_of_classes
-    
+
   end
 end

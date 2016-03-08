@@ -37,13 +37,17 @@ class RepresentImageUploader < CarrierWave::Uploader::Base
   # end
 
   version :thumb do
-      process :resize_to_fill => [150, 120]
+    process :resize_to_fill => [150, 120]
+  end
+
+  version :details do
+    process :resize_to_fill => [500, 400]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_white_list
-     %w(jpg jpeg png)
+    %w(jpg jpeg png)
   end
 
   # Override the filename of the uploaded files:

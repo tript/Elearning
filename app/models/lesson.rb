@@ -1,4 +1,5 @@
 class Lesson < ActiveRecord::Base
+  is_impressionable
   self.table_name = "lessons"
   mount_uploader :url, UrlUploader # Tells rails to use this uploader for this model.
   mount_uploader :represent_image, RepresentImageUploader
