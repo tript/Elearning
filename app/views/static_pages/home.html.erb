@@ -5,22 +5,22 @@
     <ul class="metismenu nav nav-pills nav-stacked" id="menu">
       <% @grades.each do |grade| %>
           <li class="inactive">
-            <%= link_to "#{grade.name}<span class=\"glyphicon arrow\"></span>".html_safe, {controller: :grade, action: 'lessons', id: grade.id}, class: '', remote: true %>
+            <%= link_to "#{grade.name}<span class=\"glyphicon arrow\"></span>".html_safe, {controller: :grade, action: 'lessons', id: grade.id}, remote: true %>
             <ul class="nav nav-pills nav-stacked" aria-expanded="false">
               <% grade.active_classes.each do |active_class| %>
                   <li class="inactive">
                     <% subjects = active_class.subjects %>
                     <% if subjects.any? %>
-                        <%= link_to "#{active_class.name}<span class=\"glyphicon arrow\"></span>".html_safe, {controller: :class, action: 'lessons', id: active_class.id}, class: '', remote: true %>
+                        <%= link_to "#{active_class.name}<span class=\"glyphicon arrow\"></span>".html_safe, {controller: :class, action: 'lessons', id: active_class.id}, remote: true %>
                         <ul class="nav nav-pills nav-stacked" aria-expanded="false">
                           <% subjects.each do |subject| %>
                               <li class="inactive">
-                                <%= link_to "#{subject.subject_name}", {controller: :subject, action: 'lessons', class_id: active_class.id, subject_id: subject.id}, class: '', remote: true %>
+                                <%= link_to "#{subject.subject_name}", {controller: :subject, action: 'lessons', class_id: active_class.id, subject_id: subject.id}, remote: true %>
                               </li>
                           <% end %>
                         </ul>
                     <% else %>
-                        <%= link_to "#{active_class.name}", {controller: :class, action: 'lessons', id: 3}, class: '', remote: true %>
+                        <%= link_to "#{active_class.name}", {controller: :class, action: 'lessons', id: 3}, remote: true %>
                     <% end %>
                   </li>
               <% end %>
