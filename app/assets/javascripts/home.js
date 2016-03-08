@@ -737,8 +737,17 @@ ready = function () {
 
     $.ajaxSetup({ cache: false });
     $('#tree').treeview({data: tree1});
-    $("#menu").metisMenu({
-        activeClass: 'active'
+    $('#menu').metisMenu({
+        toggle: true,
+        doubleTapToGo: false,
+        preventDefault: true,
+        activeClass: 'active',
+        collapseClass: 'collapse',
+        collapseInClass: 'in',
+        collapsingClass: 'collapsing',
+        onTransitionStart: false,
+        onTransitionEnd: false
+
     });
     $('#tree').on('nodeSelected', function(event, data) {
 

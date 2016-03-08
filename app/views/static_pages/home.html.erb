@@ -3,17 +3,599 @@
 <div class="row">
   <div class="col-md-3">
     <!--<div id="tree"></div>-->
-    <ul class="metismenu" id="menu">
-      <li class="active">
-        <a href="#" >Menu 1<span class="glyphicon arrow"></span></a>
-        <ul aria-expanded="true">
-          ...
+    <ul class="metismenu nav nav-pills nav-stacked" id="menu">
+      <li class="inactive">
+        <!--<a href="#" >Menu 1<span class="glyphicon arrow"></span></a>-->
+        <%= link_to 'Mầm non<span class="glyphicon arrow"></span>'.html_safe, {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+        <ul class="nav nav-pills nav-stacked" aria-expanded="false">
+          <li class="inactive">
+            <!--<a href="#" >Menu 1<span class="glyphicon arrow"></span></a>-->
+            <%= link_to 'Lớp 3 tuổi', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+          </li>
+          <li class="inactive">
+            <!--<a href="#" >Menu 1<span class="glyphicon arrow"></span></a>-->
+            <%= link_to 'Lớp 4 tuổi', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+          </li>
+          <li class="inactive">
+            <!--<a href="#" >Menu 1<span class="glyphicon arrow"></span></a>-->
+            <%= link_to 'Lớp 5 tuổi', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+          </li>
         </ul>
       </li>
-      <li>
-        <a href="#" aria-expanded="false">Menu 2</a>
-        <ul aria-expanded="false">
+      <li class="inactive">
+        <%= link_to 'Tiểu học<span class="glyphicon arrow"></span>'.html_safe, {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+        <ul class="nav nav-pills nav-stacked" aria-expanded="false">
+          <li class="inactive">
+            <%= link_to 'Lớp 1<span class="glyphicon arrow"></span>'.html_safe, {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+            <ul class="nav nav-pills nav-stacked" aria-expanded="false">
+              <li class="inactive">
+                <%= link_to 'Âm nhạc', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
 
+              </li>
+              <li class="inactive">
+                <%= link_to 'Chính tả', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Đạo đức', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Học vần', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Kể chuyện', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Mĩ thuật', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Tập đọc', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Tập viết', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Thủ công', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Toán học', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Tiếng Anh', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Tự nhiên xã hội', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+            </ul>
+          </li>
+          <li class="inactive">
+            <%= link_to 'Lớp 2<span class="glyphicon arrow"></span>'.html_safe, {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+            <ul class="nav nav-pills nav-stacked" aria-expanded="false">
+              <li class="inactive">
+                <%= link_to 'Âm nhạc', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Chính tả', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Đạo đức', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Kể chuyện', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Luyện từ và câu', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Mĩ thuật', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Tập đọc', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Tập làm văn', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Tập viết', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Thủ công', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Toán học', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Tiếng Anh', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Tự nhiên xã hội', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+            </ul>
+          </li>
+          <li class="inactive">
+            <%= link_to 'Lớp 3<span class="glyphicon arrow"></span>'.html_safe, {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+            <ul class="nav nav-pills nav-stacked" aria-expanded="false">
+              <li class="inactive">
+                <%= link_to 'Âm nhạc', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Chính tả', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Đạo đức', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Luyện từ và câu', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Mĩ thuật', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Tập đọc', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Tập làm văn', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Tập viết', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Thủ công', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Toán học', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Tiếng Anh', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Tự nhiên xã hội', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Tin học', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+            </ul>
+          </li>
+          <li class="inactive">
+            <%= link_to 'Lớp 4<span class="glyphicon arrow"></span>'.html_safe, {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+            <ul class="nav nav-pills nav-stacked" aria-expanded="false">
+              <li class="inactive">
+                <%= link_to 'Âm nhạc', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Chính tả', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Đạo đức', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Địa lý', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Kể chuyện', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Khoa học', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Kĩ thuật', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Lịch sử', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Luyện từ và câu', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Mĩ thuật', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Tập đọc', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Tập làm văn', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Toán học', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Tiếng Anh', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Tin học', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Thể dục', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+            </ul>
+          </li>
+          <li class="inactive">
+            <%= link_to 'Lớp 5<span class="glyphicon arrow"></span>'.html_safe, {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+            <ul class="nav nav-pills nav-stacked" aria-expanded="false">
+              <li class="inactive">
+                <%= link_to 'Âm nhạc', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Chính tả', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Đạo đức', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Địa lý', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Kể chuyện', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Khoa học', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Kĩ thuật', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Lịch sử', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Luyện từ và câu', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Mĩ thuật', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Tập đọc', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Tập làm văn', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Toán học', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Tiếng Anh', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Tin học', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Thể dục', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+
+      <li class="inactive">
+        <%= link_to 'Trung học cơ sở<span class="glyphicon arrow"></span>'.html_safe, {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+        <ul class="nav nav-pills nav-stacked" aria-expanded="false">
+          <li class="inactive">
+            <%= link_to 'Lớp 6<span class="glyphicon arrow"></span>'.html_safe, {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+            <ul aria-expanded="false">
+              <li class="inactive">
+                <%= link_to 'Số học', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Hình học', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Ngữ văn', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Tiếng Anh', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Vật lý', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Sinh học', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Địa lý', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Lịch sử', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Tin học', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Công nghệ', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'GDCD-GDNGLL', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Âm nhạc', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Mĩ thuật', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+            </ul>
+          </li>
+          <li class="inactive">
+            <%= link_to 'Lớp 7<span class="glyphicon arrow"></span>'.html_safe, {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+            <ul class="nav nav-pills nav-stacked" aria-expanded="false">
+              <li class="inactive">
+                <%= link_to 'Đại số', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Hình học', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Ngữ văn', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Tiếng Anh', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Vật lý', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Sinh học', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Địa lý', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Lịch sử', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Tin học', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Công nghệ', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'GDCD-GDNGLL', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Âm nhạc', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Mĩ thuật', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+            </ul>
+          </li>
+          <li class="inactive">
+            <%= link_to 'Lớp 8<span class="glyphicon arrow"></span>'.html_safe, {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+            <ul class="nav nav-pills nav-stacked" aria-expanded="false">
+              <li class="inactive">
+                <%= link_to 'Đại số', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Hình học', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Ngữ văn', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Tiếng Anh', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Vật lý', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Hóa học', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Sinh học', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Địa lý', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Lịch sử', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Tin học', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Công nghệ', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'GDCD-GDNGLL', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Âm nhạc', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Mĩ thuật', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+            </ul>
+          </li>
+          <li class="inactive">
+            <%= link_to 'Lớp 9<span class="glyphicon arrow"></span>'.html_safe, {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+            <ul class="nav nav-pills nav-stacked" aria-expanded="false">
+              <li class="inactive">
+                <%= link_to 'Đại số', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Hình học', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Ngữ văn', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Tiếng Anh', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Vật lý', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Hóa học', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Sinh học', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Địa lý', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Lịch sử', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Tin học', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Công nghệ', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'GDCD-GDNGLL', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Âm nhạc', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Mĩ thuật', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <%= link_to 'Trung học phổ thông<span class="glyphicon arrow"></span>'.html_safe, {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+        <ul class="nav nav-pills nav-stacked" aria-expanded="false">
+          <li class="inactive">
+            <%= link_to 'Lớp 10<span class="glyphicon arrow"></span>'.html_safe, {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+            <ul aria-expanded="false">
+              <li class="inactive">
+                <%= link_to 'Đại số', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Hình học', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Ngữ văn', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Tiếng Anh', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Ngoại ngữ khác', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Vật lý', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Hóa học', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Sinh học', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Địa lý', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Lịch sử', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Tin học', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Công nghệ', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'GDCD-GDNGLL', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Thể dục', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+            </ul>
+          </li>
+          <li class="inactive">
+            <%= link_to 'Lớp 11<span class="glyphicon arrow"></span>'.html_safe, {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+            <ul class="nav nav-pills nav-stacked" aria-expanded="false">
+              <li class="inactive">
+                <%= link_to 'Đại số và giải tích', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Hình học', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Ngữ văn', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Tiếng Anh', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Ngoại ngữ khác', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Vật lý', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Hóa học', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Sinh học', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Địa lý', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Lịch sử', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Tin học', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Công nghệ', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'GDCD-GDNGLL', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Thể dục', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+            </ul>
+          </li>
+          <li class="inactive">
+            <%= link_to 'Lớp 12<span class="glyphicon arrow"></span>'.html_safe, {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+            <ul class="nav nav-pills nav-stacked" aria-expanded="false">
+              <li class="inactive">
+                <%= link_to 'Giải tích', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Hình học', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Ngữ văn', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Tiếng Anh', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Ngoại ngữ khác', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Vật lý', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Hóa học', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Sinh học', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Địa lý', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Lịch sử', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Tin học', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Công nghệ', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'GDCD-GDNGLL', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+              <li class="inactive">
+                <%= link_to 'Thể dục', {controller: :lessons, action: 'get_content', id: 1}, class: '', remote: true %>
+              </li>
+            </ul>
+          </li>
         </ul>
       </li>
 
@@ -23,6 +605,3 @@
 
   </div>
 </div>
-
-
-<%= link_to "New", {controller: :lessons, action: 'get_content', id: 1}, class: 'btn btn-default', remote: true %>
