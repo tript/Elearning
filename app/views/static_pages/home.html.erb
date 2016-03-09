@@ -30,6 +30,31 @@
     </ul>
   </div>
   <div class="col-md-9" id="content">
+    <% @grade_lessons.each do |grade_lesson| %>
+        <div class="row">
+          <h3> <%= link_to "#{grade_lesson.grade.name}<span class=\"glyphicon arrow\"></span>".html_safe, {controller: :grade, action: 'lessons', id: grade_lesson.grade.id}, remote: true %>
+            ( <%= grade_lesson.quantity %> ) </h3>
+          <% if grade_lesson.lessons.any? %>
+              <div class="row">
+                <% grade_lesson.lessons.each do |lesson| %>
 
+                    <div class="col-md-2 portfolio-item lessons" id="lesson-<%= lesson.id %>">
+                      <span class="lesson-image">
+                            <%= link_to image_tag(lesson.represent_image.url(:thumb)), {controller: :lessons, action: 'details', id: lesson.id}, alt: lesson.name %>
+                      </span>
+                      <!--<span class="timestamp">-->
+                      <!--Uploaded <%= time_ago_in_words(lesson.created_at) %> ago.-->
+                      <!--</span>-->
+                      <span class="lesson-name">
+                        <%= lesson.name %>
+                      </span>
+                    </div>
+                <% end %>
+              </div>
+          <% else %>
+              <h3 class="no-lesson-info"> Không có bài giảng nào</h3>
+          <% end %>
+        </div>
+    <% end %>
   </div>
 </div>

@@ -72,15 +72,14 @@ ActiveRecord::Schema.define(version: 20160308152755) do
   add_index "impressions", ["user_id"], name: "index_impressions_on_user_id", using: :btree
 
   create_table "lessons", force: :cascade do |t|
-    t.string   "name",            limit: 50,                  null: false
-    t.string   "url",             limit: 200,                 null: false
-    t.datetime "created_at",                                  null: false
-    t.boolean  "approved",        limit: 1,   default: false, null: false
-    t.string   "type",            limit: 45
-    t.integer  "class_id",        limit: 4,                   null: false
-    t.integer  "user_id",         limit: 4,                   null: false
-    t.integer  "subject_id",      limit: 4
-    t.string   "represent_image", limit: 200
+    t.string   "name",       limit: 50,                  null: false
+    t.string   "url",        limit: 200,                 null: false
+    t.datetime "created_at",                             null: false
+    t.boolean  "approved",   limit: 1,   default: false, null: false
+    t.string   "type",       limit: 45
+    t.integer  "class_id",   limit: 4,                   null: false
+    t.integer  "user_id",    limit: 4,                   null: false
+    t.integer  "subject_id", limit: 4,                   null: false
   end
 
   add_index "lessons", ["class_id"], name: "fk_lessons_classes1_idx", using: :btree

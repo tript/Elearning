@@ -42,7 +42,7 @@ class GradeController < ApplicationController
     @classes.each do |cl|
       class_lesson = ClassLesson.new
       class_lesson.class = cl.name
-      class_lesson.lessons = cl.lessons.limit(3)
+      class_lesson.lessons = cl.lessons.limit(5)
       class_lesson.quantity = cl.lessons.count
       @lessons.push(class_lesson)
     end
