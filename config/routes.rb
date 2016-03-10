@@ -74,11 +74,11 @@ Tript::Application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
 
   resources :lessons, only: [:index, :new, :create, :destroy] do
-
+    resources :comments
   end
-  resource :comments
   get '/lessons/:id' => 'lessons#show'
   get '/details/:id' => 'lessons#details'
+  post '/lessons/:id/comments' => 'comments#create'
   post '/lessons/new' => 'lessons#create'
   delete 'lessons/:id' => 'lessons#destroy'
 

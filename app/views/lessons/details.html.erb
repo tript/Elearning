@@ -13,7 +13,7 @@
   <div class="col-md-6">
     <div class="widget-area no-padding blank">
       <div class="status-upload">
-        <%= form_for @comment do |f| %>
+        <%= form_for [@lesson, @comment] do |f| %>
           <%= f.text_area :content, placeholder: "Bình luận", maxlength: 200 %>
           <%= f.submit "Bình luận", class: "btn btn-success green" %>
         <% end %>
