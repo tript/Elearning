@@ -117,7 +117,7 @@ body .no-padding {
 .dropdown > a > span.green:before {
     border-left-color: #2dcb73;
 }
-.status-upload form button > i {
+.status-upload form input > i {
     margin-right: 7px;
 }
 

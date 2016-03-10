@@ -52,6 +52,8 @@ class LessonsController < ApplicationController
 
   def details
     @lesson = Lesson.find(params[:id])
+    @comment = @lesson.comments.build
+    @comment.lesson = @lesson
     @comments = Comment.where(lesson_id: params[:id])
   end
 

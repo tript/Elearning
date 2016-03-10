@@ -4,7 +4,7 @@
   </div>
   <div class="col-md-5">
     <span> Người gửi: <%= @lesson.user.name %> </span> </br>
-    <span> Ngay gui: <%= @lesson.created_at.strftime("%Y-%m-%d") %> </span> </br>
+    <span> Ngày gửi: <%= @lesson.created_at.strftime("%Y-%m-%d") %> </span> </br>
     <span> Lượt xem: <%= @lesson.impressionist_count(:filter => :session_hash) %> </span>
   </div>
 </div>
@@ -13,15 +13,12 @@
   <div class="col-md-6">
     <div class="widget-area no-padding blank">
       <div class="status-upload">
-        <form>
-          <textarea maxlength="200" placeholder="Bình luận.."></textarea>
-
-          <button type="submit" class="btn btn-success green"></i>Comment</button>
-        </form>
+        <%= form_for @comment do |f| %>
+          <%= f.text_area :content, placeholder: "Bình luận", maxlength: 200 %>
+          <%= f.submit "Bình luận", class: "btn btn-success green" %>
+        <% end %>
       </div>
-      <!-- Status Upload  -->
     </div>
-    <!-- Widget Area -->
   </div>
 
 </div>
@@ -29,22 +26,12 @@
   <div class="col-md-6">
     <div class="page-header">
       <span id="comments">
-        <small class="pull-right">45 comments</small>
-        <b>Comments</b>
+        <small class="pull-right"><%= @comments.count %> bình luận</small>
+        <b>Bình luận</b>
       </span>
     </div>
     <div class="comments-list">
-      <div class="media">
-        <p class="pull-right">
-          <small>5 days ago</small>
-        </p>
-        <div class="media-body">
-
-          <h4 class="media-heading user_name">Baltej Singh</h4>
-          Wow! this is really great.
-        </div>
-      </div>
+      <%= render partial: 'comment/comment', collection: @comments, as: :comment %>
     </div>
   </div>
-
 </div>

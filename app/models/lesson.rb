@@ -6,6 +6,7 @@ class Lesson < ActiveRecord::Base
   belongs_to :user
   belongs_to :active_class, foreign_key: "class_id"
   accepts_nested_attributes_for :active_class
+  has_many :comments
 
   validates :user_id, presence: true
   validates :url, presence: true
