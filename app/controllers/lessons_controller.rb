@@ -55,6 +55,7 @@ class LessonsController < ApplicationController
     @comment = Comment.new
     @comment.lesson = @lesson
     @comments = Comment.where(lesson_id: params[:id])
+    commontator_thread_show(@lesson)
   end
 
   private

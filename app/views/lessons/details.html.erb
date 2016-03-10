@@ -14,24 +14,29 @@
     <div class="widget-area no-padding blank">
       <div class="status-upload">
         <%= form_for [@lesson, @comment] do |f| %>
-          <%= f.text_area :content, placeholder: "Bình luận", maxlength: 200 %>
-          <%= f.submit "Bình luận", class: "btn btn-success green" %>
+            <%= f.text_area :content, placeholder: "Bình luận", maxlength: 200 %>
+            <%= f.submit "Bình luận", class: "btn btn-success green" %>
         <% end %>
       </div>
     </div>
   </div>
 
 </div>
+<!--<div class="row">-->
+<!--<div class="col-md-6">-->
+<!--<div class="page-header">-->
+<!--<span id="comments">-->
+<!--<small class="pull-right"><%= @comments.count %> bình luận</small>-->
+<!--<b>Bình luận</b>-->
+<!--</span>-->
+<!--</div>-->
+<!--<div class="comments-list">-->
+<!--<%= render partial: 'comment/comment', collection: @comments, as: :comment %>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
 <div class="row">
   <div class="col-md-6">
-    <div class="page-header">
-      <span id="comments">
-        <small class="pull-right"><%= @comments.count %> bình luận</small>
-        <b>Bình luận</b>
-      </span>
-    </div>
-    <div class="comments-list">
-      <%= render partial: 'comment/comment', collection: @comments, as: :comment %>
-    </div>
+    <%= commontator_thread(@lesson) %>
   </div>
 </div>

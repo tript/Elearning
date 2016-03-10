@@ -1,4 +1,6 @@
 class Lesson < ActiveRecord::Base
+  acts_as_commontable
+
   is_impressionable
   self.table_name = "lessons"
   mount_uploader :url, UrlUploader # Tells rails to use this uploader for this model.

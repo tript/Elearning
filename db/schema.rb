@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160308152755) do
+ActiveRecord::Schema.define(version: 20160310124344) do
 
   create_table "class_has_subjects", id: false, force: :cascade do |t|
     t.integer "class_id",   limit: 4, null: false
@@ -39,6 +39,48 @@ ActiveRecord::Schema.define(version: 20160308152755) do
 
   add_index "comments", ["lesson_id"], name: "fk_comments_lessons1_idx", using: :btree
   add_index "comments", ["user_id"], name: "fk_comments_users1_idx", using: :btree
+
+  create_table "commontator_comments", force: :cascade do |t|
+    t.string   "creator_type",      limit: 255
+    t.integer  "creator_id",        limit: 4
+    t.string   "editor_type",       limit: 255
+    t.integer  "editor_id",         limit: 4
+    t.integer  "thread_id",         limit: 4,                 null: false
+    t.text     "body",              limit: 65535,             null: false
+    t.datetime "deleted_at"
+    t.integer  "cached_votes_up",   limit: 4,     default: 0
+    t.integer  "cached_votes_down", limit: 4,     default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "commontator_comments", ["cached_votes_down"], name: "index_commontator_comments_on_cached_votes_down", using: :btree
+  add_index "commontator_comments", ["cached_votes_up"], name: "index_commontator_comments_on_cached_votes_up", using: :btree
+  add_index "commontator_comments", ["creator_id", "creator_type", "thread_id"], name: "index_commontator_comments_on_c_id_and_c_type_and_t_id", using: :btree
+  add_index "commontator_comments", ["thread_id", "created_at"], name: "index_commontator_comments_on_thread_id_and_created_at", using: :btree
+
+  create_table "commontator_subscriptions", force: :cascade do |t|
+    t.string   "subscriber_type", limit: 255, null: false
+    t.integer  "subscriber_id",   limit: 4,   null: false
+    t.integer  "thread_id",       limit: 4,   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "commontator_subscriptions", ["subscriber_id", "subscriber_type", "thread_id"], name: "index_commontator_subscriptions_on_s_id_and_s_type_and_t_id", unique: true, using: :btree
+  add_index "commontator_subscriptions", ["thread_id"], name: "index_commontator_subscriptions_on_thread_id", using: :btree
+
+  create_table "commontator_threads", force: :cascade do |t|
+    t.string   "commontable_type", limit: 255
+    t.integer  "commontable_id",   limit: 4
+    t.datetime "closed_at"
+    t.string   "closer_type",      limit: 255
+    t.integer  "closer_id",        limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "commontator_threads", ["commontable_id", "commontable_type"], name: "index_commontator_threads_on_c_id_and_c_type", unique: true, using: :btree
 
   create_table "grades", force: :cascade do |t|
     t.string "name", limit: 45
@@ -72,14 +114,15 @@ ActiveRecord::Schema.define(version: 20160308152755) do
   add_index "impressions", ["user_id"], name: "index_impressions_on_user_id", using: :btree
 
   create_table "lessons", force: :cascade do |t|
-    t.string   "name",       limit: 50,                  null: false
-    t.string   "url",        limit: 200,                 null: false
-    t.datetime "created_at",                             null: false
-    t.boolean  "approved",   limit: 1,   default: false, null: false
-    t.string   "type",       limit: 45
-    t.integer  "class_id",   limit: 4,                   null: false
-    t.integer  "user_id",    limit: 4,                   null: false
-    t.integer  "subject_id", limit: 4,                   null: false
+    t.string   "name",            limit: 50,                  null: false
+    t.string   "url",             limit: 200,                 null: false
+    t.datetime "created_at",                                  null: false
+    t.boolean  "approved",        limit: 1,   default: false, null: false
+    t.string   "type",            limit: 45
+    t.integer  "class_id",        limit: 4,                   null: false
+    t.integer  "user_id",         limit: 4,                   null: false
+    t.integer  "subject_id",      limit: 4
+    t.string   "represent_image", limit: 200
   end
 
   add_index "lessons", ["class_id"], name: "fk_lessons_classes1_idx", using: :btree

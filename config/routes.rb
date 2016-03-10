@@ -109,4 +109,6 @@ Tript::Application.routes.draw do
     end
   end
 
+  mount Commontator::Engine => '/commontator'
+
 end

@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  acts_as_commontator
+
   has_many :lessons, dependent: :destroy
   has_many :comments
   accepts_nested_attributes_for :lessons

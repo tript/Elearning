@@ -60,6 +60,9 @@ gem 'mini_magick'
 
 gem 'impressionist'
 
+# use comments
+gem 'commontator'
+
 group :test do
   gem "rspec-rails", "~> 2.14"
   gem "factory_girl_rails"
