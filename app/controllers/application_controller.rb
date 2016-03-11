@@ -4,4 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
   require 'will_paginate/array'
+  def not_found
+    render file: 'public/404.html'
+  end
 end

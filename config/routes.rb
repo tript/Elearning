@@ -111,4 +111,7 @@ Tript::Application.routes.draw do
 
   mount Commontator::Engine => '/commontator'
 
+  # Handle 404 error
+  get '*unmatched_route', to: 'application#not_found'
+
 end

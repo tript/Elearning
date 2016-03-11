@@ -8,20 +8,6 @@
     <span> Lượt xem: <%= @lesson.impressionist_count(:filter => :session_hash) %> </span>
   </div>
 </div>
-
-<div class="row">
-  <div class="col-md-6">
-    <div class="widget-area no-padding blank">
-      <div class="status-upload">
-        <%= form_for [@lesson, @comment] do |f| %>
-            <%= f.text_area :content, placeholder: "Bình luận", maxlength: 200 %>
-            <%= f.submit "Bình luận", class: "btn btn-success green" %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-
-</div>
 <!--<div class="row">-->
 <!--<div class="col-md-6">-->
 <!--<div class="page-header">-->

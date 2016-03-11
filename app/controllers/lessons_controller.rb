@@ -52,8 +52,6 @@ class LessonsController < ApplicationController
 
   def details
     @lesson = Lesson.find(params[:id])
-    @comment = Comment.new
-    @comment.lesson = @lesson
     @comments = Comment.where(lesson_id: params[:id])
     commontator_thread_show(@lesson)
   end
