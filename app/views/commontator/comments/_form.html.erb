@@ -38,7 +38,7 @@
 
     <div class="comment_form_actions">
       <%= f.submit comment.id.blank? ? "Bình luận" : "Sửa lại", class: "btn btn-success green" %>
-      <%= f.submit t('commontator.comment.actions.cancel'), :name => 'cancel', class: "btn btn-primary green", id: "btn_comment_cancel" %>
+      <%= f.submit "Bỏ qua", :name => 'cancel', class: "btn btn-primary green", id: "btn_comment_cancel" %>
     </div>
 
 <% end %>

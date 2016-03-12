@@ -1,6 +1,8 @@
 <div class="row">
   <div class="col-md-5">
     <%= link_to image_tag(@lesson.represent_image.url(:thumb)), {controller: :lessons, action: 'show', id: @lesson.id} %>
+    <%= link_to "Xem", {controller: :lessons, action: 'show', id: @lesson.id}, class: 'btn btn-primary' %>
+    <%= link_to "Download", @lesson.url.url, class: 'btn btn-primary' %>
   </div>
   <div class="col-md-5">
     <span> Người gửi: <%= @lesson.user.name %> </span> </br>
@@ -8,19 +10,7 @@
     <span> Lượt xem: <%= @lesson.impressionist_count(:filter => :session_hash) %> </span>
   </div>
 </div>
-<!--<div class="row">-->
-<!--<div class="col-md-6">-->
-<!--<div class="page-header">-->
-<!--<span id="comments">-->
-<!--<small class="pull-right"><%= @comments.count %> bình luận</small>-->
-<!--<b>Bình luận</b>-->
-<!--</span>-->
-<!--</div>-->
-<!--<div class="comments-list">-->
-<!--<%= render partial: 'comment/comment', collection: @comments, as: :comment %>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
+
 <div class="row">
   <div class="col-md-6">
     <%= commontator_thread(@lesson) %>

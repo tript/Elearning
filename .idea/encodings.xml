@@ -3,6 +3,7 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/app/views/commontator/comments/_actions.html.erb" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/views/commontator/comments/_show.html.erb" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/views/commontator/threads/_reply.html.erb" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/views/commontator/threads/_show.html.erb" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/views/lessons/details.html.erb" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/public/404.html" charset="UTF-8" />
