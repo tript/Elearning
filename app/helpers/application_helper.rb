@@ -8,4 +8,16 @@ module ApplicationHelper
       page_title + " | " + base_title
     end
   end
+
+  # Check current user ís admin or not
+  def is_admin?(user)
+    if !user
+      return false
+    end
+    if user.username == 'admin'
+      return true
+    else
+      return false
+    end
+  end
 end

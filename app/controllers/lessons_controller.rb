@@ -56,6 +56,16 @@ class LessonsController < ApplicationController
     commontator_thread_show(@lesson)
   end
 
+  def search
+    search = params[:search]
+    if search
+      @lessons = Lesson.where('name LIKE ?', "%#{search}%").paginate(page: params[:page], per_page: 30)
+    else
+      @lessons = Lesson.all.paginate(page: params[:page], per_page: 30)
+    end
+  end
+
+  
   private
   def lesson_params
     params.require(:lesson).permit(:name, :url, :subject_id, :class_id, :represent_image)

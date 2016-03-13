@@ -63,7 +63,9 @@ Tript::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  resources :users
+  resources :users, only: [:new, :create, :destroy]
+  get '/users/:id' => 'users#show'
+
   root             'static_pages#home'
   get 'help'    => 'static_pages#help'
   get 'about'   => 'static_pages#about'
@@ -73,12 +75,13 @@ Tript::Application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
 
-  resources :lessons, only: [:index, :new, :create, :destroy] do
+  resources :lessons, only: [:new, :create, :destroy] do
     resources :comments
   end
+
+  get '/lessons' => 'lessons#search'
   get '/lessons/:id' => 'lessons#show'
   get '/details/:id' => 'lessons#details'
-  post '/lessons/:id/comments' => 'comments#create'
   post '/lessons/new' => 'lessons#create'
   delete 'lessons/:id' => 'lessons#destroy'
 
@@ -87,17 +90,20 @@ Tript::Application.routes.draw do
   # Get all grades
   get '/grades' => 'grade#index'
 
-  # Get representative lessons of classes in the specific grade
-  get '/grades/:name/lessons' => 'grade#lessons'
+  # Manage user
+  get '/users' => 'admin#manage_user'
 
-  # Get all classes of a specific grade
-  get '/grades/:id/classes' => 'grade#classes'
-
-  # Get all subjects of a specific grade
-  get '/classes/:id/subjects' => 'class#subjects'
-
-  # Get all lessons of class
-  get '/classes/:name/lessons' => 'class#lessons'
+  # # Get representative lessons of classes in the specific grade
+  # get '/grades/:name/lessons' => 'grade#lessons'
+  #
+  # # Get all classes of a specific grade
+  # get '/grades/:id/classes' => 'grade#classes'
+  #
+  # # Get all subjects of a specific grade
+  # get '/classes/:id/subjects' => 'class#subjects'
+  #
+  # # Get all lessons of class
+  # get '/classes/:name/lessons' => 'class#lessons'
 
   # Get the grade with specific name
   get '/grades/name/:name' => 'grade#names'

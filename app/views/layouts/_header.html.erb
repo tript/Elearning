@@ -2,14 +2,14 @@
   <div class="container">
     <%= link_to "Bài giảng E-learning", root_path, id: "logo" %>
     <nav>
-      <form class="nav navbar-nav navbar-left navbar-form" role="search">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
-          <div class="input-group-btn">
-            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+      <%= form_tag lessons_path, method: 'get', class: "nav navbar-nav navbar-left navbar-form", role: "search" do %>
+          <div class="input-group">
+            <%= text_field_tag :search, nil , class: "form-control", placeholder: "Search" %>
+            <div class="input-group-btn">
+              <%= button_tag '<i class="glyphicon glyphicon-search"></i></button>'.html_safe, class: "btn btn-default" %>
+            </div>
           </div>
-        </div>
-      </form>
+      <% end %>
     </nav>
     <nav>
       <ul class="nav navbar-nav navbar-right">

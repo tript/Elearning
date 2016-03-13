@@ -7,4 +7,16 @@ class ApplicationController < ActionController::Base
   def not_found
     render file: 'public/404.html'
   end
+
+  def redirect_back_or_default(default)
+    redirect_to(session[:return_to] || default)
+    session[:return_to] = nil
+  end
+
+  private
+
+  def store_referrer_location
+    session[:return_to] = request.referrer
+  end
+
 end

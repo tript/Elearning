@@ -3,6 +3,8 @@ class SessionsController < ApplicationController
     if logged_in?
       redirect_to root_url
     end
+
+    store_referrer_location if session[:return_to].blank?
   end
 
   def destroy
@@ -17,9 +19,9 @@ class SessionsController < ApplicationController
       log_in user
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       remember user
-      redirect_to user
+      redirect_back_or_default root_url
     else
-      flash.now[:danger] = 'Invalid email/password combination' # Not quite right!
+      flash.now[:danger] = 'Sai tên đăng nhập hoặc mật khẩu' # Not quite right!
       # Create an error message.
       render 'new'
     end

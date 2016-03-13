@@ -11,7 +11,6 @@ ready = function () {
         collapsingClass: 'collapsing',
         onTransitionStart: false,
         onTransitionEnd: false
-
     });
 
 };

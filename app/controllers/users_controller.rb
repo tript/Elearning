@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-
   def show
     @user = User.find(params[:id])
-    @lessons = @user.lessons.paginate(page: params[:page], per_page: 18)
+    @lessons = @user.lessons.paginate(page: params[:page], per_page: 15)
+
   end
 
   def new

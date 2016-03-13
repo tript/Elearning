@@ -1,0 +1,29 @@
+<% if is_admin?(current_user) %>
+    <br/>
+    <br/>
+
+    <table class="table table-bordered table-striped">
+      <thead>.
+      <tr>
+        <th>Tên</th>
+        <th>Đơn vị</th>
+        <th>Chức vụ</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @users.each do |user| %>
+          <tr>
+            <td><%= user.username %></td>
+            <td></td>
+            <td></td>
+          </tr>
+      <% end %>
+      </tbody>
+
+    </table>
+<% else %>
+    <h1>
+      Chỉ có admin mới xem được trang này
+    </h1>
+<% end %>
