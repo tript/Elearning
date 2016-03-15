@@ -63,6 +63,9 @@ gem 'impressionist'
 # use comments
 gem 'commontator'
 
+# file validators
+gem 'file_validators'
+
 group :test do
   gem "rspec-rails", "~> 2.14"
   gem "factory_girl_rails"

@@ -100,7 +100,7 @@ Tript::Application.routes.draw do
   # get '/grades/:id/classes' => 'grade#classes'
   #
   # # Get all subjects of a specific grade
-  # get '/classes/:id/subjects' => 'class#subjects'
+  get '/classes/:id/subjects' => 'class#subjects'
   #
   # # Get all lessons of class
   # get '/classes/:name/lessons' => 'class#lessons'

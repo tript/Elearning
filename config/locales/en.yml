@@ -21,3 +21,35 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+      attributes:
+        user:
+          name: "Họ và tên"
+          username: "Tên đăng nhập"
+          password: "Mật khẩu"
+        lesson:
+          name: "Tiêu đề"
+          url: "File dữ liệu"
+          class: "Lớp"
+          represent_image: "Ảnh đại diện"
+        class: "Lớp"
+      errors:
+        models:
+          user:
+            attributes:
+              name:
+                blank: "không được để trống"
+              username:
+                blank: "không được để trống"
+                taken: "đã được sử dụng"
+              password:
+                blank: "không được để trống"
+                too_short: "quá ngắn"
+          lesson:
+            attributes:
+              name:
+                blank: "không được để trống"
+              url:
+                blank: "không được để trống"
+              class:
+                blank: "không được để trống"

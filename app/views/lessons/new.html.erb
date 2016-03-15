@@ -1,33 +1,37 @@
-<% if !@lesson.errors.empty? %>
-    <div class="alert alert-error">
-      <ul>
-        <% @lesson.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-        <% end %>
-      </ul>
+<% if current_user %>
+    <% if !@lesson.errors.empty? %>
+        <div class="alert alert-error">
+          <ul>
+            <% @lesson.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
 
-    </div>
-<% end %>
-
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for @lesson, html: {multipart: true} do |f| %>
-        <%= f.label :name, "Tiêu đề" %>
-        <%= f.text_field :name %>
-
-        <%= f.label :class_id, "Lớp" %>
-        <%= f.collection_select :class_id, @classes, :id, :name, {:prompt => "Chọn lớp"}, {:class=>'upload-class'} %>
-
-        <%= f.label :subject_id, "Môn học" %>
-        <%= f.collection_select :subject_id, {}, {}, {}, {} , {:class=>'upload-subject'} %>
-
-        <%= f.label :attachment, "File dữ liệu" %>
-        <%= f.file_field :url %>
-
-        <%= f.label :represent_image, "Ảnh đại diện" %>
-        <%= f.file_field :represent_image %>
-
-        <%= f.submit "Save", class: "btn btn-primary" %>
+        </div>
     <% end %>
-  </div>
-</div>
+
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <%= form_for @lesson, html: {multipart: true} do |f| %>
+            <%= f.label :name, "Tiêu đề" %>
+            <%= f.text_field :name %>
+
+            <%= f.label :class_id, "Lớp" %>
+            <%= f.collection_select :class_id, @classes, :id, :name, {:prompt => "Chọn lớp"}, {:class => 'upload-class'} %>
+
+            <%= f.label :subject_id, "Môn học" %>
+            <%= f.collection_select :subject_id, {}, {}, {}, {}, {:class => 'upload-subject'} %>
+
+            <%= f.label :attachment, "File dữ liệu" %>
+            <%= f.file_field :url %>
+
+            <%= f.label :represent_image, "Ảnh đại diện" %>
+            <%= f.file_field :represent_image %>
+
+            <%= f.submit "Save", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+<% else %>
+    <h1> Bạn phải đăng nhập để đăng tải tài liệu</h1>
+<% end %>

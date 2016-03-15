@@ -11,8 +11,9 @@ class Lesson < ActiveRecord::Base
   has_many :comments
 
   validates :user_id, presence: true
-  validates :url, presence: true
+  validates :url, presence: true, file_size: { less_than: 150.megabytes, message: 'File dữ liệu phải nhỏ hơn %{count}' }
+  validates :represent_image, file_content_type: { allow: ['image/jpeg', 'image/png'], message: 'chỉ được sử dụng %{type}' }
   validates :name, presence: true
-  validates :class_id, presence: true
+  validates :class_id, presence: { message: 'Lớp không được bỏ trống' }
   default_scope -> { order(created_at: :desc) }
 end
