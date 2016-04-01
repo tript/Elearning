@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :lessons, dependent: :destroy
   has_many :comments
   accepts_nested_attributes_for :lessons
+  belongs_to :school
 
   attr_accessor :remember_token
 
