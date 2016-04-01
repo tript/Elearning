@@ -1,25 +1,25 @@
-class GradeController < ApplicationController
+class SchoolsController < ApplicationController
   def index
-    grade = Grade.all
+    grade = School.all
     render json: grade
   end
 
   def classes
-    grade = Grade.find(params[:id])
+    grade = School.find(params[:id])
     render json:grade.active_classes
   end
 
   def subjects
-    grade = Grade.find(params[:id])
+    grade = School.find(params[:id])
     render json:grade.subjects
   end
 
   def names
-    render json:Grade.where(name: params[:name]).take
+    render json:School.where(name: params[:name]).take
   end
 
   def lessons1
-    grade = Grade.where(name: params[:name]).take
+    grade = School.where(name: params[:name]).take
     classes = grade.active_classes
     lessons = Array.new
 
@@ -35,8 +35,8 @@ class GradeController < ApplicationController
   end
 
   def lessons
-    @grade = Grade.find(params[:id])
-    @classes = @grade.active_classes
+    school = School.find(params[:id])
+    @classes = school.active_classes
     @lessons = Array.new
 
     @classes.each do |cl|

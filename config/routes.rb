@@ -7,7 +7,7 @@ Tript::Application.routes.draw do
 
   get 'subject/lessons', to: 'subject#lessons'
 
-  get 'grade/lessons', to: 'grade#lessons'
+  get 'schools/lessons', to: 'schools#lessons'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -85,28 +85,29 @@ Tript::Application.routes.draw do
   post '/lessons/new' => 'lessons#create'
   delete 'lessons/:id' => 'lessons#destroy'
 
-  resources :grade
+  resources :schools
 
   # Get all grades
-  get '/grades' => 'grade#index'
+  get '/grades' => 'schools#index'
 
-  # Manage user
-  get '/users' => 'admin#manage_user'
-
-  # # Get representative lessons of classes in the specific grade
-  # get '/grades/:name/lessons' => 'grade#lessons'
+  # # Get representative lessons of classes in the specific schools
+  # get '/grades/:name/lessons' => 'schools#lessons'
   #
-  # # Get all classes of a specific grade
-  # get '/grades/:id/classes' => 'grade#classes'
+  # # Get all classes of a specific schools
+  # get '/grades/:id/classes' => 'schools#classes'
   #
-  # # Get all subjects of a specific grade
+  # # Get all subjects of a specific schools
   get '/classes/:id/subjects' => 'class#subjects'
   #
   # # Get all lessons of class
   # get '/classes/:name/lessons' => 'class#lessons'
 
-  # Get the grade with specific name
-  get '/grades/name/:name' => 'grade#names'
+  # Get the schools with specific name
+  get '/grades/name/:name' => 'schools#names'
+
+  # Manage user
+  get '/admin/users/edit', to: 'admin#manage_user', as: 'manage_user'
+  put '/admin/users', to: 'admin#update_users', as: 'update_user'
 
   # Api definition
   namespace :api, defaults: { format: :json }, path: '/' do

@@ -5,7 +5,7 @@
     <ul class="metismenu nav nav-pills nav-stacked" id="menu">
       <% @grades.each do |grade| %>
           <li class="inactive">
-            <%= link_to "#{grade.name}<span class=\"glyphicon arrow\"></span>".html_safe, {controller: :grade, action: 'lessons', id: grade.id}, remote: true %>
+            <%= link_to "#{grade.name}<span class=\"glyphicon arrow\"></span>".html_safe, {controller: :schools, action: 'lessons', id: grade.id}, remote: true %>
             <ul class="nav nav-pills nav-stacked" aria-expanded="false">
               <% grade.active_classes.each do |active_class| %>
                   <li class="inactive">
@@ -32,7 +32,7 @@
   <div class="col-md-9" id="content">
     <% @grade_lessons.each do |grade_lesson| %>
         <div class="row">
-          <h3> <%= link_to "#{grade_lesson.grade.name}<span class=\"glyphicon arrow\"></span>".html_safe, {controller: :grade, action: 'lessons', id: grade_lesson.grade.id}, remote: true %>
+          <h3> <%= link_to "#{grade_lesson.school.name}<span class=\"glyphicon arrow\"></span>".html_safe, {controller: :schools, action: 'lessons', id: grade_lesson.school.id}, remote: true %>
             ( <%= grade_lesson.quantity %> ) </h3>
           <% if grade_lesson.lessons.any? %>
               <div class="row">

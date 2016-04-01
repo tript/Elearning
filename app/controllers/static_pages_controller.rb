@@ -1,11 +1,11 @@
 class StaticPagesController < ApplicationController
 
   def home
-    @grades = Grade.all
+    @grades = School.all
     @grade_lessons = Array.new
     @grades.each do |grade|
-      grade_lesson = GradeLesson.new
-      grade_lesson.grade = grade
+      grade_lesson = SchoolLesson.new
+      grade_lesson.school = grade
       lessons = Array.new
       quantity = 0
       grade.active_classes.each do |active_class|
