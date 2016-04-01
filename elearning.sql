@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.10deb1
+-- version 4.1.6
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Apr 01, 2016 at 08:50 AM
--- Server version: 5.6.28-0ubuntu0.14.04.1
--- PHP Version: 5.5.9-1ubuntu4.14
+-- Host: 127.0.0.1
+-- Generation Time: Apr 01, 2016 at 12:41 PM
+-- Server version: 5.6.16
+-- PHP Version: 5.5.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -297,7 +297,7 @@ CREATE TABLE IF NOT EXISTS `commontator_comments` (
   KEY `index_commontator_comments_on_thread_id_and_created_at` (`thread_id`,`created_at`),
   KEY `index_commontator_comments_on_cached_votes_up` (`cached_votes_up`),
   KEY `index_commontator_comments_on_cached_votes_down` (`cached_votes_down`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `commontator_comments`
@@ -312,7 +312,8 @@ INSERT INTO `commontator_comments` (`id`, `creator_type`, `creator_id`, `editor_
 (6, 'User', 2, NULL, NULL, 1, 'Phạm Trọng Tri giỏi quá', NULL, 0, 0, '2016-03-11 14:18:53', '2016-03-11 14:18:53'),
 (7, 'User', 3, NULL, NULL, 1, 'Xin chào! Hello world', NULL, 0, 0, '2016-03-12 02:43:18', '2016-03-12 02:43:18'),
 (8, 'User', 3, 'User', 3, 1, 'Tôi là ai?', '2016-03-12 05:37:05', 0, 0, '2016-03-12 05:27:38', '2016-03-12 05:37:05'),
-(9, 'User', 3, 'User', 3, 1, 'được', NULL, 0, 0, '2016-03-12 05:37:18', '2016-03-12 05:37:25');
+(9, 'User', 3, 'User', 3, 1, 'được', NULL, 0, 0, '2016-03-12 05:37:18', '2016-03-12 05:37:25'),
+(10, 'User', 1, 'User', 1, 12, 'dffs', NULL, 0, 0, '2016-04-01 02:44:10', '2016-04-01 02:56:22');
 
 -- --------------------------------------------------------
 
@@ -351,7 +352,7 @@ CREATE TABLE IF NOT EXISTS `commontator_threads` (
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_commontator_threads_on_c_id_and_c_type` (`commontable_id`,`commontable_type`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 --
 -- Dumping data for table `commontator_threads`
@@ -371,7 +372,32 @@ INSERT INTO `commontator_threads` (`id`, `commontable_type`, `commontable_id`, `
 (11, 'Lesson', 16, NULL, NULL, NULL, '2016-03-12 14:47:40', '2016-03-12 14:47:40'),
 (12, 'Lesson', 17, NULL, NULL, NULL, '2016-03-12 14:47:47', '2016-03-12 14:47:47'),
 (13, 'Lesson', 3, NULL, NULL, NULL, '2016-03-15 14:24:49', '2016-03-15 14:24:49'),
-(14, 'Lesson', 5, NULL, NULL, NULL, '2016-03-27 05:22:57', '2016-03-27 05:22:57');
+(14, 'Lesson', 5, NULL, NULL, NULL, '2016-03-27 05:22:57', '2016-03-27 05:22:57'),
+(15, 'Lesson', 11, NULL, NULL, NULL, '2016-04-01 03:07:03', '2016-04-01 03:07:03');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grades`
+--
+
+DROP TABLE IF EXISTS `grades`;
+CREATE TABLE IF NOT EXISTS `grades` (
+  `id` int(11) NOT NULL,
+  `name` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `grades`
+--
+
+INSERT INTO `grades` (`id`, `name`) VALUES
+(1, 'Mầm non'),
+(2, 'Tiểu học'),
+(3, 'Trung học cơ sở'),
+(4, 'Trung học phổ thông'),
+(5, 'Phòng GD-ĐT');
 
 -- --------------------------------------------------------
 
@@ -404,7 +430,7 @@ CREATE TABLE IF NOT EXISTS `impressions` (
   KEY `controlleraction_ip_index` (`controller_name`,`action_name`,`ip_address`),
   KEY `controlleraction_session_index` (`controller_name`,`action_name`,`session_hash`),
   KEY `index_impressions_on_user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=250 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=260 ;
 
 --
 -- Dumping data for table `impressions`
@@ -660,7 +686,17 @@ INSERT INTO `impressions` (`id`, `impressionable_type`, `impressionable_id`, `us
 (246, 'Lesson', 5, 1, 'lessons', 'details', NULL, '6260ef4d511d4f63b332d102535df70a4c37fdd6c9ecee32559143996f0f1022', '127.0.0.1', 'b9acc811fb9cbe4ff6327ebc13d3e208', NULL, 'http://0.0.0.0:3000/', '2016-03-27 05:22:57', '2016-03-27 05:22:57'),
 (247, 'Lesson', 5, 1, 'lessons', 'show', NULL, '908be6e558f50b50645c385ac10c7bbfd8b6c3c5a2974cb274e74aa4a43ae2f9', '127.0.0.1', 'b9acc811fb9cbe4ff6327ebc13d3e208', NULL, 'http://0.0.0.0:3000/details/5#', '2016-03-27 05:23:32', '2016-03-27 05:23:32'),
 (248, 'Lesson', 5, 1, 'lessons', 'show', NULL, 'a96450b414f2eb41842fe5b5c1da0acf39d6351c64a0a885e667568d05db38e1', '127.0.0.1', 'b9acc811fb9cbe4ff6327ebc13d3e208', NULL, 'http://0.0.0.0:3000/details/5', '2016-03-27 05:23:32', '2016-03-27 05:23:32'),
-(249, 'Lesson', 26, 1, 'lessons', 'details', NULL, 'b165e992d57e9477432bae0457b39d5b6ba03453cfb70c49be61d3ade6966b6e', '127.0.0.1', '8ad7e7a877f8dd346be46e248362241f', NULL, 'http://0.0.0.0:3000/', '2016-03-28 10:55:36', '2016-03-28 10:55:36');
+(249, 'Lesson', 26, 1, 'lessons', 'details', NULL, 'b165e992d57e9477432bae0457b39d5b6ba03453cfb70c49be61d3ade6966b6e', '127.0.0.1', '8ad7e7a877f8dd346be46e248362241f', NULL, 'http://0.0.0.0:3000/', '2016-03-28 10:55:36', '2016-03-28 10:55:36'),
+(250, 'Lesson', 17, 1, 'lessons', 'details', NULL, 'eededbb0bcfbab2bd6d70c98416188250dca6a61e4b41c1809b8ff67a1b4fda4', '127.0.0.1', '7a5187d961843320055e4c235849ac1d', NULL, 'http://127.0.0.1:3000/', '2016-04-01 02:43:59', '2016-04-01 02:43:59'),
+(251, 'Lesson', 17, 1, 'lessons', 'details', NULL, '3303c96703e9bfa722867b6ec58e4c80fe7b6eb06e8d5a6959e7620b308a24f0', '127.0.0.1', '7a5187d961843320055e4c235849ac1d', NULL, 'http://127.0.0.1:3000/', '2016-04-01 02:44:00', '2016-04-01 02:44:00'),
+(252, 'Lesson', 17, 1, 'lessons', 'details', NULL, 'cd295788b4e558f0063d35230a3aedff6959ea9bf13b8bdbe2aff6bf579d51c7', '127.0.0.1', '7a5187d961843320055e4c235849ac1d', NULL, 'http://127.0.0.1:3000/', '2016-04-01 02:44:00', '2016-04-01 02:44:00'),
+(253, 'Lesson', 17, 1, 'lessons', 'details', NULL, '3ae9abc325d1afcf4c0ebe16dcc40b635c1d52558336da1a280a8a60fd1c26f4', '127.0.0.1', '7a5187d961843320055e4c235849ac1d', NULL, 'http://127.0.0.1:3000/', '2016-04-01 02:44:01', '2016-04-01 02:44:01'),
+(254, 'Lesson', 17, 1, 'lessons', 'details', NULL, 'abcfa04e9b40b43bffe09eee401531bb3c71fb1ffbe1543721ec8e643c890e95', '127.0.0.1', '7a5187d961843320055e4c235849ac1d', NULL, 'http://127.0.0.1:3000/', '2016-04-01 02:44:01', '2016-04-01 02:44:01'),
+(255, 'Lesson', 17, 1, 'lessons', 'details', NULL, '826e5d252e372c9eb70cbfd139f50c5ee9201c7b57fb5ba6617f2c35ae632113', '127.0.0.1', '7a5187d961843320055e4c235849ac1d', NULL, NULL, '2016-04-01 02:44:01', '2016-04-01 02:44:01'),
+(256, 'Lesson', 17, 1, 'lessons', 'show', NULL, '08fec432d07233f4ee6c6d932544516259e7ed464c082e28e4adf08d11811893', '127.0.0.1', '7a5187d961843320055e4c235849ac1d', NULL, 'http://127.0.0.1:3000/details/17', '2016-04-01 02:44:12', '2016-04-01 02:44:12'),
+(257, 'Lesson', 17, 1, 'lessons', 'details', NULL, 'b67a3828d060f7391791f5b0d51fda58262bbdb562433ed64e647d2514ec08d9', '127.0.0.1', '7a5187d961843320055e4c235849ac1d', NULL, 'http://127.0.0.1:3000/', '2016-04-01 02:57:11', '2016-04-01 02:57:11'),
+(258, 'Lesson', 17, 1, 'lessons', 'details', NULL, '37dacd871bd61959cec081628206241d61cc3d98e61d6c5baa912a560ca42a45', '127.0.0.1', '7a5187d961843320055e4c235849ac1d', NULL, 'http://127.0.0.1:3000/', '2016-04-01 02:57:15', '2016-04-01 02:57:15'),
+(259, 'Lesson', 11, 1, 'lessons', 'details', NULL, '32545e2dc092c35f314eb032d4115cef6cd92e70bf1b16a3c904e2cfe71ba411', '127.0.0.1', '7a5187d961843320055e4c235849ac1d', NULL, 'http://127.0.0.1:3000/', '2016-04-01 03:07:03', '2016-04-01 03:07:03');
 
 -- --------------------------------------------------------
 
@@ -764,20 +800,22 @@ DROP TABLE IF EXISTS `schools`;
 CREATE TABLE IF NOT EXISTS `schools` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
+  `grade_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `name_UNIQUE` (`name`)
+  UNIQUE KEY `name_UNIQUE` (`name`),
+  KEY `fk_schools_grades1_idx` (`grade_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `schools`
 --
 
-INSERT INTO `schools` (`id`, `name`) VALUES
-(1, 'Mầm non Hạ Long'),
-(2, 'Tiểu học Cát Bà'),
-(3, 'Trung học cơ sở Nguyễn Hiền'),
-(4, 'Trung học phổ thông Lí Tự Trọng'),
-(5, 'Đại học Công Nghệ');
+INSERT INTO `schools` (`id`, `name`, `grade_id`) VALUES
+(1, 'Mầm non Hạ Long', 1),
+(2, 'Tiểu học Cát Bà', 2),
+(3, 'Trung học cơ sở Nguyễn Hiền', 3),
+(4, 'Trung học phổ thông Lí Tự Trọng', 4),
+(5, 'Đại học Công Nghệ', 0);
 
 -- --------------------------------------------------------
 
@@ -826,6 +864,7 @@ DROP TABLE IF EXISTS `subjects`;
 CREATE TABLE IF NOT EXISTS `subjects` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `subject_name` varchar(45) DEFAULT NULL,
+  `slug` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `subject_name_UNIQUE` (`subject_name`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=48 ;
@@ -834,40 +873,40 @@ CREATE TABLE IF NOT EXISTS `subjects` (
 -- Dumping data for table `subjects`
 --
 
-INSERT INTO `subjects` (`id`, `subject_name`) VALUES
-(1, 'Âm nhạc'),
-(2, 'Chính tả'),
-(37, 'Công nghệ'),
-(38, 'GDCD - GDNGLL'),
-(46, 'Giải tích'),
-(43, 'Hình học'),
-(35, 'Hóa học'),
-(4, 'Học vần'),
-(5, 'Kể chuyện'),
-(22, 'Khoa học'),
-(20, 'Kĩ thuật'),
-(24, 'Lịch sử'),
-(13, 'Luyện từ và câu'),
-(6, 'Mỹ thuật'),
-(41, 'Ngoại ngữ'),
-(47, 'Ngoại ngữ khác'),
-(33, 'Ngữ văn'),
-(36, 'Sinh học'),
-(42, 'Số học'),
-(14, 'Tập làm văn'),
-(8, 'Tập viết'),
-(7, 'Tập đọc'),
-(21, 'Thể dục'),
-(9, 'Thủ công'),
-(11, 'Tiếng Anh'),
-(19, 'Tin học'),
-(10, 'Toán học'),
-(12, 'Tự nhiên xã hội'),
-(34, 'Vật lí'),
-(44, 'Đại số'),
-(45, 'Đại số và giải tích'),
-(3, 'Đạo đức'),
-(23, 'Địa lí');
+INSERT INTO `subjects` (`id`, `subject_name`, `slug`) VALUES
+(1, NULL, NULL),
+(2, NULL, NULL),
+(3, NULL, NULL),
+(4, NULL, NULL),
+(5, NULL, NULL),
+(6, NULL, NULL),
+(7, NULL, NULL),
+(8, NULL, NULL),
+(9, NULL, NULL),
+(10, NULL, NULL),
+(11, NULL, NULL),
+(12, NULL, NULL),
+(13, NULL, NULL),
+(14, NULL, NULL),
+(19, NULL, NULL),
+(20, NULL, NULL),
+(21, NULL, NULL),
+(22, NULL, NULL),
+(23, NULL, NULL),
+(24, NULL, NULL),
+(33, NULL, NULL),
+(34, NULL, NULL),
+(35, NULL, NULL),
+(36, NULL, NULL),
+(37, NULL, NULL),
+(38, NULL, NULL),
+(41, NULL, NULL),
+(42, NULL, NULL),
+(43, NULL, NULL),
+(44, NULL, NULL),
+(45, NULL, NULL),
+(46, NULL, NULL),
+(47, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -896,9 +935,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password_digest`, `remember_digest`, `name`, `email`, `workplace`, `school_id`) VALUES
-(1, 'admin', '$2a$10$tE8n/9ecNRb6GVi2EYaOZ.NSllQtX5XNcnH0eJAvgifgTt9P8LDj.', '$2a$10$v/nG2y5T92mI7/51ZfR3mOwvmz/N7JJgtY.N5x6RHuT7weAkLQa5C', 'Phạm Trọng Tri', 'trongtri160592@yahoo.com', NULL, NULL),
-(2, 'tranvana', '$2a$10$UxNxsGSFA6KgfpCLpgZZeeN5Gis1cWdpEze6qYAbXawslNkwClw5u', '$2a$10$8EJhW0OzIVjkPoclpr2YiOXZ.d2jVULtIwI5h.wA7iHNise1r4rJa', 'Trần Văn A', 'trong@fdso.vcom', NULL, NULL),
-(3, 'nguyenthia', '$2a$10$Xr8dLHSsj3Ce/yOE0PlU7OKOUXYXiSSIlrwY8IkPLvy2Z7MUfP5pK', NULL, 'Nguyễn Thị A', 'dls@gmail.com', NULL, NULL);
+(1, 'admin', '$2a$10$tE8n/9ecNRb6GVi2EYaOZ.NSllQtX5XNcnH0eJAvgifgTt9P8LDj.', '$2a$10$v/nG2y5T92mI7/51ZfR3mOwvmz/N7JJgtY.N5x6RHuT7weAkLQa5C', 'Phạm Trọng Tri', 'trongtri160592@yahoo.com', NULL, 1),
+(2, 'tranvana', '$2a$10$UxNxsGSFA6KgfpCLpgZZeeN5Gis1cWdpEze6qYAbXawslNkwClw5u', '$2a$10$8EJhW0OzIVjkPoclpr2YiOXZ.d2jVULtIwI5h.wA7iHNise1r4rJa', 'Trần Văn A', 'trong@fdso.vcom', NULL, 2),
+(3, 'nguyenthia', '$2a$10$Xr8dLHSsj3Ce/yOE0PlU7OKOUXYXiSSIlrwY8IkPLvy2Z7MUfP5pK', NULL, 'Nguyễn Thị A', 'dls@gmail.com', NULL, 2);
 
 -- --------------------------------------------------------
 
@@ -941,6 +980,12 @@ ALTER TABLE `lessons`
   ADD CONSTRAINT `fk_lessons_schools1` FOREIGN KEY (`school_id`) REFERENCES `schools` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_lessons_subjects1` FOREIGN KEY (`subject_id`) REFERENCES `subjects` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_lessons_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `schools`
+--
+ALTER TABLE `schools`
+  ADD CONSTRAINT `fk_schools_grades1` FOREIGN KEY (`grade_id`) REFERENCES `grades` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `school_has_classes`
