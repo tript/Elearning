@@ -1,6 +1,7 @@
 class StaticPagesController < ApplicationController
 
   def home
+    @type = Type.all
     @grades = School.all
     @grade_lessons = Array.new
     @grades.each do |grade|
@@ -15,6 +16,21 @@ class StaticPagesController < ApplicationController
       grade_lesson.quantity = quantity
       grade_lesson.lessons = lessons.take(5)
       @grade_lessons.push(grade_lesson)
+    end
+
+    if current_user
+      @school = current_user.school
+      @classes = @school.active_classes
+      @class_lessons = Array.new
+      @classes.each do |active_class|
+        class_lesson = ClassLesson.new
+        class_lesson.class = active_class
+        quantity = Lesson.joins(:user).where(users: {school_id: @school.id}, class_id: active_class.id).size
+        lessons = Lesson.joins(:user).where(users: {school_id: @school.id}, class_id: active_class.id).limit(10)
+        class_lesson.quantity = quantity
+        class_lesson.lessons = lessons
+        @class_lessons.push(class_lesson)
+      end
     end
   end
 

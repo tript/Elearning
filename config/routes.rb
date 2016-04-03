@@ -9,6 +9,8 @@ Tript::Application.routes.draw do
 
   get 'schools/lessons', to: 'schools#lessons'
 
+  get 'type/lessons', to: 'type#lessons'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

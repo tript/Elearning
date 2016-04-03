@@ -1,6 +1,10 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
-    <%= link_to "Bài giảng E-learning", root_path, id: "logo" %>
+    <% if !current_user %>
+        <%= link_to "Bài giảng E-learning", root_path, id: "logo" %>
+    <% else %>
+        <%= link_to "#{@current_user.school.name}", root_path, id: "logo" %>
+    <% end %>
     <nav>
       <%= form_tag lessons_path, method: 'get', class: "nav navbar-nav navbar-left navbar-form", role: "search" do %>
           <div class="input-group">

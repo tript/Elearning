@@ -1,60 +1,118 @@
-<% provide(:title, "Home") %>
+<% if !@current_user || !@school %>
+    <% provide(:title, "Trang chủ") %>
+    <div class="row">
+      <div class="col-md-3">
+        <ul class="metismenu nav nav-pills nav-stacked" id="menu">
+          <% @grades.each do |grade| %>
+              <li class="inactive">
+                <%= link_to "#{grade.name}<span class=\"glyphicon arrow\"></span>".html_safe, {controller: :schools, action: 'lessons', id: grade.id}, remote: true %>
+                <ul class="nav nav-pills nav-stacked" aria-expanded="false">
+                  <% grade.active_classes.each do |active_class| %>
+                      <li class="inactive">
+                        <% subjects = active_class.subjects %>
+                        <% if subjects.any? %>
+                            <%= link_to "#{active_class.name}<span class=\"glyphicon arrow\"></span>".html_safe, {controller: :class, action: 'lessons', id: active_class.id}, remote: true %>
+                            <ul class="nav nav-pills nav-stacked" aria-expanded="false">
+                              <% subjects.each do |subject| %>
+                                  <li class="inactive">
+                                    <%= link_to "#{subject.subject_name}", {controller: :subject, action: 'lessons', class_id: active_class.id, subject_id: subject.id}, remote: true %>
+                                  </li>
+                              <% end %>
+                            </ul>
+                        <% else %>
+                            <%= link_to "#{active_class.name}", {controller: :class, action: 'lessons', id: active_class.id}, remote: true %>
+                        <% end %>
+                      </li>
+                  <% end %>
+                </ul>
+              </li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="col-md-9" id="content">
+        <% @grade_lessons.each do |grade_lesson| %>
+            <div class="row">
+              <h3> <%= link_to "#{grade_lesson.school.name}<span class=\"glyphicon arrow\"></span>".html_safe, {controller: :schools, action: 'lessons', id: grade_lesson.school.id}, remote: true %>
+                ( <%= grade_lesson.quantity %> ) </h3>
+              <% if grade_lesson.lessons.any? %>
+                  <div class="row">
+                    <% grade_lesson.lessons.each do |lesson| %>
 
-<div class="row">
-  <div class="col-md-3">
-    <ul class="metismenu nav nav-pills nav-stacked" id="menu">
-      <% @grades.each do |grade| %>
-          <li class="inactive">
-            <%= link_to "#{grade.name}<span class=\"glyphicon arrow\"></span>".html_safe, {controller: :schools, action: 'lessons', id: grade.id}, remote: true %>
-            <ul class="nav nav-pills nav-stacked" aria-expanded="false">
-              <% grade.active_classes.each do |active_class| %>
-                  <li class="inactive">
-                    <% subjects = active_class.subjects %>
-                    <% if subjects.any? %>
-                        <%= link_to "#{active_class.name}<span class=\"glyphicon arrow\"></span>".html_safe, {controller: :class, action: 'lessons', id: active_class.id}, remote: true %>
-                        <ul class="nav nav-pills nav-stacked" aria-expanded="false">
-                          <% subjects.each do |subject| %>
-                              <li class="inactive">
-                                <%= link_to "#{subject.subject_name}", {controller: :subject, action: 'lessons', class_id: active_class.id, subject_id: subject.id}, remote: true %>
-                              </li>
-                          <% end %>
-                        </ul>
-                    <% else %>
-                        <%= link_to "#{active_class.name}", {controller: :class, action: 'lessons', id: 3}, remote: true %>
-                    <% end %>
-                  </li>
-              <% end %>
-            </ul>
-          </li>
-      <% end %>
-    </ul>
-  </div>
-  <div class="col-md-9" id="content">
-    <% @grade_lessons.each do |grade_lesson| %>
-        <div class="row">
-          <h3> <%= link_to "#{grade_lesson.school.name}<span class=\"glyphicon arrow\"></span>".html_safe, {controller: :schools, action: 'lessons', id: grade_lesson.school.id}, remote: true %>
-            ( <%= grade_lesson.quantity %> ) </h3>
-          <% if grade_lesson.lessons.any? %>
-              <div class="row">
-                <% grade_lesson.lessons.each do |lesson| %>
-
-                    <div class="col-md-2 portfolio-item lessons" id="lesson-<%= lesson.id %>">
+                        <div class="col-md-2 portfolio-item lessons" id="lesson-<%= lesson.id %>">
                       <span class="lesson-image">
                             <%= link_to image_tag(lesson.represent_image.url(:thumb)), {controller: :lessons, action: 'details', id: lesson.id}, alt: lesson.name %>
                       </span>
-                      <!--<span class="timestamp">-->
-                      <!--Uploaded <%= time_ago_in_words(lesson.created_at) %> ago.-->
-                      <!--</span>-->
+                          <!--<span class="timestamp">-->
+                          <!--Uploaded <%= time_ago_in_words(lesson.created_at) %> ago.-->
+                          <!--</span>-->
                       <span class="lesson-name">
                         <%= lesson.name %>
                       </span>
-                    </div>
-                <% end %>
-              </div>
-          <% else %>
-              <h3 class="no-lesson-info"> Không có bài giảng nào</h3>
+                        </div>
+                    <% end %>
+                  </div>
+              <% else %>
+                  <h3 class="no-lesson-info"> Không có bài giảng nào</h3>
+              <% end %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+<% else %>
+    <% provide(:title, "#{@school.name}") %>
+    <div class="row">
+      <div class="col-md-3">
+        <ul class="metismenu nav nav-pills nav-stacked" id="menu">
+          <% @type.each do |type| %>
+              <li class = "inactive">
+                <%= link_to "#{type.name}<span class=\"glyphicon arrow\"></span>".html_safe, {controller: :type, action: 'lessons', type_id: type.id, school_id: @school.id}, remote: true %>
+                <ul class="nav nav-pills nav-stacked" aria-expanded="false">
+                  <% @classes.each do |active_class| %>
+                      <li class="inactive">
+                        <% subjects = active_class.subjects %>
+                        <% if subjects.any? %>
+                            <%= link_to "#{active_class.name}<span class=\"glyphicon arrow\"></span>".html_safe, {controller: :class, action: 'lessons', id: active_class.id, school_id: @school.id, type_id: type.id}, remote: true %>
+                            <ul class="nav nav-pills nav-stacked" aria-expanded="false">
+                              <% subjects.each do |subject| %>
+                                  <li class="inactive">
+                                    <%= link_to "#{subject.subject_name}", {controller: :subject, action: 'lessons', class_id: active_class.id, subject_id: subject.id, school_id: @school.id, type_id: type.id}, remote: true %>
+                                  </li>
+                              <% end %>
+                            </ul>
+                        <% else %>
+                            <%= link_to "#{active_class.name}", {controller: :class, action: 'lessons', id: active_class.id, school_id: @school.id, type_id: type.id}, remote: true %>
+                        <% end %>
+                      </li>
+                  <% end %>
+                </ul>
+              </li>
           <% end %>
-        </div>
-    <% end %>
-  </div>
-</div>
+
+        </ul>
+      </div>
+      <div class="col-md-9" id="content">
+        <% @class_lessons.each do |class_lesson| %>
+            <div class="row">
+              <h3> <%= link_to "#{class_lesson.class.name}<span class=\"glyphicon arrow\"></span>".html_safe, {controller: :class, action: 'lessons', id: class_lesson.class.id, school_id: @school.id}, remote: true %>
+                ( <%= class_lesson.quantity %> ) </h3>
+              <% if class_lesson.lessons.any? %>
+                  <div class="row">
+                    <% class_lesson.lessons.each do |lesson| %>
+                        <div class="col-md-2 portfolio-item lessons" id="lesson-<%= lesson.id %>">
+                      <span class="lesson-image">
+                            <%= link_to image_tag(lesson.represent_image.url(:thumb)), {controller: :lessons, action: 'details', id: lesson.id}, alt: lesson.name %>
+                      </span>
+                      <span class="lesson-name">
+                        <%= lesson.name %>
+                      </span>
+                        </div>
+                    <% end %>
+                  </div>
+              <% else %>
+                  <h3 class="no-lesson-info"> Không có bài giảng nào</h3>
+              <% end %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+<% end %>
