@@ -9,6 +9,7 @@ class LessonsController < ApplicationController
   def new
     @lesson = Lesson.new
     @classes = ActiveClass.all
+    @types = Type.all
   end
 
   def get_content
@@ -19,7 +20,7 @@ class LessonsController < ApplicationController
     @lesson = Lesson.new(lesson_params)
     @lesson.user = current_user
 
-    if @lesson.save
+    if @lesson.save && params[:type_id] == 1
       id = @lesson.id
       Zip::File.open(@lesson.url.file.path) do |zipfile|
         zipfile.each do |file|
@@ -68,7 +69,7 @@ class LessonsController < ApplicationController
   
   private
   def lesson_params
-    params.require(:lesson).permit(:name, :url, :subject_id, :class_id, :represent_image)
+    params.require(:lesson).permit(:name, :url, :subject_id, :class_id, :represent_image, :type_id)
   end
 
 end

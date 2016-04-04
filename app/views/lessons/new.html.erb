@@ -22,6 +22,9 @@
             <%= f.label :subject_id, "Môn học" %>
             <%= f.collection_select :subject_id, {}, {}, {}, {}, {:class => 'upload-subject'} %>
 
+            <%= f.label :type_id, "Loại tài liệu" %>
+            <%= f.collection_select :type_id, @types, :id, :name %>
+
             <%= f.label :attachment, "File dữ liệu" %>
             <%= f.file_field :url %>
 
