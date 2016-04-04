@@ -1,0 +1,29 @@
+<% if is_admin?(current_user) %>
+    <br/>
+    <br/>
+    <%= form_for :user, :url => update_all_path, :html => {:method => :put} do %>
+        <table class="table table-bordered table-striped">
+          <tr>
+            <th>H? và tên</th>
+            <th>Last Name</th>
+            <th>E-Mail</th>
+          </tr>
+          <% @users.each do |user| %>
+              <%= fields_for "user[]", user do |user_fields| %>
+                  <tr>
+                    <td><%= user_fields.text_field :name %></td>
+                    <td><%= user_fields.email_field :email %></td>
+                  </tr>
+              <% end %>
+          <% end %>
+        </table>
+
+        <div class="actions">
+          <%= submit_tag %>
+        </div>
+    <% end %>
+<% else %>
+    <h1>
+      Ch? có admin m?i xem ???c trang này
+    </h1>
+<% end %>

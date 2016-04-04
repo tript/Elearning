@@ -49,6 +49,6 @@ class UrlUploader < CarrierWave::Uploader::Base
   # end
 
   def extension_white_list
-    %w(zip)
+    %w(zip doc docx ppt pptx)
   end
 end
