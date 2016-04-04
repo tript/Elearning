@@ -27,7 +27,7 @@ class UsersController < ApplicationController
   def update_all
     params['user'].keys.each do |id|
       @user = User.find(id.to_i)
-      if !@user.update_columns(params['user'][id].permit(:user, :name, :email))
+      if !@user.update_columns(params['user'][id].permit(:user, :name, :email, :school_id))
         Rails.logger.info(@user.errors.messages.inspect)
         flash[:success] = Rails.logger.info(@user.errors.messages.inspect)
       end

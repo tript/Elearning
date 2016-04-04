@@ -1,29 +1,33 @@
 <% if is_admin?(current_user) %>
     <br/>
     <br/>
+    <div class="table-responsive">
     <%= form_for :user, :url => update_all_path, :html => {:method => :put} do %>
-        <table class="table table-bordered table-striped">
+        <table class="table table-hover table-striped">
           <tr>
-            <th>H? v� t�n</th>
-            <th>Last Name</th>
-            <th>E-Mail</th>
+            <th class="col-md-1">Họ và tên</th>
+            <th class="col-md-3">E-Mail</th>
+            <th class="col-md-3">Trường</th>
           </tr>
+          <% schools = School.all %>
           <% @users.each do |user| %>
               <%= fields_for "user[]", user do |user_fields| %>
                   <tr>
                     <td><%= user_fields.text_field :name %></td>
                     <td><%= user_fields.email_field :email %></td>
+                    <td><%= user_fields.collection_select :school_id, schools, :id, :name%></td>
                   </tr>
               <% end %>
           <% end %>
         </table>
 
         <div class="actions">
-          <%= submit_tag %>
+          <%= submit_tag "Lưu lại",class: "btn btn-primary btn-md"%>
         </div>
     <% end %>
+    </div>
 <% else %>
     <h1>
-      Ch? c� admin m?i xem ???c trang n�y
+        Chỉ có admin mới xem được trang này
     </h1>
 <% end %>
