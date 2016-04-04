@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.6
+-- version 4.0.10deb1
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 01, 2016 at 12:41 PM
--- Server version: 5.6.16
--- PHP Version: 5.5.9
+-- Host: localhost
+-- Generation Time: Apr 04, 2016 at 08:25 AM
+-- Server version: 5.6.28-0ubuntu0.14.04.1
+-- PHP Version: 5.5.9-1ubuntu4.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -397,7 +397,8 @@ INSERT INTO `grades` (`id`, `name`) VALUES
 (2, 'Tiểu học'),
 (3, 'Trung học cơ sở'),
 (4, 'Trung học phổ thông'),
-(5, 'Phòng GD-ĐT');
+(5, 'Phòng GD-ĐT'),
+(6, 'Khác');
 
 -- --------------------------------------------------------
 
@@ -430,7 +431,7 @@ CREATE TABLE IF NOT EXISTS `impressions` (
   KEY `controlleraction_ip_index` (`controller_name`,`action_name`,`ip_address`),
   KEY `controlleraction_session_index` (`controller_name`,`action_name`,`session_hash`),
   KEY `index_impressions_on_user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=260 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=267 ;
 
 --
 -- Dumping data for table `impressions`
@@ -696,7 +697,14 @@ INSERT INTO `impressions` (`id`, `impressionable_type`, `impressionable_id`, `us
 (256, 'Lesson', 17, 1, 'lessons', 'show', NULL, '08fec432d07233f4ee6c6d932544516259e7ed464c082e28e4adf08d11811893', '127.0.0.1', '7a5187d961843320055e4c235849ac1d', NULL, 'http://127.0.0.1:3000/details/17', '2016-04-01 02:44:12', '2016-04-01 02:44:12'),
 (257, 'Lesson', 17, 1, 'lessons', 'details', NULL, 'b67a3828d060f7391791f5b0d51fda58262bbdb562433ed64e647d2514ec08d9', '127.0.0.1', '7a5187d961843320055e4c235849ac1d', NULL, 'http://127.0.0.1:3000/', '2016-04-01 02:57:11', '2016-04-01 02:57:11'),
 (258, 'Lesson', 17, 1, 'lessons', 'details', NULL, '37dacd871bd61959cec081628206241d61cc3d98e61d6c5baa912a560ca42a45', '127.0.0.1', '7a5187d961843320055e4c235849ac1d', NULL, 'http://127.0.0.1:3000/', '2016-04-01 02:57:15', '2016-04-01 02:57:15'),
-(259, 'Lesson', 11, 1, 'lessons', 'details', NULL, '32545e2dc092c35f314eb032d4115cef6cd92e70bf1b16a3c904e2cfe71ba411', '127.0.0.1', '7a5187d961843320055e4c235849ac1d', NULL, 'http://127.0.0.1:3000/', '2016-04-01 03:07:03', '2016-04-01 03:07:03');
+(259, 'Lesson', 11, 1, 'lessons', 'details', NULL, '32545e2dc092c35f314eb032d4115cef6cd92e70bf1b16a3c904e2cfe71ba411', '127.0.0.1', '7a5187d961843320055e4c235849ac1d', NULL, 'http://127.0.0.1:3000/', '2016-04-01 03:07:03', '2016-04-01 03:07:03'),
+(260, 'Lesson', 25, 1, 'lessons', 'show', NULL, 'c108554729f3b3b18e4255fc56e5330de970fce64e4b87ecdbdf4398aa1e82f2', '192.168.1.9', '436005d872c08c1303d0a99e038b612f', NULL, 'http://192.168.1.146:8080/', '2016-04-03 13:10:50', '2016-04-03 13:10:50'),
+(261, 'Lesson', 25, 1, 'lessons', 'show', NULL, '4e0940445d1ceb5980afc29677aadd1fb59e34300705d103cc36d8b5568a7ac3', '192.168.1.9', '436005d872c08c1303d0a99e038b612f', NULL, 'http://192.168.1.146:8080/', '2016-04-03 13:10:50', '2016-04-03 13:10:50'),
+(262, 'Lesson', 17, 1, 'lessons', 'details', NULL, 'ffc9065d4acd154d5850ffab6476265b3b52f63b4eba9de2e019a008912312d2', '192.168.1.9', '436005d872c08c1303d0a99e038b612f', NULL, 'http://192.168.1.146:8080/', '2016-04-03 13:10:59', '2016-04-03 13:10:59'),
+(263, 'Lesson', 24, 1, 'lessons', 'show', NULL, 'dc0021991dab2666f76effb10b9058caaeca146e1730d7501d62d1c088e48424', '192.168.1.9', '436005d872c08c1303d0a99e038b612f', NULL, 'http://192.168.1.146:8080/', '2016-04-03 13:11:03', '2016-04-03 13:11:03'),
+(264, 'Lesson', 24, 1, 'lessons', 'show', NULL, '23984502fede3eb124ed73b5ff5dfa5a06d73ca75e1dc48e64c54b8e6d020482', '192.168.1.9', '436005d872c08c1303d0a99e038b612f', NULL, 'http://192.168.1.146:8080/', '2016-04-03 13:11:04', '2016-04-03 13:11:04'),
+(265, 'Lesson', 17, 1, 'lessons', 'details', NULL, '0a4ffa7630cf02256a77849e5c6582c2cae39a0f2e85cf7c9e6a3026be6be1e5', '192.168.1.9', '436005d872c08c1303d0a99e038b612f', NULL, 'http://192.168.1.146:8080/', '2016-04-03 13:11:23', '2016-04-03 13:11:23'),
+(266, 'Lesson', 25, 1, 'lessons', 'details', NULL, 'ae995904038ca79b79e73e11bbe91e90fc8a9c240234473d7117b54a7623b59d', '192.168.1.9', '436005d872c08c1303d0a99e038b612f', NULL, 'http://192.168.1.146:8080/', '2016-04-03 13:11:45', '2016-04-03 13:11:45');
 
 -- --------------------------------------------------------
 
@@ -718,44 +726,46 @@ CREATE TABLE IF NOT EXISTS `lessons` (
   `represent_image` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
   `school_id` int(11) DEFAULT NULL,
   `schools_id` int(11) NOT NULL,
+  `type_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_lessons_classes1_idx` (`class_id`),
   KEY `fk_lessons_users1_idx` (`user_id`),
   KEY `fk_lessons_subjects1_idx` (`subject_id`),
   KEY `fk_lessons_schools1_idx` (`schools_id`),
-  KEY `fk_lessons_schools1` (`school_id`)
+  KEY `fk_lessons_schools1` (`school_id`),
+  KEY `fk_lessons_types1_idx` (`type_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=27 ;
 
 --
 -- Dumping data for table `lessons`
 --
 
-INSERT INTO `lessons` (`id`, `name`, `url`, `created_at`, `approved`, `type`, `class_id`, `user_id`, `subject_id`, `represent_image`, `school_id`, `schools_id`) VALUES
-(1, 'Bài giảng âm nhạc lớp 6 tiết 1', 'AmNhacLop6-HaNoi.zip', '2016-03-02 13:12:39', 0, NULL, 11, 1, 1, NULL, NULL, 0),
-(2, 'Thủ lĩnh da đỏ', 'BucThuCuaThuLinhDaDo.zip', '2016-03-05 16:45:41', 0, NULL, 12, 1, 33, NULL, NULL, 0),
-(3, 'Phối hợp thức ăn', 'PhoiHopThucAn.zip', '2016-03-05 16:50:17', 0, NULL, 11, 1, 36, NULL, NULL, 0),
-(4, 'Bức thư của thủ lĩnh da đỏ', 'BucThuCuaThuLinhDaDo.zip', '2016-03-06 04:00:17', 0, NULL, 13, 1, 33, '', NULL, 0),
-(5, 'Phối hợp thức ăn nhanh', 'PhoiHopThucAn.zip', '2016-03-06 04:05:04', 0, NULL, 12, 1, 37, NULL, NULL, 0),
-(6, 'Bức thư của thủ lĩnh da đỏ', 'BucThuCuaThuLinhDaDo.zip', '2016-03-06 06:29:10', 0, NULL, 15, 1, 33, '', NULL, 0),
-(7, 'Bức thư của thủ lĩnh da đỏ', 'BucThuCuaThuLinhDaDo.zip', '2016-03-06 06:34:03', 0, NULL, 15, 1, 33, '', NULL, 0),
-(8, 'Bai giang ngu van', 'BucThuCuaThuLinhDaDo.zip', '2016-03-06 12:07:56', 0, NULL, 15, 1, 33, '', NULL, 0),
-(9, 'Tap viet', 'PhoiHopThucAn.zip', '2016-03-06 12:34:30', 0, NULL, 6, 1, 8, '', NULL, 0),
-(10, 'Bai giang moi upload', 'PhoiHopThucAn.zip', '2016-03-07 16:19:20', 0, NULL, 14, 1, 19, NULL, NULL, 0),
-(11, 'Bai giang moi upload', 'PhoiHopThucAn.zip', '2016-03-07 16:22:53', 0, NULL, 11, 1, 11, NULL, NULL, 0),
-(12, 'Tap viet', 'PhoiHopThucAn.zip', '2016-03-07 16:24:43', 0, NULL, 16, 1, 35, NULL, NULL, 0),
-(13, 'Bai giang moi upload', 'PhoiHopThucAn.zip', '2016-03-07 16:25:49', 0, NULL, 7, 1, 8, NULL, NULL, 0),
-(14, 'Tap viet', 'PhoiHopThucAn.zip', '2016-03-07 16:31:17', 0, NULL, 5, 1, NULL, NULL, NULL, 0),
-(15, 'Bai giang ngu van', 'PhoiHopThucAn.zip', '2016-03-07 16:36:18', 0, NULL, 8, 1, 1, '', NULL, 0),
-(16, 'Bai giang ngu van', 'PhoiHopThucAn.zip', '2016-03-07 16:40:09', 0, NULL, 4, 1, NULL, '', NULL, 0),
-(17, 'Bai giang ngu van', 'PhoiHopThucAn.zip', '2016-03-07 16:41:57', 0, NULL, 4, 1, NULL, '', NULL, 0),
-(19, 'dsfsa', 'PhoiHopThucAn.zip', '2016-03-07 16:46:28', 0, NULL, 7, 1, 1, '', NULL, 0),
-(20, 'Bai giang ngu van', 'PhoiHopThucAn.zip', '2016-03-07 16:49:40', 0, NULL, 8, 1, 7, '', NULL, 0),
-(21, 'Bai giang ngu van', 'PhoiHopThucAn.zip', '2016-03-07 16:54:36', 0, NULL, 6, 1, 6, '02023dea-2e2c-4cfe-943a-84544c8b36c7.jpg', NULL, 0),
-(22, 'Tap viet', 'PhoiHopThucAn.zip', '2016-03-07 17:00:54', 0, NULL, 6, 1, 1, NULL, NULL, 0),
-(23, 'Bai giang moi upload', 'PhoiHopThucAn.zip', '2016-03-07 17:03:27', 0, NULL, 5, 1, NULL, NULL, NULL, 0),
-(24, 'Tap viet', 'PhoiHopThucAn.zip', '2016-03-07 17:03:59', 0, NULL, 6, 1, 1, 'b9ae53b9-6b28-46a7-b148-f764c61dfb61.jpg', NULL, 0),
-(25, 'ddfs', 'PhoiHopThucAn.zip', '2016-03-07 17:04:15', 0, NULL, 9, 1, 1, '712a7634-e0cd-4c23-a39e-13805c49e704.jpg', NULL, 0),
-(26, 'Test thôi', 'BucThuCuaThuLinhDaDo.zip', '2016-03-12 06:14:43', 0, NULL, 16, 3, 24, 'fdaef1df-cb16-4351-b974-4f5fb70df206.jpg', NULL, 0);
+INSERT INTO `lessons` (`id`, `name`, `url`, `created_at`, `approved`, `type`, `class_id`, `user_id`, `subject_id`, `represent_image`, `school_id`, `schools_id`, `type_id`) VALUES
+(1, 'Bài giảng âm nhạc lớp 6 tiết 1', 'AmNhacLop6-HaNoi.zip', '2016-03-02 13:12:39', 0, NULL, 11, 1, 1, NULL, 1, 0, 1),
+(2, 'Thủ lĩnh da đỏ', 'BucThuCuaThuLinhDaDo.zip', '2016-03-05 16:45:41', 0, NULL, 12, 1, 33, NULL, 1, 0, 1),
+(3, 'Phối hợp thức ăn', 'PhoiHopThucAn.zip', '2016-03-05 16:50:17', 0, NULL, 11, 1, 36, NULL, 1, 0, 1),
+(4, 'Bức thư của thủ lĩnh da đỏ', 'BucThuCuaThuLinhDaDo.zip', '2016-03-06 04:00:17', 0, NULL, 13, 1, 33, '', 1, 0, 1),
+(5, 'Phối hợp thức ăn nhanh', 'PhoiHopThucAn.zip', '2016-03-06 04:05:04', 0, NULL, 12, 1, 37, NULL, 1, 0, 1),
+(6, 'Bức thư của thủ lĩnh da đỏ', 'BucThuCuaThuLinhDaDo.zip', '2016-03-06 06:29:10', 0, NULL, 15, 1, 33, '', 1, 0, 1),
+(7, 'Bức thư của thủ lĩnh da đỏ', 'BucThuCuaThuLinhDaDo.zip', '2016-03-06 06:34:03', 0, NULL, 15, 1, 33, '', 1, 0, 1),
+(8, 'Bai giang ngu van', 'BucThuCuaThuLinhDaDo.zip', '2016-03-06 12:07:56', 0, NULL, 15, 1, 33, '', 1, 0, 1),
+(9, 'Tap viet', 'PhoiHopThucAn.zip', '2016-03-06 12:34:30', 0, NULL, 6, 1, 8, '', 1, 0, 1),
+(10, 'Bai giang moi upload', 'PhoiHopThucAn.zip', '2016-03-07 16:19:20', 0, NULL, 14, 1, 19, NULL, 1, 0, 1),
+(11, 'Bai giang moi upload', 'PhoiHopThucAn.zip', '2016-03-07 16:22:53', 0, NULL, 11, 1, 11, NULL, 1, 0, 1),
+(12, 'Tap viet', 'PhoiHopThucAn.zip', '2016-03-07 16:24:43', 0, NULL, 16, 1, 35, NULL, 1, 0, 1),
+(13, 'Bai giang moi upload', 'PhoiHopThucAn.zip', '2016-03-07 16:25:49', 0, NULL, 7, 1, 8, NULL, 1, 0, 1),
+(14, 'Tap viet', 'PhoiHopThucAn.zip', '2016-03-07 16:31:17', 0, NULL, 5, 1, NULL, NULL, 1, 0, 1),
+(15, 'Bai giang ngu van', 'PhoiHopThucAn.zip', '2016-03-07 16:36:18', 0, NULL, 8, 1, 1, '', 1, 0, 1),
+(16, 'Bai giang ngu van', 'PhoiHopThucAn.zip', '2016-03-07 16:40:09', 0, NULL, 4, 1, NULL, '', 1, 0, 1),
+(17, 'Bai giang ngu van', 'PhoiHopThucAn.zip', '2016-03-07 16:41:57', 0, NULL, 4, 1, NULL, '', 1, 0, 1),
+(19, 'dsfsa', 'PhoiHopThucAn.zip', '2016-03-07 16:46:28', 0, NULL, 7, 1, 1, '', 1, 0, 1),
+(20, 'Bai giang ngu van', 'PhoiHopThucAn.zip', '2016-03-07 16:49:40', 0, NULL, 8, 1, 7, '', 1, 0, 1),
+(21, 'Bai giang ngu van', 'PhoiHopThucAn.zip', '2016-03-07 16:54:36', 0, NULL, 6, 1, 6, '02023dea-2e2c-4cfe-943a-84544c8b36c7.jpg', 1, 0, 1),
+(22, 'Tap viet', 'PhoiHopThucAn.zip', '2016-03-07 17:00:54', 0, NULL, 6, 1, 1, NULL, 1, 0, 1),
+(23, 'Bai giang moi upload', 'PhoiHopThucAn.zip', '2016-03-07 17:03:27', 0, NULL, 5, 1, NULL, NULL, 1, 0, 1),
+(24, 'Tap viet', 'PhoiHopThucAn.zip', '2016-03-07 17:03:59', 0, NULL, 6, 1, 1, 'b9ae53b9-6b28-46a7-b148-f764c61dfb61.jpg', 1, 0, 1),
+(25, 'ddfs', 'PhoiHopThucAn.zip', '2016-03-07 17:04:15', 0, NULL, 9, 1, 1, '712a7634-e0cd-4c23-a39e-13805c49e704.jpg', 1, 0, 1),
+(26, 'Test thôi', 'BucThuCuaThuLinhDaDo.zip', '2016-03-12 06:14:43', 0, NULL, 16, 3, 24, 'fdaef1df-cb16-4351-b974-4f5fb70df206.jpg', 1, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -815,7 +825,7 @@ INSERT INTO `schools` (`id`, `name`, `grade_id`) VALUES
 (2, 'Tiểu học Cát Bà', 2),
 (3, 'Trung học cơ sở Nguyễn Hiền', 3),
 (4, 'Trung học phổ thông Lí Tự Trọng', 4),
-(5, 'Đại học Công Nghệ', 0);
+(5, 'Đại học Công Nghệ', 6);
 
 -- --------------------------------------------------------
 
@@ -911,6 +921,29 @@ INSERT INTO `subjects` (`id`, `subject_name`, `slug`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `types`
+--
+
+DROP TABLE IF EXISTS `types`;
+CREATE TABLE IF NOT EXISTS `types` (
+  `id` int(11) NOT NULL,
+  `name` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `types`
+--
+
+INSERT INTO `types` (`id`, `name`) VALUES
+(1, 'Bài giảng elearning'),
+(2, 'Bài giảng powerpoint'),
+(3, 'Giáo án lên lớp'),
+(4, 'Tài liệu giảng dạy');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -935,7 +968,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password_digest`, `remember_digest`, `name`, `email`, `workplace`, `school_id`) VALUES
-(1, 'admin', '$2a$10$tE8n/9ecNRb6GVi2EYaOZ.NSllQtX5XNcnH0eJAvgifgTt9P8LDj.', '$2a$10$v/nG2y5T92mI7/51ZfR3mOwvmz/N7JJgtY.N5x6RHuT7weAkLQa5C', 'Phạm Trọng Tri', 'trongtri160592@yahoo.com', NULL, 1),
+(1, 'admin', '$2a$10$tE8n/9ecNRb6GVi2EYaOZ.NSllQtX5XNcnH0eJAvgifgTt9P8LDj.', '$2a$10$Xnqf4RW8OIvzefaQSSTVEO7HRO.LVBRF7KlmuhB6k1Tw6IG1VQF9m', 'Phạm Trọng Tri', 'trongtri160592@yahoo.com', NULL, 1),
 (2, 'tranvana', '$2a$10$UxNxsGSFA6KgfpCLpgZZeeN5Gis1cWdpEze6qYAbXawslNkwClw5u', '$2a$10$8EJhW0OzIVjkPoclpr2YiOXZ.d2jVULtIwI5h.wA7iHNise1r4rJa', 'Trần Văn A', 'trong@fdso.vcom', NULL, 2),
 (3, 'nguyenthia', '$2a$10$Xr8dLHSsj3Ce/yOE0PlU7OKOUXYXiSSIlrwY8IkPLvy2Z7MUfP5pK', NULL, 'Nguyễn Thị A', 'dls@gmail.com', NULL, 2);
 
@@ -979,6 +1012,7 @@ ALTER TABLE `lessons`
   ADD CONSTRAINT `fk_lessons_classes1` FOREIGN KEY (`class_id`) REFERENCES `classes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_lessons_schools1` FOREIGN KEY (`school_id`) REFERENCES `schools` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_lessons_subjects1` FOREIGN KEY (`subject_id`) REFERENCES `subjects` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_lessons_types1` FOREIGN KEY (`type_id`) REFERENCES `types` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_lessons_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
@@ -986,26 +1020,6 @@ ALTER TABLE `lessons`
 --
 ALTER TABLE `schools`
   ADD CONSTRAINT `fk_schools_grades1` FOREIGN KEY (`grade_id`) REFERENCES `grades` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `school_has_classes`
---
-ALTER TABLE `school_has_classes`
-  ADD CONSTRAINT `fk_schools_has_classes_classes1` FOREIGN KEY (`class_id`) REFERENCES `classes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_schools_has_classes_schools1` FOREIGN KEY (`school_id`) REFERENCES `schools` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `users`
---
-ALTER TABLE `users`
-  ADD CONSTRAINT `fk_users_schools1` FOREIGN KEY (`school_id`) REFERENCES `schools` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `user_has_role`
---
-ALTER TABLE `user_has_role`
-  ADD CONSTRAINT `fk_roles_has_users_roles1` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_roles_has_users_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
