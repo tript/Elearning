@@ -111,7 +111,7 @@ Tript::Application.routes.draw do
   get '/admin/users/edit', to: 'admin#manage_user', as: 'manage_user'
   put '/admin/users', to: 'admin#update_users', as: :update_user
   get 'users/all/edit', to: 'users#edit_all', as: :edit_all
-  post 'users/all/edit', to: 'users#create'
+  post 'users/all/edit', to: 'users#create_by_admin'
   put 'users/all', to: 'users#update_all', as: :update_all
 
   # Api definition

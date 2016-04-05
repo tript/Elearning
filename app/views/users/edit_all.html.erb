@@ -1,35 +1,39 @@
 <% if is_manager?(current_user) %>
     <br/>
     <br/>
-    <div class="table-responsive row">
-      <%= form_for :user, :url => update_all_path, :html => {:method => :put} do %>
-          <table class="table table-hover table-striped">
-            <tr>
-              <th class="col-md-1">Họ và tên</th>
-              <th class="col-md-3">E-Mail</th>
-              <th class="col-md-3">Trường</th>
-            </tr>
-            <% schools = School.all %>
-            <% @users.each do |user| %>
-                <%= fields_for "user[]", user do |user_fields| %>
-                    <tr>
-                      <td><%= user_fields.text_field :name %></td>
-                      <td><%= user_fields.email_field :email %></td>
-                      <td><%= user_fields.collection_select :school_id, schools, :id, :name %></td>
-                    </tr>
-                <% end %>
-            <% end %>
-          </table>
-          <div class="actions">
-            <%= button_tag "Lưu lại", class: "btn btn-primary btn-md col-md-2 col-md-offset-5" %>
-          </div>
-      <% end %>
+    <div class="row">
+      <div class="table-responsive col-sm-8">
+        <%= form_for :user, :url => update_all_path, :html => {:method => :put} do %>
+            <table class="table table-hover table-striped">
+              <tr>
+                <th class="col-md-1">Họ và tên</th>
+                <th class="col-md-3">E-Mail</th>
+                <th class="col-md-3">Trường</th>
+              </tr>
+              <% schools = School.all %>
+              <% @users.each do |user| %>
+                  <%= fields_for "user[]", user do |user_fields| %>
+                      <tr>
+                        <td><%= user_fields.text_field :name %></td>
+                        <td><%= user_fields.email_field :email %></td>
+                        <td><%= user_fields.collection_select :school_id, schools, :id, :name %></td>
+                      </tr>
+                  <% end %>
+              <% end %>
+            </table>
+            <div class="actions">
+              <%= button_tag "Lưu lại", class: "btn btn-primary btn-md col-md-2 col-md-offset-5" %>
+            </div>
+        <% end %>
+      </div>
     </div>
     <div class="divider"></div>
     <div class="row">
-      <button class="btn btn-primary">Tạo tài khoản mới</button>
-      <div class="divider"></div>
-      <%= render partial: 'users/new', locals: {user: :user_new} %>
+      <div class=col-sm-8>
+        <button class="btn btn-primary">Tạo tài khoản mới</button>
+        <div class="divider"></div>
+        <%= render partial: 'users/new', locals: {user: :user_new} %>
+      </div>
     </div>
 
 <% else %>
