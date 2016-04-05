@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :comments
   accepts_nested_attributes_for :lessons
   belongs_to :school
+  has_and_belongs_to_many :roles, join_table: "user_has_role", foreign_key: "user_id"
 
   attr_accessor :remember_token
 

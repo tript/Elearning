@@ -109,9 +109,10 @@ Tript::Application.routes.draw do
 
   # Manage user
   get '/admin/users/edit', to: 'admin#manage_user', as: 'manage_user'
-  put '/admin/users', to: 'admin#update_users', as: 'update_user'
-  match 'users/all/edit' => 'users#edit_all', :as => :edit_all, :via => :get
-  match 'users/all' => 'users#update_all', :as => :update_all, :via => :put
+  put '/admin/users', to: 'admin#update_users', as: :update_user
+  get 'users/all/edit', to: 'users#edit_all', as: :edit_all
+  post 'users/all/edit', to: 'users#create'
+  put 'users/all', to: 'users#update_all', as: :update_all
 
   # Api definition
   namespace :api, defaults: { format: :json }, path: '/' do

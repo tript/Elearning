@@ -20,4 +20,12 @@ module ApplicationHelper
       return false
     end
   end
+
+  def is_manager?(user)
+    if user.roles.exists?(2)
+      return true
+    else
+      return false
+    end
+  end
 end

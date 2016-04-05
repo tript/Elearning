@@ -20,7 +20,19 @@ class UsersController < ApplicationController
     end
   end
 
+  def create_by_admin
+    @user = User.new(user_params)
+    if @user.save
+      # Handle a successful save.
+      flash[:success] = "Đã đăng ký thành công!"
+      redirect_to edit_all_path
+    else
+      render 'new'
+    end
+  end
+
   def edit_all
+    @roles = current_user.roles
     @users = User.all
   end
 
@@ -39,7 +51,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :username, :email, :workplace, :password,
+    params.require(:user_new).permit(:name, :username, :email, :workplace, :password,
                                  :password_confirmation)
   end
 
