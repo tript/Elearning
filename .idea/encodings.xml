@@ -12,6 +12,7 @@
     <file url="file://$PROJECT_DIR$/app/views/lessons/details.html.erb" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/views/lessons/index.html.erb" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/views/lessons/new.html.erb" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/views/schools/index.html.erb" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/views/sessions/new.html.erb" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/views/users/_new.html.erb" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/views/users/edit_all.html.erb" charset="UTF-8" />

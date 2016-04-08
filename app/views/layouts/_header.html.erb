@@ -3,12 +3,17 @@
     <% if !current_user %>
         <%= link_to "Bài giảng E-learning", root_path, id: "logo" %>
     <% else %>
-        <%= link_to "#{@current_user.school.name}", root_path, id: "logo" %>
+        <% if @school %>
+            <%= link_to "#{@school.name}", school_view_path(@school.slug), id: "logo" %>
+        <% else %>
+            <% school = current_user.school %>
+            <%= link_to "#{school.name}", school_view_path(school.slug), id: "logo" %>
+        <% end %>
     <% end %>
     <nav>
       <%= form_tag lessons_path, method: 'get', class: "nav navbar-nav navbar-left navbar-form", role: "search" do %>
           <div class="input-group">
-            <%= text_field_tag :search, nil, class: "form-control", placeholder: "Search" %>
+            <%= text_field_tag :search, nil, class: "form-control", placeholder: "Tìm kiếm" %>
             <div class="input-group-btn">
               <%= button_tag '<i class="glyphicon glyphicon-search"></i></button>'.html_safe, class: "btn btn-default" %>
             </div>
@@ -17,35 +22,31 @@
     </nav>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Trang chủ", root_path %></li>
+        <!-- <li><%= link_to "Trang chủ", root_path %></li> -->
 
         <!-- Drop down menu of schools -->
-        <li class="dropdown">
-          <a href="#" data-toggle="dropdown" class="dropdown-toggle">Trường <b class="caret"></b></a>
-          <ul class="dropdown-menu" id="menu1">
-            <% Grade.all.each do |grade| %>
-                <li><a href="#"> <%= grade.name %> </a>
-                  <% schools = grade.schools %>
-                  <% if schools.any? %>
-                      <ul class="dropdown-menu sub-menu">
-                        <% schools.each do |school| %>
-                            <li><a href="#"> <%= school.name %> </a></li>
-                        <% end %>
-                      </ul>
-                  <% end %>
-                </li>
-            <% end %>
-          </ul>
-        </li>
+        <% Grade.all.each do |grade| %>
+            <li class="dropdown">
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle"> <%= grade.name %></a>
+              <% schools = grade.schools %>
+              <% if schools.any? %>
+                  <ul class="dropdown-menu" id="menu1">
+                    <% schools.each do |school| %>
+                        <li><a href="#"> <%= school.name %> </a></li>
+                    <% end %>
+                  </ul>
+              <% end %>
+            </li>
+        <% end %>
 
         <% if logged_in? %>
-            <li><%= link_to "Upload tài liệu", controller: "lessons", action: "new" %></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 Account <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
                 <li><%= link_to "Profile", current_user %></li>
+                <li><%= link_to "Upload tài liệu", controller: "lessons", action: "new" %></li>
                 <li><%= link_to "Settings", '#' %></li>
                 <li class="divider"></li>
                 <li>

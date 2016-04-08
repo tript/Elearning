@@ -1,7 +1,19 @@
 class SchoolsController < ApplicationController
   def index
-    grade = School.all
-    render json: grade
+    #grade = School.all
+    #render json: grade
+    @school = School.friendly.find(params[:school])
+    @classes = @school.active_classes
+    @class_lessons = Array.new
+    @classes.each do |active_class|
+      class_lesson = ClassLesson.new
+      class_lesson.class = active_class
+      quantity = Lesson.joins(:user).where(users: {school_id: @school.id}, class_id: active_class.id).size
+      lessons = Lesson.joins(:user).where(users: {school_id: @school.id}, class_id: active_class.id).limit(10)
+      class_lesson.quantity = quantity
+      class_lesson.lessons = lessons
+      @class_lessons.push(class_lesson)
+    end
   end
 
   def classes

@@ -114,6 +114,9 @@ Tript::Application.routes.draw do
   post 'users/all/edit', to: 'users#create_by_admin'
   put 'users/all', to: 'users#update_all', as: :update_all
 
+  # View lessons by school
+  get '/:school', to: 'schools#index', as: :school_view
+
   # Api definition
   namespace :api, defaults: { format: :json }, path: '/' do
     scope module: :v1 do
