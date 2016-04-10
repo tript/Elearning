@@ -1,63 +1,69 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
-    <% if !current_user %>
-        <%= link_to "Bài giảng E-learning", root_path, id: "logo" %>
-    <% else %>
-        <% if @school %>
-            <%= link_to "#{@school.name}", school_view_path(@school.slug), id: "logo" %>
+    <div class="row">
+      <div class="col col-md-3">
+        <% if !current_user %>
+            <%= link_to "Bài giảng E-learning", root_path, id: "logo" %>
         <% else %>
-            <% school = current_user.school %>
-            <%= link_to "#{school.name}", school_view_path(school.slug), id: "logo" %>
+            <% if @school %>
+                <%= link_to "#{@school.name}", school_view_path(@school.slug), id: "logo" %>
+            <% else %>
+                <% school = current_user.school %>
+                <%= link_to "#{school.name}", school_view_path(school.slug), id: "logo" %>
+            <% end %>
         <% end %>
-    <% end %>
-    <nav>
-      <%= form_tag lessons_path, method: 'get', class: "nav navbar-nav navbar-left navbar-form", role: "search" do %>
-          <div class="input-group">
-            <%= text_field_tag :search, nil, class: "form-control", placeholder: "Tìm kiếm" %>
-            <div class="input-group-btn">
-              <%= button_tag '<i class="glyphicon glyphicon-search"></i></button>'.html_safe, class: "btn btn-default" %>
-            </div>
-          </div>
-      <% end %>
-    </nav>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <!-- <li><%= link_to "Trang chủ", root_path %></li> -->
+      </div>
+      <div class="col col-md-9">
+        <nav>
+          <%= form_tag lessons_path, method: 'get', class: "nav navbar-nav navbar-left navbar-form", role: "search" do %>
+              <div class="input-group">
+                <%= text_field_tag :search, nil, class: "form-control", placeholder: "Tìm kiếm" %>
+                <div class="input-group-btn">
+                  <%= button_tag '<i class="glyphicon glyphicon-search"></i></button>'.html_safe, class: "btn btn-default" %>
+                </div>
+              </div>
+          <% end %>
+        </nav>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <!-- <li><%= link_to "Trang chủ", root_path %></li> -->
 
-        <!-- Drop down menu of schools -->
-        <% Grade.all.each do |grade| %>
-            <li class="dropdown">
-              <a href="#" data-toggle="dropdown" class="dropdown-toggle"> <%= grade.name %></a>
-              <% schools = grade.schools %>
-              <% if schools.any? %>
-                  <ul class="dropdown-menu" id="menu1">
-                    <% schools.each do |school| %>
-                        <li><a href="#"> <%= school.name %> </a></li>
-                    <% end %>
-                  </ul>
-              <% end %>
-            </li>
-        <% end %>
-
-        <% if logged_in? %>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Account <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li><%= link_to "Profile", current_user %></li>
-                <li><%= link_to "Upload tài liệu", controller: "lessons", action: "new" %></li>
-                <li><%= link_to "Settings", '#' %></li>
-                <li class="divider"></li>
-                <li>
-                  <%= link_to "Đăng xuất", logout_path, method: "delete" %>
+            <!-- Drop down menu of schools -->
+            <% Grade.all.each do |grade| %>
+                <li class="dropdown">
+                  <a href="#" data-toggle="dropdown" class="dropdown-toggle"> <%= grade.name %></a>
+                  <% schools = grade.schools %>
+                  <% if schools.any? %>
+                      <ul class="dropdown-menu" id="menu1">
+                        <% schools.each do |school| %>
+                            <%= link_to school.name, school_view_path(school.slug) %>
+                        <% end %>
+                      </ul>
+                  <% end %>
                 </li>
-              </ul>
-            </li>
-        <% else %>
-            <li><%= link_to "Đăng nhập", login_path %></li>
-        <% end %>
-      </ul>
-    </nav>
+            <% end %>
+
+            <% if logged_in? %>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    Account <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><%= link_to "Profile", current_user %></li>
+                    <li><%= link_to "Upload tài liệu", controller: "lessons", action: "new" %></li>
+                    <li><%= link_to "Settings", '#' %></li>
+                    <li class="divider"></li>
+                    <li>
+                      <%= link_to "Đăng xuất", logout_path, method: "delete" %>
+                    </li>
+                  </ul>
+                </li>
+            <% else %>
+                <li><%= link_to "Đăng nhập", login_path %></li>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+    </div>
   </div>
 </header>

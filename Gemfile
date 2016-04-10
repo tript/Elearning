@@ -71,3 +71,6 @@ group :test do
   gem "factory_girl_rails"
   gem 'ffaker'
 end
+
+# Use slug for url
+gem 'friendly_id', '~> 5.1.0'
