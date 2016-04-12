@@ -16,4 +16,13 @@
 //= require bootstrap
 //= require turbolinks
 //= require upload
+//= require textext.core
+//= require textext.plugin.tags
+//= require textext.plugin.ajax
+//= require textext.plugin.autocomplete
+//= require textext.plugin.filter
+//= require textext.plugin.focus
+//= require textext.plugin.prompt
+//= require textext.plugin.suggestions
+//= require textext.plugin.arrow
 //= require_tree .

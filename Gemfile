@@ -72,5 +72,7 @@ group :test do
   gem 'ffaker'
 end
 
+gem 'textext-rails'
+
 # Use slug for url
 gem 'friendly_id', '~> 5.1.0'
