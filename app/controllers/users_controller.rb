@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  def index
+    render json: User.all.pluck("name")
+  end
+
   def show
     @user = User.find(params[:id])
     @lessons = @user.lessons.paginate(page: params[:page], per_page: 15)

@@ -9,6 +9,8 @@ class Lesson < ActiveRecord::Base
   belongs_to :active_class, foreign_key: "class_id"
   accepts_nested_attributes_for :active_class
   has_many :comments
+  has_many :assignments
+  has_many :persons_in_charge, through: :assignments, source: :user
 
   validates :user_id, presence: true
   validates :url, presence: true, file_size: { less_than: 150.megabytes, message: 'File dữ liệu phải nhỏ hơn %{count}' }

@@ -30,9 +30,8 @@ en:
         lesson:
           name: "Tiêu đề"
           url: "File dữ liệu"
-          class: "Lớp"
+          class_id: "Lớp"
           represent_image: "Ảnh đại diện"
-        class: "Lớp"
       errors:
         models:
           user:
@@ -51,5 +50,6 @@ en:
                 blank: "không được để trống"
               url:
                 blank: "không được để trống"
-              class:
+              class_id:
                 blank: "không được để trống"
+

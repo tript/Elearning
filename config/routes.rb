@@ -67,6 +67,7 @@ Tript::Application.routes.draw do
   #   end
   resources :users, only: [:new, :create, :destroy]
   get '/users/:id' => 'users#show'
+  get '/users' => 'users#index'
 
   root             'static_pages#home'
   get 'help'    => 'static_pages#help'

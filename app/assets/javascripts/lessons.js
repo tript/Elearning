@@ -5,10 +5,11 @@ var ready;
 ready = function () {
     $('#textarea1').textext({
         plugins: 'tags filter autocomplete ajax',
+        tags: 'fdl',
         ajax: {
-            url: 'http://textextjs.com/manual/examples/data.json',
+            url: '/users',
             dataType: 'json',
-            cacheResults: false
+            cacheResults: true
         }
     });
 }

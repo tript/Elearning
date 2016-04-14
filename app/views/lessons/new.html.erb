@@ -1,5 +1,5 @@
 <% if current_user %>
-    <% if !@lesson.errors.empty? %>
+    <% if @lesson && !@lesson.errors.empty? %>
         <div class="alert alert-error">
           <ul>
             <% @lesson.errors.full_messages.each do |msg| %>
@@ -12,18 +12,18 @@
 
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
-        <%= form_for @lesson, html: {multipart: true} do |f| %>
+        <%= form_for :lessons, html: {multipart: true} do |f| %>
             <%= f.label :name, "Tiêu đề" %>
-            <%= f.text_field :name %>
+            <%= f.text_field :name, class: "form-control"%>
 
             <%= f.label :class_id, "Lớp" %>
-            <%= f.collection_select :class_id, @classes, :id, :name, {:prompt => "Chọn lớp"}, {:class => 'upload-class'} %>
+            <%= f.collection_select :class_id, @classes, :id, :name, {:prompt => "Chọn lớp"}, {:class => 'upload-class form-control'} %>
 
             <%= f.label :subject_id, "Môn học" %>
-            <%= f.collection_select :subject_id, {}, {}, {}, {}, {:class => 'upload-subject'} %>
+            <%= f.collection_select :subject_id, {}, {}, {}, {}, {:class => 'upload-subject form-control'} %>
 
             <%= f.label :type_id, "Loại tài liệu" %>
-            <%= f.collection_select :type_id, Type.all, :id, :name %>
+            <%= f.collection_select :type_id, Type.all, :id, :name, {}, class: "form-control" %>
 
             <%= f.label :attachment, "File dữ liệu" %>
             <%= f.file_field :url %>
@@ -31,16 +31,19 @@
             <%= f.label :represent_image, "Ảnh đại diện" %>
             <%= f.file_field :represent_image %>
 
-            <%= f.label :persons_in_charge, "Gửi cho" %>
-            <%= f.fields_for :persons_in_charge do |person| %>
-                <%= person.collection_select :person_id, User.all, :id, :name %>
-            <% end %>
+            <%= f.check_box :isAssignment %>
+            <%= f.label :isAssignment, "Gửi cho", class: "checkbox inline" %>
+            <%= f.text_area :persons_in_charge, {id: "textarea1", class: "example", rows: "1", style: "display:none"} %>
 
-            <%= f.submit "Tải lên", class: "btn btn-primary" %>
+            <!--<%= f.fields_for :persons_in_charge do |person| %>-->
+                <!--<%= person.collection_select :person_id, User.all, :id, :name %>-->
+            <!--<% end %>-->
+
+            <%= f.submit "Tải lên", class: "btn btn-primary"  %>
         <% end %>
       </div>
     </div>
-    <textarea id="textarea1" class="example" rows="1"></textarea>
+
 <% else %>
     <h1> Bạn phải đăng nhập để đăng tải tài liệu</h1>
 <% end %>
