@@ -10,13 +10,11 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require_self
+ *= require_tree .
  *= require commontator/application
  *= require textext.core
  *= require textext.plugin.tags
- *= require textext.plugin.arrow
  *= require textext.plugin.autocomplete
  *= require textext.plugin.focus
- *= require textext.plugin.prompt
  */

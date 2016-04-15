@@ -8,7 +8,7 @@ class LessonsController < ApplicationController
 
   def new
     @lesson = Lesson.new
-    @classes = ActiveClass.all
+    @classes = current_user.school.active_classes.order(:id)
     @types = Type.all
   end
 
@@ -17,8 +17,11 @@ class LessonsController < ApplicationController
   end
 
   def create
-    @lesson = Lesson.new(lesson_params)
+    persons_in_charge_params = lesson_params[:persons_in_charge]
+    puts(lesson_params)
+    @lesson = Lesson.new(lesson_params.except(:persons_in_charge))
     @lesson.user = current_user
+    @lesson.persons_in_charge = User.where("name in (?)",persons_in_charge_params)
 
     if @lesson.save && params[:type_id] == 1
       id = @lesson.id
@@ -69,7 +72,7 @@ class LessonsController < ApplicationController
   
   private
   def lesson_params
-    params.require(:lessons).permit(:name, :url, :subject_id, :class_id, :represent_image, :type_id)
+    params.require(:lessons).permit(:name, :url, :subject_id, :class_id, :represent_image, :type_id, :isAssignment, :persons_in_charge)
   end
 
 end
