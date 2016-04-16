@@ -1,15 +1,18 @@
 require 'zip'
 
 class LessonsController < ApplicationController
-  impressionist :actions=> [:show,:details]
+  impressionist :actions => [:show, :details]
+
   def index
     @lessons = Lesson.all
   end
 
   def new
-    @lesson = Lesson.new
-    @classes = current_user.school.active_classes.order(:id)
-    @types = Type.all
+    if logged_in?
+      @lesson = Lesson.new
+      @classes = current_user.school.active_classes.order(:id)
+      @types = Type.all
+    end
   end
 
   def get_content
@@ -17,20 +20,24 @@ class LessonsController < ApplicationController
   end
 
   def create
-    persons_in_charge_params = lesson_params[:persons_in_charge]
-    puts(lesson_params)
+    persons_in_charge_params = eval(lesson_params[:persons_in_charge])
     @lesson = Lesson.new(lesson_params.except(:persons_in_charge))
     @lesson.user = current_user
-    @lesson.persons_in_charge = User.where("name in (?)",persons_in_charge_params)
 
-    if @lesson.save && params[:type_id] == 1
-      id = @lesson.id
-      Zip::File.open(@lesson.url.file.path) do |zipfile|
-        zipfile.each do |file|
-          f_path=File.join("public/uploads/#{id}/" + file.name)
-          FileUtils.mkdir_p(File.dirname(f_path))
-          zipfile.extract(file, f_path) unless File.exist?(f_path)
+    if @lesson.save
+      if params[:type_id] == 1
+        id = @lesson.id
+        Zip::File.open(@lesson.url.file.path) do |zipfile|
+          zipfile.each do |file|
+            f_path=File.join("public/uploads/#{id}/" + file.name)
+            FileUtils.mkdir_p(File.dirname(f_path))
+            zipfile.extract(file, f_path) unless File.exist?(f_path)
+          end
         end
+      end
+
+      if @lesson.isAssignment && persons_in_charge_params.any?
+        @lesson.persons_in_charge = User.where("username in (?)", persons_in_charge_params)
       end
 
       #redirect to lesson_path
@@ -45,7 +52,7 @@ class LessonsController < ApplicationController
   def destroy
     @lesson = Lesson.find(params[:id])
     @lesson.destroy
-    redirect_to lessons_path, notice:  "\"" + @lesson.name + "\" has been deleted."
+    redirect_to lessons_path, notice: "\"" + @lesson.name + "\" has been deleted."
   end
 
   def show
@@ -69,7 +76,7 @@ class LessonsController < ApplicationController
     end
   end
 
-  
+
   private
   def lesson_params
     params.require(:lessons).permit(:name, :url, :subject_id, :class_id, :represent_image, :type_id, :isAssignment, :persons_in_charge)

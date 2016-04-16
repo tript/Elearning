@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    render json: User.all.pluck("name")
+    render json: User.all.pluck("username")
   end
 
   def show

@@ -262,3 +262,40 @@ span.picture {
   margin-right: 10px;
   position:relative;
 }
+
+// style for textext plugin
+.text-core .text-wrap .text-tags .text-tag .text-button {
+  background: #e2e6f0 none repeat scroll 0 0;
+  border: 1px solid #9daccc;
+  border-radius: 2px;
+  box-sizing: border-box;
+  color: #000;
+  cursor: pointer;
+  float: left;
+  font: 14px "lucida grande",tahoma,verdana,arial,sans-serif;
+  height: 20px;
+  margin: 0 2px 2px 0;
+  padding: 0 17px 0 3px;
+  position: relative;
+}
+
+.text-core .text-wrap textarea, .text-core .text-wrap input {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  font: 14px "lucida grande",tahoma,verdana,arial,sans-serif;
+  height: 34px;
+  text-align: justify;
+  text-align-last: center;
+}
+
+.text-core {
+  margin-bottom: 15px;
+}
+
+.text-tag {
+  position: relative;
+  top: 50%;
+  transform: translate(0, -50%)
+}
