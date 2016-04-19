@@ -29,13 +29,13 @@
     </ul>
   </div>
   <div class="col-md-9" id="content">
-    <% @class_lessons.each do |class_lesson| %>
+    <% @type_lessons.each do |type_lesson| %>
         <div class="row">
-          <h3> <%= link_to "#{class_lesson.class.name}<span class=\"glyphicon arrow\"></span>".html_safe, {controller: :class, action: 'lessons', id: class_lesson.class.id, school_id: @school.id}, remote: true %>
-            ( <%= class_lesson.quantity %> ) </h3>
-          <% if class_lesson.lessons.any? %>
+          <h3> <%= link_to "#{type_lesson.type.name}<span class=\"glyphicon arrow\"></span>".html_safe, {controller: :type, action: 'lessons', type_id: type_lesson.type.id, school_id: @school.id}, remote: true %>
+            ( <%= type_lesson.quantity %> ) </h3>
+          <% if type_lesson.lessons.any? %>
               <div class="row">
-                <% class_lesson.lessons.each do |lesson| %>
+                <% type_lesson.lessons.each do |lesson| %>
                     <div class="col-md-2 portfolio-item lessons" id="lesson-<%= lesson.id %>">
                       <span class="lesson-image">
                             <%= link_to image_tag(lesson.represent_image.url(:thumb)), {controller: :lessons, action: 'details', id: lesson.id}, alt: lesson.name %>

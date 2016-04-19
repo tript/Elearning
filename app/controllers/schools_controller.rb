@@ -4,15 +4,16 @@ class SchoolsController < ApplicationController
     #render json: grade
     @school = School.friendly.find(params[:school])
     @classes = @school.active_classes
-    @class_lessons = Array.new
-    @classes.each do |active_class|
-      class_lesson = ClassLesson.new
-      class_lesson.class = active_class
-      quantity = Lesson.joins(:user).where(users: {school_id: @school.id}, class_id: active_class.id).size
-      lessons = Lesson.joins(:user).where(users: {school_id: @school.id}, class_id: active_class.id).limit(10)
-      class_lesson.quantity = quantity
-      class_lesson.lessons = lessons
-      @class_lessons.push(class_lesson)
+    @type_lessons = Array.new
+    @type = Type.all
+    @type.each do |type|
+      type_lesson = TypeLesson.new
+      type_lesson.type = type
+      quantity = Lesson.joins(:user).where(users: {school_id: @school.id}, type_id: type.id).size
+      lessons = Lesson.joins(:user).where(users: {school_id: @school.id}, type_id: type.id).limit(10)
+      type_lesson.quantity = quantity
+      type_lesson.lessons = lessons
+      @type_lessons.push(type_lesson)
     end
   end
 

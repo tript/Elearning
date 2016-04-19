@@ -264,6 +264,9 @@ span.picture {
 }
 
 // style for textext plugin
+#persons-in-charge-div {
+  display: none;
+}
 .text-core .text-wrap .text-tags .text-tag .text-button {
   background: #e2e6f0 none repeat scroll 0 0;
   border: 1px solid #9daccc;
@@ -280,7 +283,6 @@ span.picture {
 }
 
 .text-core .text-wrap textarea, .text-core .text-wrap input {
-  background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;

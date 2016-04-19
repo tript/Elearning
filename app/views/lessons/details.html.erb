@@ -2,7 +2,7 @@
   <div class="col-md-5">
     <%= link_to image_tag(@lesson.represent_image.url(:thumb)), {controller: :lessons, action: 'show', id: @lesson.id} %>
     <% if @lesson.type_id == 1 %>
-        <%= link_to "Xem", {controller: :lessons, action: 'show', id: @lesson.id}, class: 'btn btn-primary' %>
+        <%= link_to "Xem", "/uploads/#{@lesson.id}/index.htm", class: 'btn btn-primary', target: "_blank" %>
     <% end %>
     <%= link_to "Download", @lesson.url.url, class: 'btn btn-primary' %>
   </div>

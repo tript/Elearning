@@ -77,6 +77,20 @@ class LessonsController < ApplicationController
   end
 
 
+  def approve
+    @lessons = Lesson.where(approved: false).order('created_at DESC').paginate(page: params[:page], per_page: 10)
+  end
+
+  def update_approval
+    params['lesson'].keys.each do |id|
+      @lesson = Lesson.find(id.to_i)
+      if !@lesson.update_columns(params['lesson'][id].permit(:approved))
+        flash[:success] = Rails.logger.info(@lesson.errors.messages.inspect)
+      end
+    end
+    redirect_to(approve_path)
+  end
+
   private
   def lesson_params
     params.require(:lessons).permit(:name, :url, :subject_id, :class_id, :represent_image, :type_id, :isAssignment, :persons_in_charge)

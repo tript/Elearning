@@ -32,6 +32,8 @@ en:
           url: "File dữ liệu"
           class_id: "Lớp"
           represent_image: "Ảnh đại diện"
+        commontator/comment:
+          body: "Bình luận"
       errors:
         models:
           user:
@@ -52,4 +54,8 @@ en:
                 blank: "không được để trống"
               class_id:
                 blank: "không được để trống"
-
+          commontator/comment:
+            attributes:
+              body:
+                blank: "không được để trống"
+                taken: "đã giống một bình luận khác"

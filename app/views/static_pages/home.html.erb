@@ -3,11 +3,11 @@
     <div class="row">
       <div class="col-md-3">
         <ul class="metismenu nav nav-pills nav-stacked" id="menu">
-          <% @grades.each do |grade| %>
+          <% @schools.each do |school| %>
               <li class="inactive">
-                <%= link_to "#{grade.name}<span class=\"glyphicon arrow\"></span>".html_safe, {controller: :schools, action: 'lessons', id: grade.id}, remote: true %>
+                <%= link_to "#{school.name}<span class=\"glyphicon arrow\"></span>".html_safe, {controller: :schools, action: 'lessons', id: school.id}, remote: true %>
                 <ul class="nav nav-pills nav-stacked" aria-expanded="false">
-                  <% grade.active_classes.each do |active_class| %>
+                  <% school.active_classes.each do |active_class| %>
                       <li class="inactive">
                         <% subjects = active_class.subjects %>
                         <% if subjects.any? %>
@@ -30,13 +30,13 @@
         </ul>
       </div>
       <div class="col-md-9" id="content">
-        <% @grade_lessons.each do |grade_lesson| %>
+        <% @school_lessons.each do |school_lesson| %>
             <div class="row">
-              <h3> <%= link_to "#{grade_lesson.school.name}<span class=\"glyphicon arrow\"></span>".html_safe, {controller: :schools, action: 'lessons', id: grade_lesson.school.id}, remote: true %>
-                ( <%= grade_lesson.quantity %> ) </h3>
-              <% if grade_lesson.lessons.any? %>
+              <h3> <%= link_to "#{school_lesson.school.name}<span class=\"glyphicon arrow\"></span>".html_safe, {controller: :schools, action: 'lessons', id: school_lesson.school.id}, remote: true %>
+                ( <%= school_lesson.quantity %> ) </h3>
+              <% if school_lesson.lessons.any? %>
                   <div class="row">
-                    <% grade_lesson.lessons.each do |lesson| %>
+                    <% school_lesson.lessons.each do |lesson| %>
 
                         <div class="col-md-2 portfolio-item lessons" id="lesson-<%= lesson.id %>">
                       <span class="lesson-image">
@@ -91,13 +91,13 @@
         </ul>
       </div>
       <div class="col-md-9" id="content">
-        <% @class_lessons.each do |class_lesson| %>
+        <% @type_lessons.each do |type_lesson| %>
             <div class="row">
-              <h3> <%= link_to "#{class_lesson.class.name}<span class=\"glyphicon arrow\"></span>".html_safe, {controller: :class, action: 'lessons', id: class_lesson.class.id, school_id: @school.id}, remote: true %>
-                ( <%= class_lesson.quantity %> ) </h3>
-              <% if class_lesson.lessons.any? %>
+              <h3> <%= link_to "#{type_lesson.type.name}<span class=\"glyphicon arrow\"></span>".html_safe, {controller: :type, action: 'lessons', type_id: type_lesson.type.id, school_id: @school.id}, remote: true %>
+                ( <%= type_lesson.quantity %> ) </h3>
+              <% if type_lesson.lessons.any? %>
                   <div class="row">
-                    <% class_lesson.lessons.each do |lesson| %>
+                    <% type_lesson.lessons.each do |lesson| %>
                         <div class="col-md-2 portfolio-item lessons" id="lesson-<%= lesson.id %>">
                       <span class="lesson-image">
                             <%= link_to image_tag(lesson.represent_image.url(:thumb)), {controller: :lessons, action: 'details', id: lesson.id}, alt: lesson.name %>

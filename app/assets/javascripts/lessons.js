@@ -5,7 +5,6 @@ var ready;
 ready = function () {
     $('#persons-in-charge-area').textext({
         plugins: 'tags filter autocomplete ajax',
-        tags: 'fdl',
         ajax: {
             url: '/users',
             dataType: 'json',
@@ -28,9 +27,9 @@ ready = function () {
 
     $("#assignment-checkbox").change(function() {
         if(this.checked) {
-            $("#persons-in-charge-area").show();
+            $("#persons-in-charge-div").show();
         } else {
-            $("#persons-in-charge-area").hide();
+            $("#persons-in-charge-div").hide();
         }
     });
 }

@@ -11,7 +11,7 @@
 
 <% if comment.errors.any? %>
     <div class="comment_error_explanation">
-      <h3><%= t "commontator.comment.errors.#{comment.id.blank? ? 'create' : 'update'}" %></h3>
+      <h3>Không thể đăng bình luận vì:</h3>
 
       <ul>
         <% comment.errors.full_messages.each do |msg| %>
@@ -38,7 +38,7 @@
 
     <div class="comment_form_actions">
       <%= f.submit comment.id.blank? ? "Bình luận" : "Sửa lại", class: "btn btn-success green" %>
-      <%= f.submit "Bỏ qua", :name => 'cancel', class: "btn btn-primary green", id: "btn_comment_cancel" %>
+      <%= f.submit "Bỏ qua", :name => 'cancel', class: "btn btn-primary green" %>
     </div>
 
 <% end %>

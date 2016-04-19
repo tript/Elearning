@@ -68,6 +68,7 @@ Tript::Application.routes.draw do
   resources :users, only: [:new, :create, :destroy]
   get '/users/:id' => 'users#show'
   get '/users' => 'users#index'
+  get '/inbox', to: 'users#inbox', as: 'inbox'
 
   root             'static_pages#home'
   get 'help'    => 'static_pages#help'
@@ -114,6 +115,10 @@ Tript::Application.routes.draw do
   get 'users/all/edit', to: 'users#edit_all', as: :edit_all
   post 'users/all/edit', to: 'users#create_by_admin'
   put 'users/all', to: 'users#update_all', as: :update_all
+
+  # Approve lesson by manager teacher
+  get '/lessons/manage/approval', to: 'lessons#approve', as: :approve
+  put '/lessons/manage', to: 'lessons#update_approval', as: :update_approval
 
   # View lessons by school
   get '/:school', to: 'schools#index', as: :school_view

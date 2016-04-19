@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160310124344) do
+ActiveRecord::Schema.define(version: 20160418095403) do
+
+  create_table "assignments", id: false, force: :cascade do |t|
+    t.integer "user_id",   limit: 4, null: false
+    t.integer "lesson_id", limit: 4, null: false
+  end
+
+  add_index "assignments", ["lesson_id"], name: "index_assignments_on_lesson_id", using: :btree
+  add_index "assignments", ["user_id"], name: "index_assignments_on_user_id", using: :btree
 
   create_table "class_has_subjects", id: false, force: :cascade do |t|
     t.integer "class_id",   limit: 4, null: false
@@ -22,11 +30,9 @@ ActiveRecord::Schema.define(version: 20160310124344) do
   add_index "class_has_subjects", ["subject_id"], name: "fk_classes_has_subjects_subjects1_idx", using: :btree
 
   create_table "classes", force: :cascade do |t|
-    t.string  "name",     limit: 45
-    t.integer "grade_id", limit: 4,  null: false
+    t.string "name", limit: 45
   end
 
-  add_index "classes", ["grade_id"], name: "fk_classes_grades1_idx", using: :btree
   add_index "classes", ["name"], name: "name_UNIQUE", unique: true, using: :btree
 
   create_table "comments", id: false, force: :cascade do |t|
@@ -82,11 +88,30 @@ ActiveRecord::Schema.define(version: 20160310124344) do
 
   add_index "commontator_threads", ["commontable_id", "commontable_type"], name: "index_commontator_threads_on_c_id_and_c_type", unique: true, using: :btree
 
-  create_table "grades", force: :cascade do |t|
-    t.string "name", limit: 45
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",           limit: 255, null: false
+    t.integer  "sluggable_id",   limit: 4,   null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope",          limit: 255
+    t.datetime "created_at"
   end
 
-  add_index "grades", ["name"], name: "name_UNIQUE", unique: true, using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+
+  create_table "grade_has_classes", id: false, force: :cascade do |t|
+    t.integer "grade_id", limit: 4, null: false
+    t.integer "class_id", limit: 4, null: false
+  end
+
+  add_index "grade_has_classes", ["class_id", "grade_id"], name: "index_grade_has_classes_on_class_id_and_grade_id", using: :btree
+  add_index "grade_has_classes", ["grade_id", "class_id"], name: "index_grade_has_classes_on_grade_id_and_class_id", using: :btree
+
+  create_table "grades", force: :cascade do |t|
+    t.string "name", limit: 200
+  end
 
   create_table "impressions", force: :cascade do |t|
     t.string   "impressionable_type", limit: 255
@@ -118,26 +143,51 @@ ActiveRecord::Schema.define(version: 20160310124344) do
     t.string   "url",             limit: 200,                 null: false
     t.datetime "created_at",                                  null: false
     t.boolean  "approved",        limit: 1,   default: false, null: false
-    t.string   "type",            limit: 45
     t.integer  "class_id",        limit: 4,                   null: false
     t.integer  "user_id",         limit: 4,                   null: false
     t.integer  "subject_id",      limit: 4
     t.string   "represent_image", limit: 200
+    t.integer  "type_id",         limit: 4,                   null: false
+    t.boolean  "isAssignment",    limit: 1,   default: false
   end
 
   add_index "lessons", ["class_id"], name: "fk_lessons_classes1_idx", using: :btree
   add_index "lessons", ["subject_id"], name: "fk_lessons_subjects1_idx", using: :btree
+  add_index "lessons", ["type_id"], name: "fk_lessons_types1_idx", using: :btree
   add_index "lessons", ["user_id"], name: "fk_lessons_users1_idx", using: :btree
 
   create_table "roles", force: :cascade do |t|
     t.string "role", limit: 45
   end
 
+  create_table "school_has_classes", id: false, force: :cascade do |t|
+    t.integer "school_id", limit: 4, null: false
+    t.integer "class_id",  limit: 4, null: false
+  end
+
+  add_index "school_has_classes", ["class_id"], name: "fk_schools_has_classes_classes1_idx", using: :btree
+  add_index "school_has_classes", ["school_id"], name: "fk_schools_has_classes_schools1_idx", using: :btree
+
+  create_table "schools", force: :cascade do |t|
+    t.string  "name",     limit: 45
+    t.integer "grade_id", limit: 4,   null: false
+    t.string  "slug",     limit: 255
+  end
+
+  add_index "schools", ["grade_id"], name: "fk_schools_grades1_idx", using: :btree
+  add_index "schools", ["name"], name: "name_UNIQUE", unique: true, using: :btree
+  add_index "schools", ["slug"], name: "index_schools_on_slug", using: :btree
+
   create_table "subjects", force: :cascade do |t|
     t.string "subject_name", limit: 45
+    t.string "slug",         limit: 45
   end
 
   add_index "subjects", ["subject_name"], name: "subject_name_UNIQUE", unique: true, using: :btree
+
+  create_table "types", force: :cascade do |t|
+    t.string "name", limit: 45
+  end
 
   create_table "user_has_role", id: false, force: :cascade do |t|
     t.integer "role_id", limit: 4, null: false
@@ -148,24 +198,30 @@ ActiveRecord::Schema.define(version: 20160310124344) do
   add_index "user_has_role", ["user_id"], name: "fk_roles_has_users_users1_idx", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string "username",        limit: 20,  null: false
-    t.string "password_digest", limit: 255
-    t.string "remember_digest", limit: 255
-    t.string "name",            limit: 50,  null: false
-    t.string "email",           limit: 45,  null: false
+    t.string  "username",        limit: 20,  null: false
+    t.string  "password_digest", limit: 255
+    t.string  "remember_digest", limit: 255
+    t.string  "name",            limit: 50,  null: false
+    t.string  "email",           limit: 45,  null: false
+    t.string  "workplace",       limit: 200
+    t.integer "school_id",       limit: 4
   end
 
   add_index "users", ["email"], name: "email_UNIQUE", unique: true, using: :btree
+  add_index "users", ["school_id"], name: "fk_users_schools1_idx", using: :btree
   add_index "users", ["username"], name: "username_UNIQUE", unique: true, using: :btree
 
+  add_foreign_key "assignments", "lessons"
+  add_foreign_key "assignments", "users"
   add_foreign_key "class_has_subjects", "classes", name: "fk_classes_has_subjects_classes1"
   add_foreign_key "class_has_subjects", "subjects", name: "fk_classes_has_subjects_subjects1"
-  add_foreign_key "classes", "grades", name: "fk_classes_grades1"
   add_foreign_key "comments", "lessons", name: "fk_comments_lessons1"
   add_foreign_key "comments", "users", name: "fk_comments_users1"
+  add_foreign_key "grade_has_classes", "classes"
+  add_foreign_key "grade_has_classes", "grades"
   add_foreign_key "lessons", "classes", name: "fk_lessons_classes1"
   add_foreign_key "lessons", "subjects", name: "fk_lessons_subjects1"
+  add_foreign_key "lessons", "types", name: "fk_lessons_types1"
   add_foreign_key "lessons", "users", name: "fk_lessons_users1"
-  add_foreign_key "user_has_role", "roles", name: "fk_roles_has_users_roles1"
-  add_foreign_key "user_has_role", "users", name: "fk_roles_has_users_users1"
+  add_foreign_key "schools", "grades", name: "fk_schools_grades1"
 end

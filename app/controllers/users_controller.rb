@@ -44,13 +44,18 @@ class UsersController < ApplicationController
     params['user'].keys.each do |id|
       @user = User.find(id.to_i)
       if !@user.update_columns(params['user'][id].permit(:user, :name, :email, :school_id))
-        Rails.logger.info(@user.errors.messages.inspect)
         flash[:success] = Rails.logger.info(@user.errors.messages.inspect)
       end
-
     end
     redirect_to(edit_all_path)
   end
+
+  def inbox
+    if current_user
+      @lessons = current_user.assigned_lessons
+    end
+  end
+
 
   private
 
