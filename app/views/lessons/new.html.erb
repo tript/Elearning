@@ -35,6 +35,10 @@
             <%= f.check_box :isAssignment, id: "assignment-checkbox" %> <label> Gửi tới </label>
 
             <div id="persons-in-charge-div">
+              <%= f.label :school, "Chọn trường" %>
+              <%= f.collection_select :school, School.all, :id, :name, {}, class: "form-control" %>
+
+              <%= f.label :persons_in_charge, "Chọn người gửi" %>
               <%= f.text_area :persons_in_charge, {id: "persons-in-charge-area", class: "textarea form-control", rows: "1" } %>
             </div>
 

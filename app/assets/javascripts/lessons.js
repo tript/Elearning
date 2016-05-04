@@ -3,6 +3,12 @@
  */
 var ready;
 ready = function () {
+    $('select').on('change', function (e) {
+        var optionSelected = $("option:selected", this);
+        var valueSelected = this.value;
+
+    });
+
     $('#persons-in-charge-area').textext({
         plugins: 'tags filter autocomplete ajax',
         ajax: {

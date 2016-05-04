@@ -1,15 +1,21 @@
-<div class="row">
+<div class="row" data-no-turbolink>
   <div class="col-md-5">
     <%= link_to image_tag(@lesson.represent_image.url(:thumb)), {controller: :lessons, action: 'show', id: @lesson.id} %>
     <% if @lesson.type_id == 1 %>
         <%= link_to "Xem", "/uploads/#{@lesson.id}/index.htm", class: 'btn btn-primary', target: "_blank" %>
     <% end %>
-    <%= link_to "Download", @lesson.url.url, class: 'btn btn-primary' %>
+    <%= link_to "Download", download_lesson_path(id: @lesson.id), class: 'btn btn-primary' %>
   </div>
   <div class="col-md-5">
-    <span> Người gửi: <%= @lesson.user.name %> </span> </br>
-    <span> Ngày gửi: <%= @lesson.created_at.strftime("%Y-%m-%d") %> </span> </br>
-    <span> Lượt xem: <%= @lesson.impressionist_count(:filter => :session_hash) %> </span>
+    <span><b> Người gửi: </b><%= @lesson.user.name %> </span> </br>
+    <span><b> Ngày gửi: </b><%= @lesson.created_at.strftime("%Y-%m-%d") %> </span> </br>
+    <span><b> Lượt xem: </b><%= @lesson.impressionist_count(:filter => :session_hash) %> </span> </br>
+    <% if @lesson.approved %>
+        <span><b> Tình trạng: </b>Đã duyệt </span> </br>
+        <span><b> Người duyệt: </b><%= @lesson.approver.name %></span>
+    <% else %>
+        <span><b> Tình trạng: </b>Chưa duyệt </span> </br>
+    <% end %>
   </div>
 </div>
 

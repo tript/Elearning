@@ -85,6 +85,7 @@ Tript::Application.routes.draw do
 
   get '/lessons' => 'lessons#search'
   get '/lessons/:id' => 'lessons#show'
+  get '/lessons/downloads/:id', to: 'lessons#download', as: :download_lesson
   get '/details/:id' => 'lessons#details'
   post '/lessons/new' => 'lessons#create'
   delete 'lessons/:id' => 'lessons#destroy'
@@ -115,6 +116,7 @@ Tript::Application.routes.draw do
   get 'users/all/edit', to: 'users#edit_all', as: :edit_all
   post 'users/all/edit', to: 'users#create_by_admin'
   put 'users/all', to: 'users#update_all', as: :update_all
+  get 'users/:username/downloads', to: 'users#list_of_downloads', as: :list_of_downloads
 
   # Approve lesson by manager teacher
   get '/lessons/manage/approval', to: 'lessons#approve', as: :approve

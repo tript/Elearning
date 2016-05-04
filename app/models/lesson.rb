@@ -11,6 +11,7 @@ class Lesson < ActiveRecord::Base
   has_many :comments
   has_many :assignments
   has_many :persons_in_charge, through: :assignments, source: :user
+  belongs_to :approver, class_name: "User", foreign_key: "approver_id"
 
   validates :user_id, presence: true
   validates :url, presence: true, file_size: { less_than: 150.megabytes, message: 'File dữ liệu phải nhỏ hơn %{count}' }

@@ -20,6 +20,11 @@ class StaticPagesController < ApplicationController
 
     if current_user
       @school = current_user.school
+      if @school.grade_id == 5
+        @phongdaotao = @school
+      else
+        @phongdaotao = @school.phongdaotao
+      end
       @classes = @school.active_classes
       @type_lessons = Array.new
       @type = Type.all

@@ -3,7 +3,7 @@
   <div class="col-md-3">
     <ul class="metismenu nav nav-pills nav-stacked" id="menu">
       <% Type.all.each do |type| %>
-          <li class = "inactive">
+          <li class="inactive">
             <%= link_to "#{type.name}<span class=\"glyphicon arrow\"></span>".html_safe, {controller: :type, action: 'lessons', type_id: type.id, school_id: @school.id}, remote: true %>
             <ul class="nav nav-pills nav-stacked" aria-expanded="false">
               <% @classes.each do |active_class| %>
@@ -34,15 +34,17 @@
           <h3> <%= link_to "#{type_lesson.type.name}<span class=\"glyphicon arrow\"></span>".html_safe, {controller: :type, action: 'lessons', type_id: type_lesson.type.id, school_id: @school.id}, remote: true %>
             ( <%= type_lesson.quantity %> ) </h3>
           <% if type_lesson.lessons.any? %>
-              <div class="row">
+              <div class="row lessons-row">
                 <% type_lesson.lessons.each do |lesson| %>
-                    <div class="col-md-2 portfolio-item lessons" id="lesson-<%= lesson.id %>">
-                      <span class="lesson-image">
-                            <%= link_to image_tag(lesson.represent_image.url(:thumb)), {controller: :lessons, action: 'details', id: lesson.id}, alt: lesson.name %>
-                      </span>
-                      <span class="lesson-name">
-                        <%= lesson.name %>
-                      </span>
+                    <div class="col-md-2 portfolio-item lesson-col" id="lesson-<%= lesson.id %>">
+                      <div class="lesson-card">
+                        <div class="lesson-image">
+                          <%= link_to image_tag(lesson.represent_image.url(:thumb)), {controller: :lessons, action: 'details', id: lesson.id}, alt: lesson.name %>
+                        </div>
+                        <div class="lesson-name">
+                          <%= lesson.name %>
+                        </div>
+                      </div>
                     </div>
                 <% end %>
               </div>

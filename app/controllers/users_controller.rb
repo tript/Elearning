@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   def index
-    render json: User.all.pluck("username")
+    if params[:school_id]
+      render json: User.where(school_id: params[:school_id]).pluck("username")
+    else
+      render json: User.all.pluck("username")
+    end
   end
 
   def show
@@ -56,6 +60,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def list_of_downloads
+    @user = User.find_by(username: params[:username])
+    if @user
+      @lessons = @user.download_lessons.paginate(page: params[:page], per_page: 15)
+    else
+      render application/not_found
+    end
+  end
 
   private
 

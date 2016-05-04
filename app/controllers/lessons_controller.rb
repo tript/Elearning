@@ -63,6 +63,13 @@ class LessonsController < ApplicationController
 
   def details
     @lesson = Lesson.find(params[:id])
+    @school = @lesson.user.school
+    if @school.grade_id == 5
+      @phongdaotao = @school
+    else
+      @phongdaotao = @school.phongdaotao
+    end
+
     @comments = Comment.where(lesson_id: params[:id])
     commontator_thread_show(@lesson)
   end
@@ -84,11 +91,21 @@ class LessonsController < ApplicationController
   def update_approval
     params['lesson'].keys.each do |id|
       @lesson = Lesson.find(id.to_i)
+      @lesson.update_columns(approver_id: current_user.id)
       if !@lesson.update_columns(params['lesson'][id].permit(:approved))
         flash[:success] = Rails.logger.info(@lesson.errors.messages.inspect)
       end
     end
     redirect_to(approve_path)
+  end
+
+  def download
+    lesson = Lesson.find(params[:id])
+    download = Download.new(user_id: current_user.id, lesson_id: lesson.id)
+    if download.valid?
+      download.save
+    end
+    redirect_to lesson.url.url
   end
 
   private

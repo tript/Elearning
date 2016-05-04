@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160418095403) do
+ActiveRecord::Schema.define(version: 20160426145943) do
 
   create_table "assignments", id: false, force: :cascade do |t|
     t.integer "user_id",   limit: 4, null: false
@@ -88,6 +88,14 @@ ActiveRecord::Schema.define(version: 20160418095403) do
 
   add_index "commontator_threads", ["commontable_id", "commontable_type"], name: "index_commontator_threads_on_c_id_and_c_type", unique: true, using: :btree
 
+  create_table "downloads", id: false, force: :cascade do |t|
+    t.integer "user_id",   limit: 4, null: false
+    t.integer "lesson_id", limit: 4, null: false
+  end
+
+  add_index "downloads", ["lesson_id"], name: "index_downloads_on_lesson_id", using: :btree
+  add_index "downloads", ["user_id"], name: "index_downloads_on_user_id", using: :btree
+
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",           limit: 255, null: false
     t.integer  "sluggable_id",   limit: 4,   null: false
@@ -149,8 +157,10 @@ ActiveRecord::Schema.define(version: 20160418095403) do
     t.string   "represent_image", limit: 200
     t.integer  "type_id",         limit: 4,                   null: false
     t.boolean  "isAssignment",    limit: 1,   default: false
+    t.integer  "approver_id",     limit: 4
   end
 
+  add_index "lessons", ["approver_id"], name: "index_lessons_on_approver_id", using: :btree
   add_index "lessons", ["class_id"], name: "fk_lessons_classes1_idx", using: :btree
   add_index "lessons", ["subject_id"], name: "fk_lessons_subjects1_idx", using: :btree
   add_index "lessons", ["type_id"], name: "fk_lessons_types1_idx", using: :btree
@@ -172,10 +182,12 @@ ActiveRecord::Schema.define(version: 20160418095403) do
     t.string  "name",     limit: 45
     t.integer "grade_id", limit: 4,   null: false
     t.string  "slug",     limit: 255
+    t.integer "pdt_id",   limit: 4
   end
 
   add_index "schools", ["grade_id"], name: "fk_schools_grades1_idx", using: :btree
   add_index "schools", ["name"], name: "name_UNIQUE", unique: true, using: :btree
+  add_index "schools", ["pdt_id"], name: "index_schools_on_pdt_id", using: :btree
   add_index "schools", ["slug"], name: "index_schools_on_slug", using: :btree
 
   create_table "subjects", force: :cascade do |t|
@@ -217,11 +229,17 @@ ActiveRecord::Schema.define(version: 20160418095403) do
   add_foreign_key "class_has_subjects", "subjects", name: "fk_classes_has_subjects_subjects1"
   add_foreign_key "comments", "lessons", name: "fk_comments_lessons1"
   add_foreign_key "comments", "users", name: "fk_comments_users1"
+  add_foreign_key "downloads", "lessons"
+  add_foreign_key "downloads", "users"
   add_foreign_key "grade_has_classes", "classes"
   add_foreign_key "grade_has_classes", "grades"
   add_foreign_key "lessons", "classes", name: "fk_lessons_classes1"
   add_foreign_key "lessons", "subjects", name: "fk_lessons_subjects1"
   add_foreign_key "lessons", "types", name: "fk_lessons_types1"
+  add_foreign_key "lessons", "users", column: "approver_id"
+  add_foreign_key "lessons", "users", name: "approver"
+  add_foreign_key "lessons", "users", name: "approver_id"
   add_foreign_key "lessons", "users", name: "fk_lessons_users1"
   add_foreign_key "schools", "grades", name: "fk_schools_grades1"
+  add_foreign_key "schools", "schools", column: "pdt_id"
 end

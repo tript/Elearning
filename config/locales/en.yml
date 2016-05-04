@@ -59,3 +59,48 @@ en:
               body:
                 blank: "không được để trống"
                 taken: "đã giống một bình luận khác"
+
+  # Used in distance_of_time_in_words(), distance_of_time_in_words_to_now(), time_ago_in_words()
+  datetime:
+    distance_in_words:
+      half_a_minute: "nửa phút"
+      less_than_x_seconds:
+        one:   "chưa đến 1 giây"
+        other: "chưa đến %{count} giây"
+      x_seconds:
+        one:   "1 giây"
+        other: "%{count} giây"
+      less_than_x_minutes:
+        one:   "chưa đến 1 phút"
+        other: "chưa đến %{count} phút"
+      x_minutes:
+        one:   "một phút"
+        other: "%{count} phút"
+      about_x_hours:
+        one:   "khoảng 1 giờ"
+        other: "khoảng %{count} giờ"
+      x_days:
+        one:   "1 ngày"
+        other: "%{count} ngày"
+      about_x_months:
+        one:   "khoảng 1 tháng"
+        other: "khoảng %{count} tháng"
+      x_months:
+        one:   "một tháng"
+        other: "%{count} tháng"
+      about_x_years:
+        one:   "khoảng 1 năm"
+        other: "khoảng %{count} năm"
+      over_x_years:
+        one:   "hơn 1 năm"
+        other: "hơn %{count} năm"
+      almost_x_years:
+        one:   "gần 1 năm"
+        other: "khoảng %{count} năm"
+    prompts:
+      year:   "năm"
+      month:  "tháng"
+      day:    "ngày"
+      hour:   "giờ"
+      minute: "phút"
+      second: "giây"

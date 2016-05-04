@@ -7,7 +7,9 @@ class User < ActiveRecord::Base
   belongs_to :school
   has_and_belongs_to_many :roles, join_table: "user_has_role", foreign_key: "user_id"
   has_many :assignments
+  has_many :downloads
   has_many :assigned_lessons, through: :assignments, source: :lesson
+  has_many :download_lessons, through: :downloads, source: :lesson
 
   attr_accessor :remember_token
 

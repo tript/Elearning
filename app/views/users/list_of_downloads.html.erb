@@ -9,7 +9,7 @@
   </aside>
   <div class="col-md-9">
     <% if @lessons.any? %>
-        <h3>Bài giảng tải lên (<%= @lessons.count %>)</h3>
+        <h3>Bài giảng đã tải về (<%= @lessons.count %>)</h3>
         <div id="lessons-content">
           <%= render partial: 'lessons/lesson', locals: {lessons: @lessons} %>
         </div>
