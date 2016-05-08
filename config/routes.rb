@@ -113,9 +113,9 @@ Tript::Application.routes.draw do
   # Manage user
   get '/admin/users/edit', to: 'admin#manage_user', as: 'manage_user'
   put '/admin/users', to: 'admin#update_users', as: :update_user
-  get 'users/all/edit', to: 'users#edit_all', as: :edit_all
-  post 'users/all/edit', to: 'users#create_by_admin'
-  put 'users/all', to: 'users#update_all', as: :update_all
+  get '/users/all/edit', to: 'users#edit_all', as: :edit_all
+  post '/users/all/edit', to: 'users#create_by_admin'
+  put '/users/all', to: 'users#update_all', as: :update_all
   get 'users/:username/downloads', to: 'users#list_of_downloads', as: :list_of_downloads
 
   # Approve lesson by manager teacher
@@ -133,6 +133,9 @@ Tript::Application.routes.draw do
   end
 
   mount Commontator::Engine => '/commontator'
+
+  get '/schools/new', to: 'schools#new', as: :school_new
+  post '/schools/new', to: 'schools#add_by_admin', as: :create_school
 
   # Handle 404 error
   get '*unmatched_route', to: 'application#not_found'

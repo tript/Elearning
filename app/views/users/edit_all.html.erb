@@ -32,7 +32,32 @@
       <div class=col-sm-8>
         <button class="btn btn-primary">Tạo tài khoản mới</button>
         <div class="divider"></div>
-        <%= render partial: 'users/new', locals: {user: :user_new} %>
+        <%= form_for(:user_new) do |f| %>
+            <%= render 'shared/error_messages' %>
+            <%= f.label :name, "Họ và tên (*)" %>
+            <%= f.text_field :name %>
+
+            <%= f.label :username, "Tên truy nhập (*)" %>
+            <%= f.text_field :username %>
+
+            <%= f.label :email, "Email (*)" %>
+            <%= f.text_field :email %>
+
+            <%= f.label :school, "Đơn vị công tác" %>
+            <% schools = School.all %>
+            <%= f.collection_select :school_id, schools, :id, :name %>
+
+            <%= f.label :role, "Vai trò" %>
+            <%= f.collection_select :role, Role.all, :id, :role %>
+
+            <%= f.label :password, "Mật khẩu (*)" %>
+            <%= f.password_field :password %>
+
+            <%= f.label :password_confirmation, "Gõ lại mật khẩu (*)" %>
+            <%= f.password_field :password_confirmation %>
+
+            <%= button_tag "Tạo tài khoản", class: "btn btn-primary" %>
+        <% end %>
       </div>
     </div>
 

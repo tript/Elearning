@@ -32,6 +32,9 @@ en:
           url: "File dữ liệu"
           class_id: "Lớp"
           represent_image: "Ảnh đại diện"
+        school:
+          name: "Tên trường"
+          grade_id: "Khối"
         commontator/comment:
           body: "Bình luận"
       errors:
@@ -53,6 +56,13 @@ en:
               url:
                 blank: "không được để trống"
               class_id:
+                blank: "không được để trống"
+          school:
+            attributes:
+              name:
+                blank: "không được để trống"
+                taken: "đã tồn tại"
+              grade_id:
                 blank: "không được để trống"
           commontator/comment:
             attributes:

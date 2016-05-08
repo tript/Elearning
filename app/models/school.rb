@@ -1,4 +1,7 @@
 class School < ActiveRecord::Base
+  validates :name, presence: true, uniqueness: true
+  validates :grade_id, presence: true
+
   extend FriendlyId
   friendly_id :name, use: :slugged
   belongs_to :grade

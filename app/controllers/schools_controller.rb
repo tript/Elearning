@@ -66,9 +66,28 @@ class SchoolsController < ApplicationController
     @classes.each do |cl|
       class_lesson = ClassLesson.new
       class_lesson.class = cl.name
-      class_lesson.lessons = cl.lessons.limit(5)
-      class_lesson.quantity = cl.lessons.count
+      class_lesson.lessons = Lesson.joins(:user).where(users: {school_id: school.id}, class_id: cl.id).limit(10)
+      class_lesson.quantity = Lesson.joins(:user).where(users: {school_id: school.id}, class_id: cl.id).size
       @lessons.push(class_lesson)
     end
   end
+
+  def new
+
+  end
+
+  def add_by_admin
+    @school = School.new(school_params)
+    if @school.save
+      flash[:success] = "Đã thêm trường thành công!"
+    end
+
+    render 'new'
+  end
+
+  private
+  def school_params
+    params.require(:school_new).permit(:name, :grade_id, :pdt_id)
+  end
+
 end

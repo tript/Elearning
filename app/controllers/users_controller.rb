@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     if @user.save
       # Handle a successful save.
       log_in @user
-      flash[:success] = "Chúc mừng bạn đã đăng ký thành công!"
+      flash[:success] = "Đã thêm người dùng thành công!"
       redirect_to @user
     else
       render 'new'
@@ -29,7 +29,8 @@ class UsersController < ApplicationController
   end
 
   def create_by_admin
-    @user = User.new(user_params)
+    @user = User.new(user_params.except(:role))
+    @user.roles = Array.[](Role.find(user_params[:role]))
     if @user.save
       # Handle a successful save.
       flash[:success] = "Đã đăng ký thành công!"
@@ -73,7 +74,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user_new).permit(:name, :username, :email, :workplace, :password,
-                                 :password_confirmation)
+                                 :password_confirmation, :role, :school_id)
   end
 
 end

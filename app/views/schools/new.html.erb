@@ -1,0 +1,28 @@
+<div class="row">
+  <div class=col-sm-8>
+    <% if @school && !@school.errors.empty? %>
+        <div class="alert alert-error">
+          <ul>
+            <% @school.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+
+        </div>
+    <% end %>
+    <div class="divider"></div>
+    <%= form_for(:school_new) do |f| %>
+        <%= render 'shared/error_messages' %>
+        <%= f.label :name, "Tên trường" %>
+        <%= f.text_field :name %>
+
+        <%= f.label :grade, "Khối" %>
+        <%= f.collection_select :grade_id, Grade.all, :id, :name %>
+
+        <%= f.label :pdt, "Phòng đào tạo" %>
+        <%= f.collection_select :pdt_id, School.where(grade_id: 5), :id, :name %>
+
+        <%= button_tag "Thêm trường", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

@@ -2,29 +2,10 @@
     <% provide(:title, "Trang chủ") %>
     <div class="row">
       <div class="col-md-3">
-        <ul class="metismenu nav nav-pills nav-stacked" id="menu">
+        <ul class="nav nav-pills nav-stacked">
           <% @schools.each do |school| %>
               <li class="inactive">
-                <%= link_to "#{school.name}<span class=\"glyphicon arrow\"></span>".html_safe, {controller: :schools, action: 'lessons', id: school.id}, remote: true %>
-                <ul class="nav nav-pills nav-stacked" aria-expanded="false">
-                  <% school.active_classes.each do |active_class| %>
-                      <li class="inactive">
-                        <% subjects = active_class.subjects %>
-                        <% if subjects.any? %>
-                            <%= link_to "#{active_class.name}<span class=\"glyphicon arrow\"></span>".html_safe, {controller: :class, action: 'lessons', id: active_class.id}, remote: true %>
-                            <ul class="nav nav-pills nav-stacked" aria-expanded="false">
-                              <% subjects.each do |subject| %>
-                                  <li class="inactive">
-                                    <%= link_to "#{subject.subject_name}", {controller: :subject, action: 'lessons', class_id: active_class.id, subject_id: subject.id}, remote: true %>
-                                  </li>
-                              <% end %>
-                            </ul>
-                        <% else %>
-                            <%= link_to "#{active_class.name}", {controller: :class, action: 'lessons', id: active_class.id}, remote: true %>
-                        <% end %>
-                      </li>
-                  <% end %>
-                </ul>
+                <%= link_to "#{school.name}<span class=\"glyphicon arrow\"></span>".html_safe, school_view_path(school.slug) %>
               </li>
           <% end %>
         </ul>
@@ -32,7 +13,7 @@
       <div class="col-md-9" id="content">
         <% @school_lessons.each do |school_lesson| %>
             <div class="row">
-              <h3> <%= link_to "#{school_lesson.school.name}<span class=\"glyphicon arrow\"></span>".html_safe, {controller: :schools, action: 'lessons', id: school_lesson.school.id}, remote: true %>
+              <h3> <%= link_to "#{school_lesson.school.name}<span class=\"glyphicon arrow\"></span>".html_safe, school_view_path(school_lesson.school.slug) %>
                 ( <%= school_lesson.quantity %> ) </h3>
               <% if school_lesson.lessons.any? %>
                   <div class="row">
