@@ -23,9 +23,8 @@ class LessonsController < ApplicationController
     persons_in_charge_params = eval(lesson_params[:persons_in_charge])
     @lesson = Lesson.new(lesson_params.except(:persons_in_charge))
     @lesson.user = current_user
-
     if @lesson.save
-      if params[:type_id] == 1
+      if eval(lesson_params[:type_id]) == 1
         id = @lesson.id
         Zip::File.open(@lesson.url.file.path) do |zipfile|
           zipfile.each do |file|
@@ -34,6 +33,10 @@ class LessonsController < ApplicationController
             zipfile.extract(file, f_path) unless File.exist?(f_path)
           end
         end
+
+        if File.exists?("public/uploads/#{id}/index.html")
+          File.rename("public/uploads/#{id}/index.html", "public/uploads/#{id}/index.htm")
+        end
       end
 
       if @lesson.isAssignment && persons_in_charge_params.any?
@@ -41,10 +44,12 @@ class LessonsController < ApplicationController
       end
 
       #redirect to lesson_path
-      redirect_to "/lessons", notice: "The lessons #{@lesson.name} has been uploaded."
+      flash[:success] = "Tải lên baì giảng thành công"
+      @classes = ActiveClass.all
+      render 'new'
     else
       @classes = ActiveClass.all
-      render "new"
+      render 'new'
     end
 
   end
@@ -76,13 +81,31 @@ class LessonsController < ApplicationController
 
   def search
     search = params[:search]
-    if search
-      @lessons = Lesson.where('name LIKE ?', "%#{search}%").paginate(page: params[:page], per_page: 30)
-    else
-      @lessons = Lesson.all.paginate(page: params[:page], per_page: 30)
+    if params[:school]
+      school_id = params[:school][:id]
+      type_id = params[:type][:id]
+      class_id = params[:class][:id]
     end
-  end
 
+    @lessons = Lesson.all
+    if params[:school]
+      if !school_id.empty?
+        @lessons = Lesson.joins(:user).where(users: {school_id: params[:school][:id]})
+      end
+      if !class_id.empty?
+        @lessons = @lessons.where(class_id: class_id)
+      end
+      if !type_id.empty?
+        @lessons = @lessons.where(type_id: type_id)
+      end
+    end
+    if !search.empty?
+      @lessons = @lessons.where('lessons.name LIKE ?', "%#{search}%")
+    end
+
+    @lessons = @lessons.paginate(page: params[:page], per_page: 30)
+    @search_content = search
+  end
 
   def approve
     @lessons = Lesson.where(approved: false).order('created_at DESC').paginate(page: params[:page], per_page: 10)
@@ -106,6 +129,10 @@ class LessonsController < ApplicationController
       download.save
     end
     redirect_to lesson.url.url
+  end
+
+  def advanced_search
+
   end
 
   private

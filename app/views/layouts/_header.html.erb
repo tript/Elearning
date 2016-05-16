@@ -12,9 +12,15 @@
         <nav>
           <%= form_tag lessons_path, method: 'get', class: "nav navbar-nav navbar-left navbar-form", role: "search" do %>
               <div class="input-group">
-                <%= text_field_tag :search, nil, class: "form-control", placeholder: "Tìm kiếm" %>
+                <%= text_field_tag :search, nil, class: "form-control", placeholder: "Tìm kiếm", value: @search_content %>
                 <div class="input-group-btn">
-                  <%= button_tag '<i class="glyphicon glyphicon-search"></i></button>'.html_safe, class: "btn btn-default" %>
+                  <div class="dropdown">
+                    <%= button_tag '<i class="glyphicon glyphicon-search"></i></button>'.html_safe, class: "btn btn-default" %>
+                    <!-- <span class="caret"></span>
+                    <ul class="dropdown-menu">
+                      <li><%= link_to advanced_search_path %></li>
+                    </ul> -->
+                  </div>
                 </div>
               </div>
           <% end %>

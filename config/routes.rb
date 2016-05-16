@@ -122,6 +122,8 @@ Tript::Application.routes.draw do
   get '/lessons/manage/approval', to: 'lessons#approve', as: :approve
   put '/lessons/manage', to: 'lessons#update_approval', as: :update_approval
 
+  get '/tim-kiem-nang-cao', to: 'lessons#advanced_search', as: :advanced_search
+
   # View lessons by school
   get '/:school', to: 'schools#index', as: :school_view
 

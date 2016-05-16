@@ -4,7 +4,9 @@
     <% if @lesson.type_id == 1 %>
         <%= link_to "Xem", "/uploads/#{@lesson.id}/index.htm", class: 'btn btn-primary', target: "_blank" %>
     <% end %>
-    <%= link_to "Download", download_lesson_path(id: @lesson.id), class: 'btn btn-primary' %>
+    <% if logged_in? %>
+        <%= link_to "Download", download_lesson_path(id: @lesson.id), class: 'btn btn-primary' %>
+    <% end %>
   </div>
   <div class="col-md-5">
     <span><b> Người gửi: </b><%= @lesson.user.name %> </span> </br>
