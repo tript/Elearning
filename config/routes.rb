@@ -68,6 +68,7 @@ Tript::Application.routes.draw do
   resources :users, only: [:new, :create, :destroy]
   get '/users/:id' => 'users#show'
   get '/users' => 'users#index'
+  post '/users/new' => 'users#create'
   get '/inbox', to: 'users#inbox', as: 'inbox'
 
   root             'static_pages#home'
