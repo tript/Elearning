@@ -16,6 +16,9 @@ class StaticPagesController < ApplicationController
 
     if current_user
       @school = current_user.school
+      if !@school
+        return
+      end
       if @school.grade_id == 5
         @phongdaotao = @school
       else
