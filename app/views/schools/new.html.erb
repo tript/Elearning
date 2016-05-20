@@ -14,13 +14,13 @@
     <%= form_for(:school_new) do |f| %>
         <%= render 'shared/error_messages' %>
         <%= f.label :name, "Tên trường" %>
-        <%= f.text_field :name %>
+        <%= f.text_field :name, class: 'form-control' %>
 
         <%= f.label :grade, "Khối" %>
-        <%= f.collection_select :grade_id, Grade.all, :id, :name %>
+        <%= f.collection_select :grade_id, Grade.all, :id, :name, {}, {class: 'form-control'} %>
 
         <%= f.label :pdt, "Phòng đào tạo" %>
-        <%= f.collection_select :pdt_id, School.where(grade_id: 5), :id, :name %>
+        <%= f.collection_select :pdt_id, School.where(grade_id: 5), :id, :name, {}, {class: 'form-control'} %>
 
         <%= button_tag "Thêm trường", class: "btn btn-primary" %>
     <% end %>

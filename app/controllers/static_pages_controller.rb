@@ -14,11 +14,8 @@ class StaticPagesController < ApplicationController
       @school_lessons.push(school_lesson)
     end
 
-    if current_user
+    if current_user && current_user.school
       @school = current_user.school
-      if !@school
-        return
-      end
       if @school.grade_id == 5
         @phongdaotao = @school
       else
@@ -32,6 +29,19 @@ class StaticPagesController < ApplicationController
         type_lesson.type = type
         quantity = Lesson.joins(:user).where(users: {school_id: @school.id}, type_id: type.id).size
         lessons = Lesson.joins(:user).where(users: {school_id: @school.id}, type_id: type.id).limit(10)
+        type_lesson.quantity = quantity
+        type_lesson.lessons = lessons
+        @type_lessons.push(type_lesson)
+      end
+    else
+      @classes = ActiveClass.all.order('name ASC')
+      @type_lessons = Array.new
+      @type = Type.all
+      @type.each do |type|
+        type_lesson = TypeLesson.new
+        type_lesson.type = type
+        quantity = Lesson.joins(:user).where(type_id: type.id).size
+        lessons = Lesson.joins(:user).where(type_id: type.id).limit(10)
         type_lesson.quantity = quantity
         type_lesson.lessons = lessons
         @type_lessons.push(type_lesson)
