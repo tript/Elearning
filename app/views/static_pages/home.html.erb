@@ -48,6 +48,14 @@
           <% end %>
           <u><%= link_to "Tìm kiếm nâng cao", advanced_search_path %></u>
         </nav>
+
+        <div class="divider"></div>
+        <h4><font color="red">Thống kê</font></h4>
+        <b>
+          Lượt xem: <%= Impression.count %> </br>
+          Lượt xem hôm nay: <%= Impression.where('created_at between ? and ?', DateTime.now.beginning_of_day, DateTime.now.end_of_day).count %>
+        </b>
+
       </div>
       <div class="col-md-9" id="content">
         <% @type_lessons.each do |type_lesson| %>
@@ -127,6 +135,14 @@
           <% end %>
           <u><%= link_to "Tìm kiếm nâng cao", advanced_search_path %></u>
         </nav>
+
+        <div class="divider"></div>
+        <h4><font color="red">Thống kê</font></h4>
+        <b>
+          Lượt xem: <%= Impression.count %> </br>
+          Lượt xem hôm nay: <%= Impression.where('created_at between ? and ?', DateTime.now.beginning_of_day, DateTime.now.end_of_day).count %>
+        </b>
+
       </div>
       <div class="col-md-9" id="content">
         <% @type_lessons.each do |type_lesson| %>
