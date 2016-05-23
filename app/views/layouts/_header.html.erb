@@ -1,7 +1,7 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
     <div class="row">
-      <div class="col col-md-3">
+      <div class="col col-md-4">
         <% if @school %>
             <%= link_to "#{@school.name}", school_view_path(@school.slug), id: "logo" %>
         <% else %>
