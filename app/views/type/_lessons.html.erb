@@ -1,7 +1,12 @@
 <% @class_lessons.each do |class_lesson| %>
     <div class="row">
-      <h3> <%= link_to "#{class_lesson.class.name}<span class=\"glyphicon arrow\"></span>".html_safe, {controller: :class, action: 'lessons', name: class_lesson.class.name, id: class_lesson.class.id, type_id: @type_id}, remote: true %>
-        ( <%= class_lesson.quantity %> ) </h3>
+      <% if @school %>
+          <h3> <%= link_to "#{class_lesson.class.name}<span class=\"glyphicon arrow\"></span>".html_safe, {controller: :class, action: 'lessons', id: class_lesson.class.id, school_id: @school.id, type_id: @type_id}, remote: true %>
+            ( <%= class_lesson.quantity %> ) </h3>
+      <% else %>
+          <h3> <%= link_to "#{class_lesson.class.name}<span class=\"glyphicon arrow\"></span>".html_safe, {controller: :class, action: 'lessons', id: class_lesson.class.id, type_id: @type_id}, remote: true %>
+            ( <%= class_lesson.quantity %> ) </h3>
+      <% end %>
       <% if class_lesson.lessons.any? %>
           <div class="row lessons-row">
             <% class_lesson.lessons.each do |lesson| %>

@@ -9,21 +9,32 @@ class SchoolsController < ApplicationController
     else
       if @school.grade_id == 5
         @phongdaotao = @school
+        @classes = @school.active_classes
+        @type_lessons = Array.new
+        @type = Type.all
+        @type.each do |type|
+          type_lesson = TypeLesson.new
+          type_lesson.type = type
+          quantity = Lesson.joins(user: :school).where(schools: {pdt_id: @school.id}, type_id: type.id).size
+          lessons = Lesson.joins(user: :school).where(schools: {pdt_id: @school.id}, type_id: type.id).limit(10)
+          type_lesson.quantity = quantity
+          type_lesson.lessons = lessons
+          @type_lessons.push(type_lesson)
+        end
       else
         @phongdaotao = @school.phongdaotao
-      end
-
-      @classes = @school.active_classes
-      @type_lessons = Array.new
-      @type = Type.all
-      @type.each do |type|
-        type_lesson = TypeLesson.new
-        type_lesson.type = type
-        quantity = Lesson.joins(:user).where(users: {school_id: @school.id}, type_id: type.id).size
-        lessons = Lesson.joins(:user).where(users: {school_id: @school.id}, type_id: type.id).limit(10)
-        type_lesson.quantity = quantity
-        type_lesson.lessons = lessons
-        @type_lessons.push(type_lesson)
+        @classes = @school.active_classes
+        @type_lessons = Array.new
+        @type = Type.all
+        @type.each do |type|
+          type_lesson = TypeLesson.new
+          type_lesson.type = type
+          quantity = Lesson.joins(:user).where(users: {school_id: @school.id}, type_id: type.id).size
+          lessons = Lesson.joins(:user).where(users: {school_id: @school.id}, type_id: type.id).limit(10)
+          type_lesson.quantity = quantity
+          type_lesson.lessons = lessons
+          @type_lessons.push(type_lesson)
+        end
       end
     end
   end
