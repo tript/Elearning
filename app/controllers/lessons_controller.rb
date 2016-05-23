@@ -37,21 +37,24 @@ class LessonsController < ApplicationController
         if File.exists?("public/uploads/#{id}/index.html")
           File.rename("public/uploads/#{id}/index.html", "public/uploads/#{id}/index.htm")
         end
+        if !File.exists?("public/uploads/#{id}/index.htm")
+          flash[:danger] = "Bài giảng không hợp lệ"
+          @lesson.destroy
+          @lesson = nil
+        end
       end
 
-      if @lesson.isAssignment && persons_in_charge_params.any?
-        @lesson.persons_in_charge = User.where("username in (?)", persons_in_charge_params)
-      end
+      if @lesson
+        if @lesson.isAssignment && persons_in_charge_params.any?
+          @lesson.persons_in_charge = User.where("username in (?)", persons_in_charge_params)
+        end
 
-      #redirect to lesson_path
-      flash[:success] = "Tải lên baì giảng thành công"
-      @classes = ActiveClass.all
-      render 'new'
-    else
-      @classes = ActiveClass.all
-      render 'new'
+        #redirect to lesson_path
+        flash[:success] = "Tải lên baì giảng thành công"
+      end
     end
-
+    @classes = ActiveClass.all
+    render 'new'
   end
 
   def destroy

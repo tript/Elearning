@@ -42,11 +42,6 @@
               <%= f.text_area :persons_in_charge, {id: "persons-in-charge-area", class: "textarea form-control", rows: "1" } %>
             </div>
 
-            <!--<%= f.fields_for :persons_in_charge do |person| %>-->
-                <!--<%= person.collection_select :person_id, User.all, :id, :name %>-->
-                <!--
-            <% end %>-->
-
             </br>
             <%= f.submit "Tải lên", class: "btn btn-primary" %>
         <% end %>
