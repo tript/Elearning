@@ -42,7 +42,9 @@
                     <li><%= link_to "Tài liệu tải về", list_of_downloads_path(username: current_user.username) %></li>
                     <li><%= link_to "Tài liệu tải lên", current_user %></li>
                     <li><%= link_to "Duyệt bài giảng", approve_path %></li>
+                    <% if is_admin?(current_user) %>
                     <li><%= link_to "Quản lý danh sách trường học", school_new_path %></li>
+                    <% end %>
                     <% if is_manager?(current_user) %>
                         <li><%= link_to "Upload tài liệu", controller: "lessons", action: "new" %></li>
                     <% end %>
