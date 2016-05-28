@@ -14,16 +14,16 @@
         <div class="divider"></div>
         <%= form_for(:school_new) do |f| %>
             <%= render 'shared/error_messages' %>
-            <%= f.label :name, "Tên trường" %>
+            <%= f.label :name, "Tên đơn vị" %>
             <%= f.text_field :name, class: 'form-control' %>
 
             <%= f.label :grade, "Khối" %>
             <%= f.collection_select :grade_id, Grade.all, :id, :name, {}, {class: 'form-control'} %>
 
-            <%= f.label :pdt, "Phòng đào tạo" %>
+            <%= f.label :pdt, "Đơn vị quản lý" %>
             <%= f.collection_select :pdt_id, School.where(grade_id: 5), :id, :name, {}, {class: 'form-control'} %>
 
-            <%= button_tag "Thêm trường", class: "btn btn-primary" %>
+            <%= button_tag "Thêm", class: "btn btn-primary" %>
         <% end %>
       </div>
     </div>

@@ -9,14 +9,24 @@ ready = function () {
 
     });
 
-    $('#persons-in-charge-area').textext({
-        plugins: 'tags filter autocomplete ajax',
-        ajax: {
-            url: '/users',
-            dataType: 'json',
-            cacheResults: true
-        }
-    });
+    //$('#persons-in-charge-area').textext({
+    //    plugins: 'tags filter autocomplete ajax',
+    //    ajax: {
+    //        url: '/users',
+    //        dataType: 'json',
+    //        cacheResults: true
+    //    },
+    //    ext: {
+    //        itemManager: {
+    //            itemToString: function(item)
+    //            {
+    //                return item.name;
+    //            }
+    //        }
+    //    }
+    //});
+
+
     $('.upload-class').on('change', function (e) {
         $('.upload-subject').html("");
         var optionSelected = $("option:selected", this);
@@ -26,6 +36,19 @@ ready = function () {
                 //$("div").append(field + " ");
                 $('.upload-subject').append(
                     "<option value=\"" + field.id + "\">" + field.subject_name + "</option>"
+                );
+            });
+        });
+    });
+
+    $('#person_in_charge_school').on('change', function (e) {
+        $('#persons-in-charge-name').html("");
+        var valueSelected = this.value;
+        $.getJSON("/users?school_id=" + valueSelected, function(result){
+            $.each(result, function(i, field){
+                //$("div").append(field + " ");
+                $('#persons-in-charge-name').append(
+                    "<option value=\"" + field.username + "\">" + field.name + "</option>"
                 );
             });
         });

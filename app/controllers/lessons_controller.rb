@@ -20,7 +20,7 @@ class LessonsController < ApplicationController
   end
 
   def create
-    persons_in_charge_params = eval(lesson_params[:persons_in_charge])
+    persons_in_charge_params = lesson_params[:persons_in_charge]
     @lesson = Lesson.new(lesson_params.except(:persons_in_charge))
     @lesson.user = current_user
     if @lesson.save

@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
   def index
     if params[:school_id]
-      render json: User.where(school_id: params[:school_id]).pluck("username")
+      render json: User.select(:username, :name).where(school_id: params[:school_id])
     else
-      render json: User.all.pluck("username")
+      render json: User.all.select(:username, :name);
     end
   end
 
