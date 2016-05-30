@@ -20,8 +20,15 @@ class RepresentImageUploader < CarrierWave::Uploader::Base
   def default_url
     # For Rails 3.1+ asset pipeline compatibility:
     # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
-
-    "elearning_untitled.jpg"
+    if model.type_id == 1
+      "elearning_untitled.jpg"
+    elsif model.type_id == 2
+      "ppt_untitled.png"
+    elsif model.type_id == 3
+      "giaoan_untitled.jpg"
+    else
+      "tailieu_untitled.jpg"
+    end
   end
 
   # Process files as they are uploaded:

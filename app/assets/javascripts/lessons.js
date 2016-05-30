@@ -61,6 +61,29 @@ ready = function () {
             $("#persons-in-charge-div").hide();
         }
     });
+
+    var bar = $('.bar');
+    var percent = $('.percent');
+    var status = $('#status');
+
+    $('form').ajaxForm({
+        beforeSend: function() {
+            // status.empty();
+            var percentVal = '0%';
+            bar.width(percentVal);
+            percent.html(percentVal);
+        },
+        uploadProgress: function(event, position, total, percentComplete) {
+            var percentVal = percentComplete + '%';
+            bar.width(percentVal);
+            percent.html(percentVal);
+        },
+        // success identifies the function to invoke when the server response
+        // has been received; here we apply a fade-in effect to the new content
+        success: function(xhr) {
+            status.html(xhr);
+        }
+    });
 }
 $(document).ready(ready);
 $(document).on('page:load', ready);
