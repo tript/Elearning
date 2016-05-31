@@ -26,14 +26,14 @@
               <%= f.collection_select :type_id, Type.all, :id, :name, {}, class: "form-control" %>
 
               <%= f.label :attachment, "File dữ liệu" %>
-              <%= f.file_field :url %>
+              <%= f.file_field :url, accept: 'application/zip' %>
               <div class="progress">
                 <div class="bar"></div>
                 <div class="percent">0%</div>
               </div>
 
               <%= f.label :represent_image, "Ảnh đại diện" %>
-              <%= f.file_field :represent_image %>
+              <%= f.file_field :represent_image, accept: 'image/png,image/jpeg' %>
 
               <%= f.check_box :isAssignment, id: "assignment-checkbox" %> <label> Gửi tới </label>
 

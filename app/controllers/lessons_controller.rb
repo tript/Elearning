@@ -72,6 +72,8 @@ class LessonsController < ApplicationController
   def details
     @lesson = Lesson.find(params[:id])
     @school = @lesson.user.school
+    @filesize = '%.2f' % (File.size(Rails.public_path.to_s + @lesson.url.url).to_f / 2**20)
+    @downloads_count = Download.where(lesson_id: @lesson.id).count
     if @school.grade_id == 5
       @phongdaotao = @school
     else
@@ -80,6 +82,15 @@ class LessonsController < ApplicationController
 
     @comments = Comment.where(lesson_id: params[:id])
     commontator_thread_show(@lesson)
+
+    # use for left menu
+    if @school.grade_id == 5
+      @phongdaotao = @school
+      @classes = @school.active_classes
+    else
+      @phongdaotao = @school.phongdaotao
+      @classes = @school.active_classes
+    end
   end
 
   def search
