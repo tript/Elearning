@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :admin_user,     only: :destroy
   def index
     if params[:school_id]
       render json: User.select(:username, :name).where(school_id: params[:school_id])
@@ -25,6 +26,19 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       render 'new'
+    end
+  end
+
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "User deleted"
+    redirect_to edit_all_path
+  end
+
+  # Confirms an admin user.
+  def admin_user
+    if (!current_user || current_user.username != 'admin')
+      redirect_to(root_url)
     end
   end
 

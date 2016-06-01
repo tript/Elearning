@@ -46,7 +46,6 @@ ready = function () {
         var valueSelected = this.value;
         $.getJSON("/users?school_id=" + valueSelected, function(result){
             $.each(result, function(i, field){
-                //$("div").append(field + " ");
                 $('#persons-in-charge-name').append(
                     "<option value=\"" + field.username + "\">" + field.name + "</option>"
                 );
