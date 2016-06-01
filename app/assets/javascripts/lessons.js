@@ -66,7 +66,7 @@ ready = function () {
     var percent = $('.percent');
     var status = $('#status');
 
-    $('form').ajaxForm({
+    $('#lesson_new_form').ajaxForm({
         beforeSend: function() {
             // status.empty();
             var percentVal = '0%';
