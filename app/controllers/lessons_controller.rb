@@ -142,7 +142,7 @@ class LessonsController < ApplicationController
     if download.valid?
       download.save
     end
-    redirect_to lesson.url.url
+    send_file lesson.url.path
   end
 
   def advanced_search
