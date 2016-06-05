@@ -139,6 +139,8 @@ Tript::Application.routes.draw do
 
   get '/schools/new', to: 'schools#new', as: :school_new
   post '/schools/new', to: 'schools#add_by_admin', as: :create_school
+  put '/schools', to: 'schools#update_all', as: :update_all_school
+  delete '/schools/:id', to: 'schools#destroy', as: :delete_school
 
   # Handle 404 error
   get '*unmatched_route', to: 'application#not_found'

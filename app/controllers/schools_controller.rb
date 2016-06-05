@@ -84,7 +84,23 @@ class SchoolsController < ApplicationController
   end
 
   def new
+    @schools = School.all
+  end
 
+  def update_all
+    params['school'].keys.each do |slug|
+      @school = School.friendly.find(slug.to_s)
+      if !@school.update_columns(params['school'][slug].permit(:name, :grade_id, :pdt_id))
+        flash[:success] = Rails.logger.info(@school.errors.messages.inspect)
+      end
+    end
+    redirect_to school_new_path
+  end
+
+  def destroy
+    School.find(params[:id]).destroy
+    flash[:success] = "Xóa thành công"
+    redirect_to school_new_path
   end
 
   def add_by_admin
@@ -93,7 +109,7 @@ class SchoolsController < ApplicationController
       flash[:success] = "Đã thêm trường thành công!"
     end
 
-    render 'new'
+    redirect_to school_new_path
   end
 
   private
