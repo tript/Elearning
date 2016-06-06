@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :admin_user,     only: :destroy
+  before_action :admin_user, only: :destroy
+
   def index
     if params[:school_id]
       render json: User.select(:username, :name).where(school_id: params[:school_id])
@@ -56,7 +57,12 @@ class UsersController < ApplicationController
 
   def edit_all
     @roles = current_user.roles
-    @users = User.all
+    if params[:school_id]
+      @school = School.find(params[:school_id])
+    else
+      @school = School.find(1)
+    end
+    @users = User.all.where(school_id: params[:school_id])
   end
 
   def update_all
@@ -88,7 +94,7 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user_new).permit(:name, :username, :email, :workplace, :password,
-                                 :password_confirmation, :role, :school_id)
+                                     :password_confirmation, :role, :school_id)
   end
 
 end

@@ -9,23 +9,6 @@ ready = function () {
 
     });
 
-    //$('#persons-in-charge-area').textext({
-    //    plugins: 'tags filter autocomplete ajax',
-    //    ajax: {
-    //        url: '/users',
-    //        dataType: 'json',
-    //        cacheResults: true
-    //    },
-    //    ext: {
-    //        itemManager: {
-    //            itemToString: function(item)
-    //            {
-    //                return item.name;
-    //            }
-    //        }
-    //    }
-    //});
-
 
     $('.upload-class').on('change', function (e) {
         $('.upload-subject').html("");
