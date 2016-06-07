@@ -117,7 +117,9 @@ Tript::Application.routes.draw do
   get '/users/all/edit', to: 'users#edit_all', as: :edit_all
   post '/users/all/edit', to: 'users#create_by_admin'
   put '/users/all', to: 'users#update_all', as: :update_all
-  get 'users/:username/downloads', to: 'users#list_of_downloads', as: :list_of_downloads
+  get '/users/:username/downloads', to: 'users#list_of_downloads', as: :list_of_downloads
+  get '/users/edit/doi-mat-khau', to: 'users#change_password', as: :change_password
+  put '/users/edit', to: 'users#update_password', as: :update_password
 
   # Approve lesson by manager teacher
   get '/lessons/manage/approval', to: 'lessons#approve', as: :approve

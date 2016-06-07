@@ -62,7 +62,7 @@ class UsersController < ApplicationController
     else
       @school = nil
     end
-    params[:school_id]? @users = User.all.where(school_id: @school.id) : @users = User.all.where(school_id: nil)
+    params[:school_id] ? @users = User.all.where(school_id: @school.id) : @users = User.all.where(school_id: nil)
   end
 
   def update_all
@@ -88,6 +88,25 @@ class UsersController < ApplicationController
     else
       render application/not_found
     end
+  end
+
+  def change_password
+
+  end
+
+  def update_password
+    if current_user
+      if !current_user.authenticate(params[:user][:old_password])
+        flash[:danger] = "Mật khẩu không đúng"
+      else
+        if current_user.update(params[:user].permit(:password, :password_confirmation))
+          flash[:success] = "Đổi mật khẩu thành công"
+        else
+          flash[:danger] = "Mật khẩu xác nhận không giống nhau"
+        end
+      end
+    end
+    redirect_to change_password_path
   end
 
   private
