@@ -57,12 +57,12 @@ class UsersController < ApplicationController
 
   def edit_all
     @roles = current_user.roles
-    if params[:school_id]
+    if params.has_key?(:school_id)
       @school = School.find(params[:school_id])
     else
-      @school = School.find(1)
+      @school = nil
     end
-    @users = User.all.where(school_id: params[:school_id])
+    params[:school_id]? @users = User.all.where(school_id: @school.id) : @users = User.all.where(school_id: nil)
   end
 
   def update_all

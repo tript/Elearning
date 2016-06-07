@@ -3,7 +3,11 @@
     <br/>
     <div class="row">
       <div class=col-sm-8>
-        <%= collection_select(:school, :school_id, School.all, :id, :name, {blank: true, prompt: "Chọn trường", selected: @school.id}, id: "school-select-edit") %>
+        <% if @school.nil? %>
+            <%= collection_select(:school, :school_id, School.all, :id, :name, {include_blank: true, selected: nil}, id: "school-select-edit") %>
+        <% else %>
+            <%= collection_select(:school, :school_id, School.all, :id, :name, {include_blank: true, selected: @school.id}, id: "school-select-edit") %>
+        <% end %>
       </div>
     </div>
     <div class="row">
@@ -22,7 +26,7 @@
                       <tr>
                         <td><%= user_fields.text_field :name %></td>
                         <td><%= user_fields.email_field :email %></td>
-                        <td><%= user_fields.collection_select :school_id, schools, :id, :name %></td>
+                        <td><%= user_fields.collection_select :school_id, schools, :id, :name, {include_blank: true} %></td>
                         <td><%= link_to "Xoá", user, method: :delete,
                                         data: {confirm: "Bạn có chắc không?"} %>
                         </td>

@@ -5,7 +5,10 @@ var ready;
 ready = function () {
     $('#school-select-edit').on('change', function (e) {
         var valueSelected = this.value;
-        window.location.replace("/users/all/edit?school_id=" + valueSelected);
+        if (valueSelected)
+            window.location.replace("/users/all/edit?school_id=" + valueSelected);
+        else
+            window.location.replace("/users/all/edit");
     });
 }
 $(document).ready(ready);
