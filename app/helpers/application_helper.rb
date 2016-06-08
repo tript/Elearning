@@ -22,6 +22,9 @@ module ApplicationHelper
   end
 
   def is_manager?(user)
+    if user.nil?
+      return false
+    end
     if user.roles.exists?(2)
       return true
     else
@@ -30,6 +33,9 @@ module ApplicationHelper
   end
 
   def is_teacher?(user)
+    if user.nil?
+      return false
+    end
     if user.roles.exists?(2) || user.roles.exists?(1)
       return true
     else
