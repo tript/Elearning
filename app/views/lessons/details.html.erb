@@ -51,7 +51,8 @@
     <h4><font color="red">Thống kê</font></h4>
     <b>
       Lượt xem: <%= Impression.count %> </br>
-      Lượt xem hôm nay: <%= Impression.where('created_at between ? and ?', DateTime.now.beginning_of_day, DateTime.now.end_of_day).count %>
+      Lượt xem hôm
+      nay: <%= Impression.where('created_at between ? and ?', DateTime.now.beginning_of_day, DateTime.now.end_of_day).count %>
     </b>
 
   </div>
@@ -65,6 +66,10 @@
         <% end %>
         <% if logged_in? %>
             <%= link_to "Download", download_lesson_path(id: @lesson.id), class: 'btn btn-primary' %>
+        <% end %>
+        <% if (is_manager?(current_user) && current_user.school_id == @lesson.user.school_id) || is_admin?(current_user) %>
+            <%= link_to "Xoá", @lesson,class: 'btn btn-primary', method: :delete,
+                        data: {confirm: "Bạn có chắc muốn xóa bài giảng này không?"} %>
         <% end %>
       </div>
       <div class="col-md-5">

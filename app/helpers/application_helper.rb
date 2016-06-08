@@ -28,4 +28,12 @@ module ApplicationHelper
       return false
     end
   end
+
+  def is_teacher?(user)
+    if user.roles.exists?(2) || user.roles.exists?(1)
+      return true
+    else
+      return false
+    end
+  end
 end

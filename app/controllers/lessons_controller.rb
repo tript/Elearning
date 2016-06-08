@@ -60,7 +60,13 @@ class LessonsController < ApplicationController
   def destroy
     @lesson = Lesson.find(params[:id])
     @lesson.destroy
-    redirect_to lessons_path, notice: "\"" + @lesson.name + "\" has been deleted."
+    path_to_lesson = @lesson.url.path
+    File.delete(path_to_lesson) if File.exist?(path_to_lesson)
+    if @lesson.type_id == 1
+      FileUtils.rm_rf("public/uploads/#{@lesson.id}") if File.directory?("public/uploads/#{@lesson.id}")
+    end
+    flash[:success] = "Bài giảng " + @lesson.name + " đã được xóa thành công"
+    redirect_to root_path
   end
 
   def show
