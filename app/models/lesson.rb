@@ -11,7 +11,8 @@ class Lesson < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   has_many :assignments, dependent: :destroy
   has_many :persons_in_charge, through: :assignments, source: :user, dependent: :destroy
-  has_many :downloads, dependent: :destroy
+  has_many :downloads
+  has_many :download_users, through: :downloads, source: :user, dependent: :destroy
   belongs_to :approver, class_name: "User", foreign_key: "approver_id"
 
   validates :user_id, presence: true
