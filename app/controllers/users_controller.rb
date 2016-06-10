@@ -24,7 +24,7 @@ class UsersController < ApplicationController
       # Handle a successful save.
       log_in @user
       flash[:success] = "Đã thêm người dùng thành công!"
-      redirect_to @user
+      redirect_to root_path
     else
       render 'new'
     end
@@ -68,7 +68,11 @@ class UsersController < ApplicationController
   def update_all
     params['user'].keys.each do |id|
       @user = User.find(id.to_i)
-      if !@user.update_columns(params['user'][id].permit(:user, :name, :email, :school_id))
+      if @user.update_columns(params['user'][id].permit(:user, :name, :email, :school_id, :roles => [:id]).except(:roles))
+        role_id = params['user'][id].permit(:user, :name, :email, :school_id, :roles => [:id])[:roles][:id];
+        @user.roles = role_id.blank? ? [] : Array.[](Role.find(role_id));
+        @user.save
+      else
         flash[:success] = Rails.logger.info(@user.errors.messages.inspect)
       end
     end

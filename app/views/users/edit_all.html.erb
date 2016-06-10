@@ -18,6 +18,7 @@
                 <th class="col-md-2">Họ và tên</th>
                 <th class="col-md-3">E-Mail</th>
                 <th class="col-md-3">Trường</th>
+                <th class="col-md-2">Vai trò</th>
                 <th class="col-md-2">Xóa</th>
               </tr>
               <% schools = School.all %>
@@ -27,6 +28,9 @@
                         <td><%= user_fields.text_field :name %></td>
                         <td><%= user_fields.email_field :email %></td>
                         <td><%= user_fields.collection_select :school_id, schools, :id, :name, {include_blank: true} %></td>
+                        <%= user_fields.fields_for :roles, user.roles.first do |a| %>
+                            <td><%= a.collection_select :id, Role.all, :id, :role, {include_blank: true} %></td>
+                        <% end %>
                         <td><%= link_to "Xoá", user, method: :delete,
                                         data: {confirm: "Bạn có chắc không?"} %>
                         </td>

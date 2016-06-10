@@ -69,6 +69,18 @@ class LessonsController < ApplicationController
     redirect_to root_path
   end
 
+  def destroy_by_manager
+    @lesson = Lesson.find(params[:id])
+    @lesson.destroy
+    path_to_lesson = @lesson.url.path
+    File.delete(path_to_lesson) if File.exist?(path_to_lesson)
+    if @lesson.type_id == 1
+      FileUtils.rm_rf("public/uploads/#{@lesson.id}") if File.directory?("public/uploads/#{@lesson.id}")
+    end
+    flash[:success] = "Bài giảng " + @lesson.name + " đã được xóa thành công"
+    redirect_to approve_path
+  end
+
   def show
     @lessons = Lesson.find(params[:id])
     id = @lessons.id

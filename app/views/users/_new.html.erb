@@ -11,7 +11,7 @@
 
     <%= f.label :school, "Đơn vị công tác" %>
     <% schools = School.all %>
-    <%= f.collection_select :school_id, schools, :id, :name, {}, {class: 'form-control'} %>
+    <%= f.collection_select :school_id, schools, :id, :name, {include_blank: true}, {class: 'form-control'} %>
 
     <%= f.label :password, "Mật khẩu (*)" %>
     <%= f.password_field :password, class: 'form-control' %>

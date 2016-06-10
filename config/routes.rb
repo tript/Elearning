@@ -124,6 +124,7 @@ Tript::Application.routes.draw do
   # Approve lesson by manager teacher
   get '/lessons/manage/approval', to: 'lessons#approve', as: :approve
   put '/lessons/manage', to: 'lessons#update_approval', as: :update_approval
+  delete '/lessons/manage/approval/:id', to: 'lessons#destroy_by_manager', as: :destroy_by_manager
 
   get '/tim-kiem-nang-cao', to: 'lessons#advanced_search', as: :advanced_search
 

@@ -3,14 +3,15 @@
     <br/>
     <br/>
     <div class="row">
-      <div class="table-responsive col-sm-8">
+      <div class="table-responsive col-md-12">
         <%= form_for :lesson, :url => update_approval_path, :html => {:method => :put} do %>
             <table class="table table-hover table-striped">
               <tr>
-                <th class="col-md-6">Tiêu đề</th>
+                <th class="col-md-4">Tiêu đề</th>
                 <th class="col-md-3">Người gửi</th>
-                <th class="col-md-3">Ngày gửi</th>
-                <th class="col-md-3">Tình trạng</th>
+                <th class="col-md-2">Ngày gửi</th>
+                <th class="col-md-2">Tình trạng</th>
+                <th class="col-md-1">Xóa</th>
               </tr>
               <% @lessons.each do |lesson| %>
                   <%= fields_for "lesson[]", lesson do |lesson_fields| %>
@@ -19,6 +20,8 @@
                         <td><%= lesson.user.name %></td>
                         <td><%= lesson.created_at.strftime("%Y-%m-%d") %></td>
                         <td><%= lesson_fields.select :approved, [["Duyệt", 1], ["Không duyệt", 0]], selected: 0 %></td>
+                        <td><%= link_to "Xoá", destroy_by_manager_path(id: lesson.id), method: :delete,
+                                        data: {confirm: "Bạn có chắc muốn xóa bài giảng này không?"} %></td>
                       </tr>
                   <% end %>
               <% end %>
