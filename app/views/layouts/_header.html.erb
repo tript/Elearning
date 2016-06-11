@@ -1,17 +1,21 @@
 <header class="navbar">
   <div class="container">
     <div class="row">
-      <%= image_tag("banner.png", alt: "Banner") %>
+      <div class="banner">
+        <%= image_tag("banner.png", alt: "Banner") %>
+        <h2>
+          <span>
+          <% if @school %>
+            <%= link_to "#{@school.name}", school_view_path(@school.slug)%>
+          <% else %>
+            <%= link_to "Bài giảng E-learning", root_path%>
+          <% end %>
+          </span>
+        </h2>
+      </div>
     </div>
     <div class="row">
-      <div class="col col-md-4">
-        <% if @school %>
-            <%= link_to "#{@school.name}", school_view_path(@school.slug), id: "logo" %>
-        <% else %>
-            <%= link_to "Bài giảng E-learning", root_path, id: "logo" %>
-        <% end %>
-      </div>
-      <div class="col col-md-8">
+      <div class="col col-md-12">
         <nav>
           <ul class="nav navbar-nav navbar-right">
             <!-- <li><%= link_to "Trang chủ", root_path %></li> -->
