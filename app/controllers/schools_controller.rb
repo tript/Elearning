@@ -7,7 +7,7 @@ class SchoolsController < ApplicationController
     rescue ActiveRecord::RecordNotFound => e
       render file: 'public/404.html'
     else
-      if @school.grade_id == 5
+      if @school.grade_id == 5 || @school.grade_id == 7
         @phongdaotao = @school
         @classes = @school.active_classes
         @type_lessons = Array.new

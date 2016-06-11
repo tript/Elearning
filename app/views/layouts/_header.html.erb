@@ -17,11 +17,11 @@
             <!-- <li><%= link_to "Trang chủ", root_path %></li> -->
 
             <!-- Drop down menu of schools -->
-            <% Grade.where.not(id: 7).each do |grade| %>
+            <% Grade.all.each do |grade| %>
                 <li class="dropdown">
                   <a href="#" data-toggle="dropdown" class="dropdown-toggle"> <%= grade.name %></a>
                   <% if @phongdaotao %>
-                      <% schools = grade.schools.where('pdt_id = ? OR grade_id = 5', @phongdaotao.id) %>
+                      <% schools = grade.schools.where('pdt_id = ? OR grade_id = 5 or grade_id = 7', @phongdaotao.id) %>
                   <% else %>
                       <% schools = grade.schools %>
                   <% end %>

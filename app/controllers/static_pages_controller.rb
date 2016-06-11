@@ -16,7 +16,7 @@ class StaticPagesController < ApplicationController
 
     if current_user && current_user.school
       @school = current_user.school
-      if @school.grade_id == 5
+      if @school.grade_id == 5 || @school.grade_id == 7
         @phongdaotao = @school
       else
         @phongdaotao = @school.phongdaotao

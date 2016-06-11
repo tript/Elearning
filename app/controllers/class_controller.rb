@@ -7,7 +7,7 @@ class ClassController < ApplicationController
     if params[:id]
       if params[:school_id]
         @school = School.find(params[:school_id])
-        if @school.grade_id != 5
+        if @school.grade_id != 5 && @school.grade_id != 7
           @class = ActiveClass.find(params[:id])
           @lessons = Lesson.joins(:user).where(users: {school_id: params[:school_id]}, class_id: params[:id], type_id: params[:type_id]).paginate(page: params[:page], per_page: 30)
         else

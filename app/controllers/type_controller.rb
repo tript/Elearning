@@ -3,7 +3,7 @@ class TypeController < ApplicationController
     if params[:school_id]
       @school = School.find(params[:school_id])
 
-      if @school.grade_id == 5
+      if @school.grade_id == 5 || @school.grade_id == 7
         @classes = @school.active_classes
         @class_lessons = Array.new
         @type_id = params[:type_id]
