@@ -1,20 +1,7 @@
 class StaticPagesController < ApplicationController
 
   def home
-    @type = Type.all
-    @schools = School.all.where(grade_id: 5)
-    @school_lessons = Array.new
-    @schools.each do |school|
-      school_lesson = SchoolLesson.new
-      school_lesson.school = school
-      quantity = Lesson.joins(:user).where(users: {school_id: school.id}).size
-      lessons = Lesson.joins(:user).where(users: {school_id: school.id}).limit(10)
-      school_lesson.quantity = quantity
-      school_lesson.lessons = lessons.take(5)
-      @school_lessons.push(school_lesson)
-    end
-
-    if current_user && current_user.school
+    if current_user && current_user.school && current_user.school != 7
       @school = current_user.school
       if @school.grade_id == 5 || @school.grade_id == 7
         @phongdaotao = @school
@@ -34,7 +21,7 @@ class StaticPagesController < ApplicationController
         @type_lessons.push(type_lesson)
       end
     else
-      @classes = ActiveClass.all.order('name ASC')
+      @classes = ActiveClass.all.order('id ASC')
       @type_lessons = Array.new
       @type = Type.all
       @type.each do |type|

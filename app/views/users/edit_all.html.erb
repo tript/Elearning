@@ -50,7 +50,18 @@
         <button class="btn btn-primary">Tạo tài khoản mới</button>
         <div class="divider"></div>
         <%= form_for(:user_new) do |f| %>
-            <%= render 'shared/error_messages' %>
+            <% if @created_user && @created_user.errors.any? %>
+                <div id="error_explanation">
+                  <!--<div class="alert alert-danger">-->
+                  <!--The form contains <%= pluralize(@created_user.errors.count, "error") %>.-->
+                  <!--</div>-->
+                  <ul>
+                    <% @created_user.errors.full_messages.each do |msg| %>
+                        <li><%= msg %></li>
+                    <% end %>
+                  </ul>
+                </div>
+            <% end %>
             <%= f.label :name, "Họ và tên (*)" %>
             <%= f.text_field :name %>
 

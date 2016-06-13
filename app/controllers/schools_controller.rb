@@ -7,7 +7,7 @@ class SchoolsController < ApplicationController
     rescue ActiveRecord::RecordNotFound => e
       render file: 'public/404.html'
     else
-      if @school.grade_id == 5 || @school.grade_id == 7
+      if @school.grade_id == 5
         @phongdaotao = @school
         @classes = @school.active_classes
         @type_lessons = Array.new
@@ -17,6 +17,19 @@ class SchoolsController < ApplicationController
           type_lesson.type = type
           quantity = Lesson.joins(user: :school).where(schools: {pdt_id: @school.id}, type_id: type.id).size
           lessons = Lesson.joins(user: :school).where(schools: {pdt_id: @school.id}, type_id: type.id).limit(10)
+          type_lesson.quantity = quantity
+          type_lesson.lessons = lessons
+          @type_lessons.push(type_lesson)
+        end
+      elsif @school.grade_id == 7
+        @classes = ActiveClass.all.order('id ASC')
+        @type_lessons = Array.new
+        @type = Type.all
+        @type.each do |type|
+          type_lesson = TypeLesson.new
+          type_lesson.type = type
+          quantity = Lesson.joins(:user).where(type_id: type.id).size
+          lessons = Lesson.joins(:user).where(type_id: type.id).limit(10)
           type_lesson.quantity = quantity
           type_lesson.lessons = lessons
           @type_lessons.push(type_lesson)

@@ -10,7 +10,10 @@ class LessonsController < ApplicationController
   def new
     if logged_in?
       @lesson = Lesson.new
-      @classes = current_user.school.active_classes.order(:id)
+      @school = current_user.school
+      if @school
+        @classes = @school.active_classes.order(:id)
+      end
       @types = Type.all
     end
   end
@@ -26,6 +29,16 @@ class LessonsController < ApplicationController
     if @lesson.save
       if eval(lesson_params[:type_id]) == 1
         id = @lesson.id
+        if !valid_zip?(@lesson.url.file.path)
+          flash[:danger] = "Bài giảng không hợp lệ"
+          @lesson.destroy
+          path_to_lesson = @lesson.url.path
+          File.delete(path_to_lesson) if File.exist?(path_to_lesson)
+          @school = current_user.school
+          @classes = @school.active_classes.order(:id)
+          render 'new'
+          return
+        end
         Zip::File.open(@lesson.url.file.path) do |zipfile|
           zipfile.each do |file|
             f_path=File.join("public/uploads/#{id}/" + file.name)
@@ -53,7 +66,8 @@ class LessonsController < ApplicationController
         flash[:success] = "Tải lên baì giảng thành công"
       end
     end
-    @classes = ActiveClass.all
+    @school = current_user.school
+    @classes = @school.active_classes.order(:id)
     render 'new'
   end
 
@@ -170,6 +184,15 @@ class LessonsController < ApplicationController
   private
   def lesson_params
     params.require(:lessons).permit(:name, :url, :subject_id, :class_id, :represent_image, :type_id, :isAssignment, :persons_in_charge)
+  end
+
+  def valid_zip?(file)
+    zip = Zip::File.open(file)
+    true
+  rescue Zip::Error
+    false
+  ensure
+    zip.close if zip
   end
 
 end

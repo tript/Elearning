@@ -51,7 +51,15 @@ class UsersController < ApplicationController
       flash[:success] = "Đã đăng ký thành công!"
       redirect_to edit_all_path
     else
-      render 'new'
+      @roles = current_user.roles
+      if params.has_key?(:school_id)
+        @school = School.find(params[:school_id])
+      else
+        @school = nil
+      end
+      params[:school_id] ? @users = User.all.where(school_id: @school.id) : @users = User.all.where(school_id: nil)
+      @created_user = @user
+      render 'edit_all'
     end
   end
 

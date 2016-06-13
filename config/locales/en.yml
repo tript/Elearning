@@ -27,6 +27,8 @@ en:
           name: "Họ và tên"
           username: "Tên đăng nhập"
           password: "Mật khẩu"
+          password_confirmation: "Gõ lại mật khẩu"
+          email: "Địa chỉ email"
         lesson:
           name: "Tiêu đề"
           url: "File dữ liệu"
@@ -41,6 +43,11 @@ en:
         models:
           user:
             attributes:
+              email:
+                blank: "không được để trống"
+                invalid: "không hợp lệ"
+                too_short: "quá ngắn"
+                too_long: "quá dài"
               name:
                 blank: "không được để trống"
               username:
@@ -49,6 +56,9 @@ en:
               password:
                 blank: "không được để trống"
                 too_short: "quá ngắn"
+                confirmation: "không giống"
+              password_confirmation:
+                confirmation: "không giống mật khẩu đã gõ"
           lesson:
             attributes:
               name:

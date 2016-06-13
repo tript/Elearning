@@ -14,9 +14,9 @@ class User < ActiveRecord::Base
   attr_accessor :remember_token
 
   validates :name, presence: true, length: {maximum: 50}
-  validates :username,  presence: true, length: { maximum: 20 }, uniqueness: true
+  validates :username,  presence: true, length: { maximum: 20 }, uniqueness: { case_sensitive: false }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: { message: "Địa chỉ email không được để trống" } , length: {maximum: 255, message: "Địa chỉ email không được dài quá 255 kí tự"},
+  validates :email, presence: true, length: {maximum: 255},
             format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
 
   has_secure_password

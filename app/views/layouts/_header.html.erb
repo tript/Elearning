@@ -7,8 +7,6 @@
           <span>
           <% if @school %>
             <%= link_to "#{@school.name}", school_view_path(@school.slug)%>
-          <% else %>
-            <%= link_to "Bài giảng E-learning", root_path%>
           <% end %>
           </span>
         </h2>
