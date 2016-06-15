@@ -63,6 +63,7 @@ class LessonsController < ApplicationController
         end
 
         #redirect to lesson_path
+        flash[:danger] = nil
         flash[:success] = "Tải lên baì giảng thành công"
       end
     end
@@ -98,7 +99,11 @@ class LessonsController < ApplicationController
   def show
     @lessons = Lesson.find(params[:id])
     id = @lessons.id
-    redirect_to("/uploads/#{id}/index.htm")
+    if id == 1
+      redirect_to("/uploads/#{id}/index.htm")
+    else
+      render nothing: true
+    end
   end
 
   def details

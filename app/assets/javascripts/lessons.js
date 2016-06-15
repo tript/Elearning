@@ -66,6 +66,17 @@ ready = function () {
             document.write(xhr);
         }
     });
+
+    $('.lesson-view-popup').bind('click', function(e) {
+
+        // Prevents the default action to be triggered.
+        e.preventDefault();
+
+        // Triggering bPopup when click event is fired
+        $('#element_to_pop_up').bPopup();
+
+    });
+
 }
 $(document).ready(ready);
 $(document).on('page:load', ready);

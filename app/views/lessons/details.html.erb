@@ -60,15 +60,39 @@
   <div class="col-md-9" id="content">
     <div class="row" data-no-turbolink>
       <div class="col-md-7">
-        <%= link_to image_tag(@lesson.represent_image.url(:thumb)), {controller: :lessons, action: 'show', id: @lesson.id} %>
         <% if @lesson.type_id == 1 %>
+            <%= link_to image_tag(@lesson.represent_image.url(:thumb)), {controller: :lessons, action: 'show', id: @lesson.id} %>
             <%= link_to "Xem", "/uploads/#{@lesson.id}/index.htm", class: 'btn btn-primary', target: "_blank" %>
+        <% else %>
+            <% file = @lesson.url.path %>
+            <% extension = File.extname(file).downcase %>
+            <%= link_to image_tag(@lesson.represent_image.url(:thumb)), "#", class: "lesson-view-popup" %>
+            <div id="element_to_pop_up">
+              <% if extension == ".swf" %>
+                  <embed width="800" height="600" src="<%= @lesson.url.url %>"
+                         type="application/x-shockwave-flash"
+                         allowScriptAccess="always"/>
+              <% elsif extension == ".jpg" || extension == ".jpeg" || extension == ".png" || extension == ".gif" %>
+                  <%= image_tag @lesson.url.url, alt: @lesson.name %>
+              <% elsif extension == ".mp4" || extension == ".flv" %>
+                  <video width="800" height="600" preload="auto" controls>
+                    <source src="<%= @lesson.url.url %>" type="video/mp4">
+                    <source src="movie.ogg" type="video/ogg">
+                    Your browser does not support the video tag.
+                  </video>
+              <% elsif extension == ".mp3" || extension == ".wma" %>
+                  <audio controls>
+                    <source src=<%= @lesson.url.url %> type="audio/mpeg">
+                    Your browser does not support the audio element.
+                  </audio>
+            <% end %>
+            </div>
         <% end %>
         <% if logged_in? %>
             <%= link_to "Download", download_lesson_path(id: @lesson.id), class: 'btn btn-primary' %>
         <% end %>
         <% if (is_manager?(current_user) && current_user.school_id == @lesson.user.school_id) || is_admin?(current_user) %>
-            <%= link_to "Xoá", @lesson,class: 'btn btn-primary', method: :delete,
+            <%= link_to "Xoá", @lesson, class: 'btn btn-primary', method: :delete,
                         data: {confirm: "Bạn có chắc muốn xóa bài giảng này không?"} %>
         <% end %>
       </div>
