@@ -75,13 +75,13 @@
               <% elsif extension == ".jpg" || extension == ".jpeg" || extension == ".png" || extension == ".gif" %>
                   <%= image_tag @lesson.url.url, alt: @lesson.name %>
               <% elsif extension == ".mp4" || extension == ".flv" %>
-                  <video width="800" height="600" preload="auto" controls>
+                  <video id="video-lesson" width="800" height="600" preload="auto" controls>
                     <source src="<%= @lesson.url.url %>" type="video/mp4">
                     <source src="movie.ogg" type="video/ogg">
                     Your browser does not support the video tag.
                   </video>
               <% elsif extension == ".mp3" || extension == ".wma" %>
-                  <audio controls>
+                  <audio id="audio-lesson" style="width: 800px; height:200px" controls>
                     <source src=<%= @lesson.url.url %> type="audio/mpeg">
                     Your browser does not support the audio element.
                   </audio>
