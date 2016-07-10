@@ -61,12 +61,13 @@
     <div class="row" data-no-turbolink>
       <div class="col-md-7">
         <% if @lesson.type_id == 1 %>
-            <%= link_to image_tag(@lesson.represent_image.url(:thumb)), {controller: :lessons, action: 'show', id: @lesson.id} %>
+            <%= link_to image_tag(@lesson.represent_image.url(:thumb)), "/uploads/#{@lesson.id}/index.htm", target: "_blank" %>
             <%= link_to "Xem", "/uploads/#{@lesson.id}/index.htm", class: 'btn btn-primary', target: "_blank" %>
         <% else %>
             <% file = @lesson.url.path %>
             <% extension = File.extname(file).downcase %>
             <%= link_to image_tag(@lesson.represent_image.url(:thumb)), "#", class: "lesson-view-popup" %>
+            <div class="btn btn-primary lesson-view-popup">Xem</div>
             <div id="element_to_pop_up">
               <% if extension == ".swf" %>
                   <embed width="800" height="600" src="<%= @lesson.url.url %>"
@@ -85,7 +86,15 @@
                     <source src=<%= @lesson.url.url %> type="audio/mpeg">
                     Your browser does not support the audio element.
                   </audio>
-            <% end %>
+              <% elsif extension == ".doc" || extension == ".docx" || extension == ".ppt" || extension == ".pptx" || extension == ".xls" || extension == ".xlsx" %>
+                  <div id="doc-container">
+                    <div class="loader"></div>
+                    <div id="doc-frame">
+                      <iframe src="http://docs.google.com/gview?url=<%= request.base_url + @lesson.url.url %>&embedded=true" style="width:800px; height:600px;" frameborder="0"></iframe>
+                      <!-- <iframe id="iframe-obj" src="http://docs.google.com/gview?url=http://apelearning.vn/uploads/lesson/url/13/Tiet_29_Uoc_chung_va_boi_chung531.ppt&embedded=true" style="width:800px; height:600px;" frameborder="0"></iframe> -->
+                    </div>
+                  </div>
+              <% end %>
             </div>
         <% end %>
         <% if logged_in? %>
